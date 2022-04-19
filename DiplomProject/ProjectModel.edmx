@@ -1,0 +1,1900 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище even6ixDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AvailableDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Store" Type="int" Nullable="false" />
+          <Property Name="Detail" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="Cost" Type="money" Nullable="false" />
+          <Property Name="CarModel" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BodyTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BodyType" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarModels">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CarStamp" Type="int" Nullable="false" />
+          <Property Name="TechInfo" Type="int" Nullable="false" />
+          <Property Name="Colour" Type="int" Nullable="false" />
+          <Property Name="ReleaseYear" Type="int" Nullable="false" />
+          <Property Name="ManufCountry" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarStamps">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CarStamp" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClientCars">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CarModel" Type="int" Nullable="false" />
+          <Property Name="VinNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GosNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Owner" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Colours">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Colour" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Deliviries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Detail" Type="int" Nullable="false" />
+          <Property Name="Provider" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Cost" Type="float" Nullable="false" />
+          <Property Name="CarModel" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Details">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EngineLocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EngLocation" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Engines">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Volume" Type="int" Nullable="false" />
+          <Property Name="FuelType" Type="int" Nullable="false" />
+          <Property Name="Cylinders" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EngineTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EngineVolume">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Volume" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FuelTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FuelType" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GearboxTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GearboxType" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Genders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LogData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Worker" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ManufacturerCountry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Posts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Post" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Salary" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostServices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Post" Type="int" Nullable="false" />
+          <Property Name="Service" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Provider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cost" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServiceDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Service" Type="int" Nullable="false" />
+          <Property Name="Detail" Type="int" />
+          <Property Name="Count" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TechnicalInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BodyType" Type="int" Nullable="false" />
+          <Property Name="PlaceCount" Type="int" Nullable="false" />
+          <Property Name="DoorCount" Type="int" Nullable="false" />
+          <Property Name="EngineLocation" Type="int" Nullable="false" />
+          <Property Name="GearboxType" Type="int" Nullable="false" />
+          <Property Name="Engine" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Workers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Birthdate" Type="date" Nullable="false" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+          <Property Name="Post" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Works">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Car" Type="int" Nullable="false" />
+          <Property Name="Service" Type="int" Nullable="false" />
+          <Property Name="Worker" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="StartTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="ExDate" Type="date" Nullable="false" />
+          <Property Name="ExTime" Type="time" Precision="7" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AvailableDetails_CarModels">
+          <End Role="CarModels" Type="Self.CarModels" Multiplicity="1" />
+          <End Role="AvailableDetails" Type="Self.AvailableDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarModels">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AvailableDetails">
+              <PropertyRef Name="CarModel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AvailableDetails_Details">
+          <End Role="Details" Type="Self.Details" Multiplicity="1" />
+          <End Role="AvailableDetails" Type="Self.AvailableDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Details">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AvailableDetails">
+              <PropertyRef Name="Detail" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AvailableDetails_Store">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="AvailableDetails" Type="Self.AvailableDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AvailableDetails">
+              <PropertyRef Name="Store" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarModels_CarStamps">
+          <End Role="CarStamps" Type="Self.CarStamps" Multiplicity="1" />
+          <End Role="CarModels" Type="Self.CarModels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarStamps">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarModels">
+              <PropertyRef Name="CarStamp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarModels_Colours">
+          <End Role="Colours" Type="Self.Colours" Multiplicity="1" />
+          <End Role="CarModels" Type="Self.CarModels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Colours">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarModels">
+              <PropertyRef Name="Colour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarModels_ManufacturerCountry">
+          <End Role="ManufacturerCountry" Type="Self.ManufacturerCountry" Multiplicity="1" />
+          <End Role="CarModels" Type="Self.CarModels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ManufacturerCountry">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarModels">
+              <PropertyRef Name="ManufCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarModels_TechnicalInformation">
+          <End Role="TechnicalInformation" Type="Self.TechnicalInformation" Multiplicity="1" />
+          <End Role="CarModels" Type="Self.CarModels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TechnicalInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarModels">
+              <PropertyRef Name="TechInfo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientCars_CarModels">
+          <End Role="CarModels" Type="Self.CarModels" Multiplicity="1" />
+          <End Role="ClientCars" Type="Self.ClientCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarModels">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientCars">
+              <PropertyRef Name="CarModel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientCars_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="ClientCars" Type="Self.ClientCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientCars">
+              <PropertyRef Name="Owner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clients_Genders">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="Gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deliviries_CarModels">
+          <End Role="CarModels" Type="Self.CarModels" Multiplicity="1" />
+          <End Role="Deliviries" Type="Self.Deliviries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarModels">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deliviries">
+              <PropertyRef Name="CarModel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deliviries_Details">
+          <End Role="Details" Type="Self.Details" Multiplicity="1" />
+          <End Role="Deliviries" Type="Self.Deliviries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Details">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deliviries">
+              <PropertyRef Name="Detail" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deliviries_Provider">
+          <End Role="Provider" Type="Self.Provider" Multiplicity="1" />
+          <End Role="Deliviries" Type="Self.Deliviries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deliviries">
+              <PropertyRef Name="Provider" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engines_EngineTypes">
+          <End Role="EngineTypes" Type="Self.EngineTypes" Multiplicity="1" />
+          <End Role="Engines" Type="Self.Engines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EngineTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engines">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engines_EngineVolume">
+          <End Role="EngineVolume" Type="Self.EngineVolume" Multiplicity="1" />
+          <End Role="Engines" Type="Self.Engines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EngineVolume">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engines">
+              <PropertyRef Name="Volume" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engines_FuelTypes">
+          <End Role="FuelTypes" Type="Self.FuelTypes" Multiplicity="1" />
+          <End Role="Engines" Type="Self.Engines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FuelTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engines">
+              <PropertyRef Name="FuelType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LogData_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
+          <End Role="LogData" Type="Self.LogData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LogData">
+              <PropertyRef Name="Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostServices_Posts">
+          <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
+          <End Role="PostServices" Type="Self.PostServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PostServices">
+              <PropertyRef Name="Post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostServices_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="PostServices" Type="Self.PostServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PostServices">
+              <PropertyRef Name="Service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceDetails_Details">
+          <End Role="Details" Type="Self.Details" Multiplicity="0..1" />
+          <End Role="ServiceDetails" Type="Self.ServiceDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Details">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ServiceDetails">
+              <PropertyRef Name="Detail" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceDetails_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="ServiceDetails" Type="Self.ServiceDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ServiceDetails">
+              <PropertyRef Name="Service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechnicalInformation_BodyTypes">
+          <End Role="BodyTypes" Type="Self.BodyTypes" Multiplicity="1" />
+          <End Role="TechnicalInformation" Type="Self.TechnicalInformation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BodyTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TechnicalInformation">
+              <PropertyRef Name="BodyType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechnicalInformation_EngineLocation">
+          <End Role="EngineLocation" Type="Self.EngineLocation" Multiplicity="1" />
+          <End Role="TechnicalInformation" Type="Self.TechnicalInformation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EngineLocation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TechnicalInformation">
+              <PropertyRef Name="EngineLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechnicalInformation_Engines">
+          <End Role="Engines" Type="Self.Engines" Multiplicity="1" />
+          <End Role="TechnicalInformation" Type="Self.TechnicalInformation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Engines">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TechnicalInformation">
+              <PropertyRef Name="Engine" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechnicalInformation_GearboxTypes">
+          <End Role="GearboxTypes" Type="Self.GearboxTypes" Multiplicity="1" />
+          <End Role="TechnicalInformation" Type="Self.TechnicalInformation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GearboxTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TechnicalInformation">
+              <PropertyRef Name="GearboxType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Workers_Genders">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Workers">
+              <PropertyRef Name="Gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Workers_Posts">
+          <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Workers">
+              <PropertyRef Name="Post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_ClientCars">
+          <End Role="ClientCars" Type="Self.ClientCars" Multiplicity="1" />
+          <End Role="Works" Type="Self.Works" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientCars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="Car" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="Works" Type="Self.Works" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="Service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
+          <End Role="Works" Type="Self.Works" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище even6ixDBModelContainer">
+          <EntitySet Name="AvailableDetails" EntityType="Self.AvailableDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BodyTypes" EntityType="Self.BodyTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarModels" EntityType="Self.CarModels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarStamps" EntityType="Self.CarStamps" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientCars" EntityType="Self.ClientCars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Colours" EntityType="Self.Colours" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Deliviries" EntityType="Self.Deliviries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Details" EntityType="Self.Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EngineLocation" EntityType="Self.EngineLocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Engines" EntityType="Self.Engines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EngineTypes" EntityType="Self.EngineTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EngineVolume" EntityType="Self.EngineVolume" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FuelTypes" EntityType="Self.FuelTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GearboxTypes" EntityType="Self.GearboxTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genders" EntityType="Self.Genders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LogData" EntityType="Self.LogData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ManufacturerCountry" EntityType="Self.ManufacturerCountry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostServices" EntityType="Self.PostServices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Provider" EntityType="Self.Provider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceDetails" EntityType="Self.ServiceDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Store" EntityType="Self.Store" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TechnicalInformation" EntityType="Self.TechnicalInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Works" EntityType="Self.Works" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AvailableDetails_CarModels" Association="Self.FK_AvailableDetails_CarModels">
+            <End Role="CarModels" EntitySet="CarModels" />
+            <End Role="AvailableDetails" EntitySet="AvailableDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AvailableDetails_Details" Association="Self.FK_AvailableDetails_Details">
+            <End Role="Details" EntitySet="Details" />
+            <End Role="AvailableDetails" EntitySet="AvailableDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AvailableDetails_Store" Association="Self.FK_AvailableDetails_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="AvailableDetails" EntitySet="AvailableDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarModels_CarStamps" Association="Self.FK_CarModels_CarStamps">
+            <End Role="CarStamps" EntitySet="CarStamps" />
+            <End Role="CarModels" EntitySet="CarModels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarModels_Colours" Association="Self.FK_CarModels_Colours">
+            <End Role="Colours" EntitySet="Colours" />
+            <End Role="CarModels" EntitySet="CarModels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarModels_ManufacturerCountry" Association="Self.FK_CarModels_ManufacturerCountry">
+            <End Role="ManufacturerCountry" EntitySet="ManufacturerCountry" />
+            <End Role="CarModels" EntitySet="CarModels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarModels_TechnicalInformation" Association="Self.FK_CarModels_TechnicalInformation">
+            <End Role="TechnicalInformation" EntitySet="TechnicalInformation" />
+            <End Role="CarModels" EntitySet="CarModels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientCars_CarModels" Association="Self.FK_ClientCars_CarModels">
+            <End Role="CarModels" EntitySet="CarModels" />
+            <End Role="ClientCars" EntitySet="ClientCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientCars_Clients" Association="Self.FK_ClientCars_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="ClientCars" EntitySet="ClientCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clients_Genders" Association="Self.FK_Clients_Genders">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deliviries_CarModels" Association="Self.FK_Deliviries_CarModels">
+            <End Role="CarModels" EntitySet="CarModels" />
+            <End Role="Deliviries" EntitySet="Deliviries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deliviries_Details" Association="Self.FK_Deliviries_Details">
+            <End Role="Details" EntitySet="Details" />
+            <End Role="Deliviries" EntitySet="Deliviries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deliviries_Provider" Association="Self.FK_Deliviries_Provider">
+            <End Role="Provider" EntitySet="Provider" />
+            <End Role="Deliviries" EntitySet="Deliviries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engines_EngineTypes" Association="Self.FK_Engines_EngineTypes">
+            <End Role="EngineTypes" EntitySet="EngineTypes" />
+            <End Role="Engines" EntitySet="Engines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engines_EngineVolume" Association="Self.FK_Engines_EngineVolume">
+            <End Role="EngineVolume" EntitySet="EngineVolume" />
+            <End Role="Engines" EntitySet="Engines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engines_FuelTypes" Association="Self.FK_Engines_FuelTypes">
+            <End Role="FuelTypes" EntitySet="FuelTypes" />
+            <End Role="Engines" EntitySet="Engines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LogData_Workers" Association="Self.FK_LogData_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="LogData" EntitySet="LogData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostServices_Posts" Association="Self.FK_PostServices_Posts">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="PostServices" EntitySet="PostServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostServices_Service" Association="Self.FK_PostServices_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="PostServices" EntitySet="PostServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceDetails_Details" Association="Self.FK_ServiceDetails_Details">
+            <End Role="Details" EntitySet="Details" />
+            <End Role="ServiceDetails" EntitySet="ServiceDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceDetails_Service" Association="Self.FK_ServiceDetails_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="ServiceDetails" EntitySet="ServiceDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechnicalInformation_BodyTypes" Association="Self.FK_TechnicalInformation_BodyTypes">
+            <End Role="BodyTypes" EntitySet="BodyTypes" />
+            <End Role="TechnicalInformation" EntitySet="TechnicalInformation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechnicalInformation_EngineLocation" Association="Self.FK_TechnicalInformation_EngineLocation">
+            <End Role="EngineLocation" EntitySet="EngineLocation" />
+            <End Role="TechnicalInformation" EntitySet="TechnicalInformation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechnicalInformation_Engines" Association="Self.FK_TechnicalInformation_Engines">
+            <End Role="Engines" EntitySet="Engines" />
+            <End Role="TechnicalInformation" EntitySet="TechnicalInformation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechnicalInformation_GearboxTypes" Association="Self.FK_TechnicalInformation_GearboxTypes">
+            <End Role="GearboxTypes" EntitySet="GearboxTypes" />
+            <End Role="TechnicalInformation" EntitySet="TechnicalInformation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Workers_Genders" Association="Self.FK_Workers_Genders">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Workers_Posts" Association="Self.FK_Workers_Posts">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_ClientCars" Association="Self.FK_Works_ClientCars">
+            <End Role="ClientCars" EntitySet="ClientCars" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_Service" Association="Self.FK_Works_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_Workers" Association="Self.FK_Works_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="even6ixDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AvailableDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Store" Type="Int32" Nullable="false" />
+          <Property Name="Detail" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="CarModel" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CarModels" Relationship="Self.FK_AvailableDetails_CarModels" FromRole="AvailableDetails" ToRole="CarModels" />
+          <NavigationProperty Name="Details" Relationship="Self.FK_AvailableDetails_Details" FromRole="AvailableDetails" ToRole="Details" />
+          <NavigationProperty Name="Store1" Relationship="Self.FK_AvailableDetails_Store" FromRole="AvailableDetails" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="BodyTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BodyType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TechnicalInformation" Relationship="Self.FK_TechnicalInformation_BodyTypes" FromRole="BodyTypes" ToRole="TechnicalInformation" />
+        </EntityType>
+        <EntityType Name="CarModels">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CarStamp" Type="Int32" Nullable="false" />
+          <Property Name="TechInfo" Type="Int32" Nullable="false" />
+          <Property Name="Colour" Type="Int32" Nullable="false" />
+          <Property Name="ReleaseYear" Type="Int32" Nullable="false" />
+          <Property Name="ManufCountry" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AvailableDetails" Relationship="Self.FK_AvailableDetails_CarModels" FromRole="CarModels" ToRole="AvailableDetails" />
+          <NavigationProperty Name="CarStamps" Relationship="Self.FK_CarModels_CarStamps" FromRole="CarModels" ToRole="CarStamps" />
+          <NavigationProperty Name="Colours" Relationship="Self.FK_CarModels_Colours" FromRole="CarModels" ToRole="Colours" />
+          <NavigationProperty Name="ManufacturerCountry" Relationship="Self.FK_CarModels_ManufacturerCountry" FromRole="CarModels" ToRole="ManufacturerCountry" />
+          <NavigationProperty Name="TechnicalInformation" Relationship="Self.FK_CarModels_TechnicalInformation" FromRole="CarModels" ToRole="TechnicalInformation" />
+          <NavigationProperty Name="ClientCars" Relationship="Self.FK_ClientCars_CarModels" FromRole="CarModels" ToRole="ClientCars" />
+          <NavigationProperty Name="Deliviries" Relationship="Self.FK_Deliviries_CarModels" FromRole="CarModels" ToRole="Deliviries" />
+        </EntityType>
+        <EntityType Name="CarStamps">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CarStamp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CarModels" Relationship="Self.FK_CarModels_CarStamps" FromRole="CarStamps" ToRole="CarModels" />
+        </EntityType>
+        <EntityType Name="ClientCars">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CarModel" Type="Int32" Nullable="false" />
+          <Property Name="VinNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GosNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Owner" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CarModels" Relationship="Self.FK_ClientCars_CarModels" FromRole="ClientCars" ToRole="CarModels" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_ClientCars_Clients" FromRole="ClientCars" ToRole="Clients" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_Works_ClientCars" FromRole="ClientCars" ToRole="Works" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ClientCars" Relationship="Self.FK_ClientCars_Clients" FromRole="Clients" ToRole="ClientCars" />
+          <NavigationProperty Name="Genders" Relationship="Self.FK_Clients_Genders" FromRole="Clients" ToRole="Genders" />
+        </EntityType>
+        <EntityType Name="Colours">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Colour" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CarModels" Relationship="Self.FK_CarModels_Colours" FromRole="Colours" ToRole="CarModels" />
+        </EntityType>
+        <EntityType Name="Deliviries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Detail" Type="Int32" Nullable="false" />
+          <Property Name="Provider" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Cost" Type="Double" Nullable="false" />
+          <Property Name="CarModel" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CarModels" Relationship="Self.FK_Deliviries_CarModels" FromRole="Deliviries" ToRole="CarModels" />
+          <NavigationProperty Name="Details" Relationship="Self.FK_Deliviries_Details" FromRole="Deliviries" ToRole="Details" />
+          <NavigationProperty Name="Provider1" Relationship="Self.FK_Deliviries_Provider" FromRole="Deliviries" ToRole="Provider" />
+        </EntityType>
+        <EntityType Name="Details">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AvailableDetails" Relationship="Self.FK_AvailableDetails_Details" FromRole="Details" ToRole="AvailableDetails" />
+          <NavigationProperty Name="Deliviries" Relationship="Self.FK_Deliviries_Details" FromRole="Details" ToRole="Deliviries" />
+          <NavigationProperty Name="ServiceDetails" Relationship="Self.FK_ServiceDetails_Details" FromRole="Details" ToRole="ServiceDetails" />
+        </EntityType>
+        <EntityType Name="EngineLocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EngLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TechnicalInformation" Relationship="Self.FK_TechnicalInformation_EngineLocation" FromRole="EngineLocation" ToRole="TechnicalInformation" />
+        </EntityType>
+        <EntityType Name="Engines">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Volume" Type="Int32" Nullable="false" />
+          <Property Name="FuelType" Type="Int32" Nullable="false" />
+          <Property Name="Cylinders" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EngineTypes" Relationship="Self.FK_Engines_EngineTypes" FromRole="Engines" ToRole="EngineTypes" />
+          <NavigationProperty Name="EngineVolume" Relationship="Self.FK_Engines_EngineVolume" FromRole="Engines" ToRole="EngineVolume" />
+          <NavigationProperty Name="FuelTypes" Relationship="Self.FK_Engines_FuelTypes" FromRole="Engines" ToRole="FuelTypes" />
+          <NavigationProperty Name="TechnicalInformation" Relationship="Self.FK_TechnicalInformation_Engines" FromRole="Engines" ToRole="TechnicalInformation" />
+        </EntityType>
+        <EntityType Name="EngineTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Engines" Relationship="Self.FK_Engines_EngineTypes" FromRole="EngineTypes" ToRole="Engines" />
+        </EntityType>
+        <EntityType Name="EngineVolume">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Volume" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Engines" Relationship="Self.FK_Engines_EngineVolume" FromRole="EngineVolume" ToRole="Engines" />
+        </EntityType>
+        <EntityType Name="FuelTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FuelType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Engines" Relationship="Self.FK_Engines_FuelTypes" FromRole="FuelTypes" ToRole="Engines" />
+        </EntityType>
+        <EntityType Name="GearboxTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GearboxType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TechnicalInformation" Relationship="Self.FK_TechnicalInformation_GearboxTypes" FromRole="GearboxTypes" ToRole="TechnicalInformation" />
+        </EntityType>
+        <EntityType Name="Genders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_Clients_Genders" FromRole="Genders" ToRole="Clients" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_Workers_Genders" FromRole="Genders" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="LogData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Worker" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_LogData_Workers" FromRole="LogData" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="ManufacturerCountry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CarModels" Relationship="Self.FK_CarModels_ManufacturerCountry" FromRole="ManufacturerCountry" ToRole="CarModels" />
+        </EntityType>
+        <EntityType Name="Posts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Post" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="PostServices" Relationship="Self.FK_PostServices_Posts" FromRole="Posts" ToRole="PostServices" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_Workers_Posts" FromRole="Posts" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="PostServices">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Post" Type="Int32" Nullable="false" />
+          <Property Name="Service" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Posts" Relationship="Self.FK_PostServices_Posts" FromRole="PostServices" ToRole="Posts" />
+          <NavigationProperty Name="Service1" Relationship="Self.FK_PostServices_Service" FromRole="PostServices" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="Provider">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Deliviries" Relationship="Self.FK_Deliviries_Provider" FromRole="Provider" ToRole="Deliviries" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="PostServices" Relationship="Self.FK_PostServices_Service" FromRole="Service" ToRole="PostServices" />
+          <NavigationProperty Name="ServiceDetails" Relationship="Self.FK_ServiceDetails_Service" FromRole="Service" ToRole="ServiceDetails" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_Works_Service" FromRole="Service" ToRole="Works" />
+        </EntityType>
+        <EntityType Name="ServiceDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Service" Type="Int32" Nullable="false" />
+          <Property Name="Detail" Type="Int32" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Details" Relationship="Self.FK_ServiceDetails_Details" FromRole="ServiceDetails" ToRole="Details" />
+          <NavigationProperty Name="Service1" Relationship="Self.FK_ServiceDetails_Service" FromRole="ServiceDetails" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AvailableDetails" Relationship="Self.FK_AvailableDetails_Store" FromRole="Store" ToRole="AvailableDetails" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TechnicalInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BodyType" Type="Int32" Nullable="false" />
+          <Property Name="PlaceCount" Type="Int32" Nullable="false" />
+          <Property Name="DoorCount" Type="Int32" Nullable="false" />
+          <Property Name="EngineLocation" Type="Int32" Nullable="false" />
+          <Property Name="GearboxType" Type="Int32" Nullable="false" />
+          <Property Name="Engine" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BodyTypes" Relationship="Self.FK_TechnicalInformation_BodyTypes" FromRole="TechnicalInformation" ToRole="BodyTypes" />
+          <NavigationProperty Name="CarModels" Relationship="Self.FK_CarModels_TechnicalInformation" FromRole="TechnicalInformation" ToRole="CarModels" />
+          <NavigationProperty Name="EngineLocation1" Relationship="Self.FK_TechnicalInformation_EngineLocation" FromRole="TechnicalInformation" ToRole="EngineLocation" />
+          <NavigationProperty Name="Engines" Relationship="Self.FK_TechnicalInformation_Engines" FromRole="TechnicalInformation" ToRole="Engines" />
+          <NavigationProperty Name="GearboxTypes" Relationship="Self.FK_TechnicalInformation_GearboxTypes" FromRole="TechnicalInformation" ToRole="GearboxTypes" />
+        </EntityType>
+        <EntityType Name="Workers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Birthdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="Post" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Genders" Relationship="Self.FK_Workers_Genders" FromRole="Workers" ToRole="Genders" />
+          <NavigationProperty Name="LogData" Relationship="Self.FK_LogData_Workers" FromRole="Workers" ToRole="LogData" />
+          <NavigationProperty Name="Posts" Relationship="Self.FK_Workers_Posts" FromRole="Workers" ToRole="Posts" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_Works_Workers" FromRole="Workers" ToRole="Works" />
+        </EntityType>
+        <EntityType Name="Works">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Car" Type="Int32" Nullable="false" />
+          <Property Name="Service" Type="Int32" Nullable="false" />
+          <Property Name="Worker" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="StartTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="ExDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ExTime" Type="Time" Nullable="false" Precision="7" />
+          <NavigationProperty Name="ClientCars" Relationship="Self.FK_Works_ClientCars" FromRole="Works" ToRole="ClientCars" />
+          <NavigationProperty Name="Service1" Relationship="Self.FK_Works_Service" FromRole="Works" ToRole="Service" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_Works_Workers" FromRole="Works" ToRole="Workers" />
+        </EntityType>
+        <Association Name="FK_AvailableDetails_CarModels">
+          <End Role="CarModels" Type="Self.CarModels" Multiplicity="1" />
+          <End Role="AvailableDetails" Type="Self.AvailableDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarModels">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AvailableDetails">
+              <PropertyRef Name="CarModel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AvailableDetails_Details">
+          <End Role="Details" Type="Self.Details" Multiplicity="1" />
+          <End Role="AvailableDetails" Type="Self.AvailableDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Details">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AvailableDetails">
+              <PropertyRef Name="Detail" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AvailableDetails_Store">
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="AvailableDetails" Type="Self.AvailableDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AvailableDetails">
+              <PropertyRef Name="Store" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechnicalInformation_BodyTypes">
+          <End Role="BodyTypes" Type="Self.BodyTypes" Multiplicity="1" />
+          <End Role="TechnicalInformation" Type="Self.TechnicalInformation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BodyTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TechnicalInformation">
+              <PropertyRef Name="BodyType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarModels_CarStamps">
+          <End Role="CarStamps" Type="Self.CarStamps" Multiplicity="1" />
+          <End Role="CarModels" Type="Self.CarModels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarStamps">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarModels">
+              <PropertyRef Name="CarStamp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarModels_Colours">
+          <End Role="Colours" Type="Self.Colours" Multiplicity="1" />
+          <End Role="CarModels" Type="Self.CarModels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Colours">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarModels">
+              <PropertyRef Name="Colour" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarModels_ManufacturerCountry">
+          <End Role="ManufacturerCountry" Type="Self.ManufacturerCountry" Multiplicity="1" />
+          <End Role="CarModels" Type="Self.CarModels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ManufacturerCountry">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarModels">
+              <PropertyRef Name="ManufCountry" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarModels_TechnicalInformation">
+          <End Role="TechnicalInformation" Type="Self.TechnicalInformation" Multiplicity="1" />
+          <End Role="CarModels" Type="Self.CarModels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TechnicalInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarModels">
+              <PropertyRef Name="TechInfo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientCars_CarModels">
+          <End Role="CarModels" Type="Self.CarModels" Multiplicity="1" />
+          <End Role="ClientCars" Type="Self.ClientCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarModels">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientCars">
+              <PropertyRef Name="CarModel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deliviries_CarModels">
+          <End Role="CarModels" Type="Self.CarModels" Multiplicity="1" />
+          <End Role="Deliviries" Type="Self.Deliviries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarModels">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deliviries">
+              <PropertyRef Name="CarModel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientCars_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="ClientCars" Type="Self.ClientCars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientCars">
+              <PropertyRef Name="Owner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_ClientCars">
+          <End Role="ClientCars" Type="Self.ClientCars" Multiplicity="1" />
+          <End Role="Works" Type="Self.Works" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientCars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="Car" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clients_Genders">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="Gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deliviries_Details">
+          <End Role="Details" Type="Self.Details" Multiplicity="1" />
+          <End Role="Deliviries" Type="Self.Deliviries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Details">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deliviries">
+              <PropertyRef Name="Detail" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deliviries_Provider">
+          <End Role="Provider" Type="Self.Provider" Multiplicity="1" />
+          <End Role="Deliviries" Type="Self.Deliviries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deliviries">
+              <PropertyRef Name="Provider" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceDetails_Details">
+          <End Role="Details" Type="Self.Details" Multiplicity="0..1" />
+          <End Role="ServiceDetails" Type="Self.ServiceDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Details">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ServiceDetails">
+              <PropertyRef Name="Detail" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechnicalInformation_EngineLocation">
+          <End Role="EngineLocation" Type="Self.EngineLocation" Multiplicity="1" />
+          <End Role="TechnicalInformation" Type="Self.TechnicalInformation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EngineLocation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TechnicalInformation">
+              <PropertyRef Name="EngineLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engines_EngineTypes">
+          <End Role="EngineTypes" Type="Self.EngineTypes" Multiplicity="1" />
+          <End Role="Engines" Type="Self.Engines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EngineTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engines">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engines_EngineVolume">
+          <End Role="EngineVolume" Type="Self.EngineVolume" Multiplicity="1" />
+          <End Role="Engines" Type="Self.Engines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EngineVolume">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engines">
+              <PropertyRef Name="Volume" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engines_FuelTypes">
+          <End Role="FuelTypes" Type="Self.FuelTypes" Multiplicity="1" />
+          <End Role="Engines" Type="Self.Engines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FuelTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engines">
+              <PropertyRef Name="FuelType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechnicalInformation_Engines">
+          <End Role="Engines" Type="Self.Engines" Multiplicity="1" />
+          <End Role="TechnicalInformation" Type="Self.TechnicalInformation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Engines">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TechnicalInformation">
+              <PropertyRef Name="Engine" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TechnicalInformation_GearboxTypes">
+          <End Role="GearboxTypes" Type="Self.GearboxTypes" Multiplicity="1" />
+          <End Role="TechnicalInformation" Type="Self.TechnicalInformation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GearboxTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TechnicalInformation">
+              <PropertyRef Name="GearboxType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Workers_Genders">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Workers">
+              <PropertyRef Name="Gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LogData_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
+          <End Role="LogData" Type="Self.LogData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LogData">
+              <PropertyRef Name="Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostServices_Posts">
+          <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
+          <End Role="PostServices" Type="Self.PostServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PostServices">
+              <PropertyRef Name="Post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Workers_Posts">
+          <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
+          <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Workers">
+              <PropertyRef Name="Post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostServices_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="PostServices" Type="Self.PostServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PostServices">
+              <PropertyRef Name="Service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceDetails_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="ServiceDetails" Type="Self.ServiceDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ServiceDetails">
+              <PropertyRef Name="Service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="Works" Type="Self.Works" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="Service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_Workers">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
+          <End Role="Works" Type="Self.Works" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="Worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AvailableDetails" EntityType="Self.AvailableDetails" />
+          <EntitySet Name="BodyTypes" EntityType="Self.BodyTypes" />
+          <EntitySet Name="CarModels" EntityType="Self.CarModels" />
+          <EntitySet Name="CarStamps" EntityType="Self.CarStamps" />
+          <EntitySet Name="ClientCars" EntityType="Self.ClientCars" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" />
+          <EntitySet Name="Colours" EntityType="Self.Colours" />
+          <EntitySet Name="Deliviries" EntityType="Self.Deliviries" />
+          <EntitySet Name="Details" EntityType="Self.Details" />
+          <EntitySet Name="EngineLocation" EntityType="Self.EngineLocation" />
+          <EntitySet Name="Engines" EntityType="Self.Engines" />
+          <EntitySet Name="EngineTypes" EntityType="Self.EngineTypes" />
+          <EntitySet Name="EngineVolume" EntityType="Self.EngineVolume" />
+          <EntitySet Name="FuelTypes" EntityType="Self.FuelTypes" />
+          <EntitySet Name="GearboxTypes" EntityType="Self.GearboxTypes" />
+          <EntitySet Name="Genders" EntityType="Self.Genders" />
+          <EntitySet Name="LogData" EntityType="Self.LogData" />
+          <EntitySet Name="ManufacturerCountry" EntityType="Self.ManufacturerCountry" />
+          <EntitySet Name="Posts" EntityType="Self.Posts" />
+          <EntitySet Name="PostServices" EntityType="Self.PostServices" />
+          <EntitySet Name="Provider" EntityType="Self.Provider" />
+          <EntitySet Name="Service" EntityType="Self.Service" />
+          <EntitySet Name="ServiceDetails" EntityType="Self.ServiceDetails" />
+          <EntitySet Name="Store" EntityType="Self.Store" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TechnicalInformation" EntityType="Self.TechnicalInformation" />
+          <EntitySet Name="Workers" EntityType="Self.Workers" />
+          <EntitySet Name="Works" EntityType="Self.Works" />
+          <AssociationSet Name="FK_AvailableDetails_CarModels" Association="Self.FK_AvailableDetails_CarModels">
+            <End Role="CarModels" EntitySet="CarModels" />
+            <End Role="AvailableDetails" EntitySet="AvailableDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AvailableDetails_Details" Association="Self.FK_AvailableDetails_Details">
+            <End Role="Details" EntitySet="Details" />
+            <End Role="AvailableDetails" EntitySet="AvailableDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AvailableDetails_Store" Association="Self.FK_AvailableDetails_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="AvailableDetails" EntitySet="AvailableDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechnicalInformation_BodyTypes" Association="Self.FK_TechnicalInformation_BodyTypes">
+            <End Role="BodyTypes" EntitySet="BodyTypes" />
+            <End Role="TechnicalInformation" EntitySet="TechnicalInformation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarModels_CarStamps" Association="Self.FK_CarModels_CarStamps">
+            <End Role="CarStamps" EntitySet="CarStamps" />
+            <End Role="CarModels" EntitySet="CarModels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarModels_Colours" Association="Self.FK_CarModels_Colours">
+            <End Role="Colours" EntitySet="Colours" />
+            <End Role="CarModels" EntitySet="CarModels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarModels_ManufacturerCountry" Association="Self.FK_CarModels_ManufacturerCountry">
+            <End Role="ManufacturerCountry" EntitySet="ManufacturerCountry" />
+            <End Role="CarModels" EntitySet="CarModels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarModels_TechnicalInformation" Association="Self.FK_CarModels_TechnicalInformation">
+            <End Role="TechnicalInformation" EntitySet="TechnicalInformation" />
+            <End Role="CarModels" EntitySet="CarModels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientCars_CarModels" Association="Self.FK_ClientCars_CarModels">
+            <End Role="CarModels" EntitySet="CarModels" />
+            <End Role="ClientCars" EntitySet="ClientCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deliviries_CarModels" Association="Self.FK_Deliviries_CarModels">
+            <End Role="CarModels" EntitySet="CarModels" />
+            <End Role="Deliviries" EntitySet="Deliviries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientCars_Clients" Association="Self.FK_ClientCars_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="ClientCars" EntitySet="ClientCars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_ClientCars" Association="Self.FK_Works_ClientCars">
+            <End Role="ClientCars" EntitySet="ClientCars" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clients_Genders" Association="Self.FK_Clients_Genders">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deliviries_Details" Association="Self.FK_Deliviries_Details">
+            <End Role="Details" EntitySet="Details" />
+            <End Role="Deliviries" EntitySet="Deliviries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deliviries_Provider" Association="Self.FK_Deliviries_Provider">
+            <End Role="Provider" EntitySet="Provider" />
+            <End Role="Deliviries" EntitySet="Deliviries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceDetails_Details" Association="Self.FK_ServiceDetails_Details">
+            <End Role="Details" EntitySet="Details" />
+            <End Role="ServiceDetails" EntitySet="ServiceDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechnicalInformation_EngineLocation" Association="Self.FK_TechnicalInformation_EngineLocation">
+            <End Role="EngineLocation" EntitySet="EngineLocation" />
+            <End Role="TechnicalInformation" EntitySet="TechnicalInformation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engines_EngineTypes" Association="Self.FK_Engines_EngineTypes">
+            <End Role="EngineTypes" EntitySet="EngineTypes" />
+            <End Role="Engines" EntitySet="Engines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engines_EngineVolume" Association="Self.FK_Engines_EngineVolume">
+            <End Role="EngineVolume" EntitySet="EngineVolume" />
+            <End Role="Engines" EntitySet="Engines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engines_FuelTypes" Association="Self.FK_Engines_FuelTypes">
+            <End Role="FuelTypes" EntitySet="FuelTypes" />
+            <End Role="Engines" EntitySet="Engines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechnicalInformation_Engines" Association="Self.FK_TechnicalInformation_Engines">
+            <End Role="Engines" EntitySet="Engines" />
+            <End Role="TechnicalInformation" EntitySet="TechnicalInformation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TechnicalInformation_GearboxTypes" Association="Self.FK_TechnicalInformation_GearboxTypes">
+            <End Role="GearboxTypes" EntitySet="GearboxTypes" />
+            <End Role="TechnicalInformation" EntitySet="TechnicalInformation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Workers_Genders" Association="Self.FK_Workers_Genders">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LogData_Workers" Association="Self.FK_LogData_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="LogData" EntitySet="LogData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostServices_Posts" Association="Self.FK_PostServices_Posts">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="PostServices" EntitySet="PostServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Workers_Posts" Association="Self.FK_Workers_Posts">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="Workers" EntitySet="Workers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostServices_Service" Association="Self.FK_PostServices_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="PostServices" EntitySet="PostServices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceDetails_Service" Association="Self.FK_ServiceDetails_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="ServiceDetails" EntitySet="ServiceDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_Service" Association="Self.FK_Works_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_Workers" Association="Self.FK_Works_Workers">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище even6ixDBModelContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="AvailableDetails">
+            <EntityTypeMapping TypeName="even6ixDBModel.AvailableDetails">
+              <MappingFragment StoreEntitySet="AvailableDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Store" ColumnName="Store" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="CarModel" ColumnName="CarModel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BodyTypes">
+            <EntityTypeMapping TypeName="even6ixDBModel.BodyTypes">
+              <MappingFragment StoreEntitySet="BodyTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BodyType" ColumnName="BodyType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarModels">
+            <EntityTypeMapping TypeName="even6ixDBModel.CarModels">
+              <MappingFragment StoreEntitySet="CarModels">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CarStamp" ColumnName="CarStamp" />
+                <ScalarProperty Name="TechInfo" ColumnName="TechInfo" />
+                <ScalarProperty Name="Colour" ColumnName="Colour" />
+                <ScalarProperty Name="ReleaseYear" ColumnName="ReleaseYear" />
+                <ScalarProperty Name="ManufCountry" ColumnName="ManufCountry" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarStamps">
+            <EntityTypeMapping TypeName="even6ixDBModel.CarStamps">
+              <MappingFragment StoreEntitySet="CarStamps">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CarStamp" ColumnName="CarStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientCars">
+            <EntityTypeMapping TypeName="even6ixDBModel.ClientCars">
+              <MappingFragment StoreEntitySet="ClientCars">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CarModel" ColumnName="CarModel" />
+                <ScalarProperty Name="VinNumber" ColumnName="VinNumber" />
+                <ScalarProperty Name="GosNumber" ColumnName="GosNumber" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="even6ixDBModel.Clients">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Colours">
+            <EntityTypeMapping TypeName="even6ixDBModel.Colours">
+              <MappingFragment StoreEntitySet="Colours">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Colour" ColumnName="Colour" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Deliviries">
+            <EntityTypeMapping TypeName="even6ixDBModel.Deliviries">
+              <MappingFragment StoreEntitySet="Deliviries">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="CarModel" ColumnName="CarModel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Details">
+            <EntityTypeMapping TypeName="even6ixDBModel.Details">
+              <MappingFragment StoreEntitySet="Details">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EngineLocation">
+            <EntityTypeMapping TypeName="even6ixDBModel.EngineLocation">
+              <MappingFragment StoreEntitySet="EngineLocation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EngLocation" ColumnName="EngLocation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Engines">
+            <EntityTypeMapping TypeName="even6ixDBModel.Engines">
+              <MappingFragment StoreEntitySet="Engines">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="FuelType" ColumnName="FuelType" />
+                <ScalarProperty Name="Cylinders" ColumnName="Cylinders" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EngineTypes">
+            <EntityTypeMapping TypeName="even6ixDBModel.EngineTypes">
+              <MappingFragment StoreEntitySet="EngineTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EngineVolume">
+            <EntityTypeMapping TypeName="even6ixDBModel.EngineVolume">
+              <MappingFragment StoreEntitySet="EngineVolume">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FuelTypes">
+            <EntityTypeMapping TypeName="even6ixDBModel.FuelTypes">
+              <MappingFragment StoreEntitySet="FuelTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FuelType" ColumnName="FuelType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GearboxTypes">
+            <EntityTypeMapping TypeName="even6ixDBModel.GearboxTypes">
+              <MappingFragment StoreEntitySet="GearboxTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GearboxType" ColumnName="GearboxType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="even6ixDBModel.Genders">
+              <MappingFragment StoreEntitySet="Genders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LogData">
+            <EntityTypeMapping TypeName="even6ixDBModel.LogData">
+              <MappingFragment StoreEntitySet="LogData">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Worker" ColumnName="Worker" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ManufacturerCountry">
+            <EntityTypeMapping TypeName="even6ixDBModel.ManufacturerCountry">
+              <MappingFragment StoreEntitySet="ManufacturerCountry">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="even6ixDBModel.Posts">
+              <MappingFragment StoreEntitySet="Posts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostServices">
+            <EntityTypeMapping TypeName="even6ixDBModel.PostServices">
+              <MappingFragment StoreEntitySet="PostServices">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provider">
+            <EntityTypeMapping TypeName="even6ixDBModel.Provider">
+              <MappingFragment StoreEntitySet="Provider">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Service">
+            <EntityTypeMapping TypeName="even6ixDBModel.Service">
+              <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceDetails">
+            <EntityTypeMapping TypeName="even6ixDBModel.ServiceDetails">
+              <MappingFragment StoreEntitySet="ServiceDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Store">
+            <EntityTypeMapping TypeName="even6ixDBModel.Store">
+              <MappingFragment StoreEntitySet="Store">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="even6ixDBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TechnicalInformation">
+            <EntityTypeMapping TypeName="even6ixDBModel.TechnicalInformation">
+              <MappingFragment StoreEntitySet="TechnicalInformation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BodyType" ColumnName="BodyType" />
+                <ScalarProperty Name="PlaceCount" ColumnName="PlaceCount" />
+                <ScalarProperty Name="DoorCount" ColumnName="DoorCount" />
+                <ScalarProperty Name="EngineLocation" ColumnName="EngineLocation" />
+                <ScalarProperty Name="GearboxType" ColumnName="GearboxType" />
+                <ScalarProperty Name="Engine" ColumnName="Engine" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workers">
+            <EntityTypeMapping TypeName="even6ixDBModel.Workers">
+              <MappingFragment StoreEntitySet="Workers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Works">
+            <EntityTypeMapping TypeName="even6ixDBModel.Works">
+              <MappingFragment StoreEntitySet="Works">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Car" ColumnName="Car" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="Worker" ColumnName="Worker" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="ExDate" ColumnName="ExDate" />
+                <ScalarProperty Name="ExTime" ColumnName="ExTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
