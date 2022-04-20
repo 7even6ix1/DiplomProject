@@ -34,7 +34,6 @@
             this.loginBox = new System.Windows.Forms.TextBox();
             this.passBox = new System.Windows.Forms.TextBox();
             this.closeBtn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.errorBox = new System.Windows.Forms.Label();
@@ -100,17 +99,6 @@
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
-            // button2
-            // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(339, -1);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(28, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "☐";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.bigWin_Click);
-            // 
             // minimizeBtn
             // 
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -157,7 +145,6 @@
             this.Controls.Add(this.errorBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.minimizeBtn);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.passBox);
             this.Controls.Add(this.loginBox);
@@ -179,7 +166,6 @@
         private System.Windows.Forms.TextBox loginBox;
         private System.Windows.Forms.TextBox passBox;
         private System.Windows.Forms.Button closeBtn;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button minimizeBtn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label errorBox;
