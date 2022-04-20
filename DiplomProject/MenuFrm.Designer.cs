@@ -29,9 +29,13 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.minimizeBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
+            this.detailsBtn = new System.Windows.Forms.Button();
+            this.clientsBtn = new System.Windows.Forms.Button();
+            this.workersBtn = new System.Windows.Forms.Button();
+            this.worksBtn = new System.Windows.Forms.Button();
+            this.deliveriesBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -39,54 +43,113 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label1.Location = new System.Drawing.Point(299, 37);
+            this.label1.Location = new System.Drawing.Point(275, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(171, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "Главное меню";
             // 
-            // button3
+            // minimizeBtn
             // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Location = new System.Drawing.Point(723, -1);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(28, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "▼";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(748, -1);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(28, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "☐";
-            this.button2.UseVisualStyleBackColor = true;
+            this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.minimizeBtn.Location = new System.Drawing.Point(720, -1);
+            this.minimizeBtn.Name = "minimizeBtn";
+            this.minimizeBtn.Size = new System.Drawing.Size(28, 23);
+            this.minimizeBtn.TabIndex = 10;
+            this.minimizeBtn.Text = "▼";
+            this.minimizeBtn.UseVisualStyleBackColor = true;
+            this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
             // 
             // closeBtn
             // 
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.closeBtn.Location = new System.Drawing.Point(773, -1);
+            this.closeBtn.Location = new System.Drawing.Point(745, -1);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(28, 23);
             this.closeBtn.TabIndex = 8;
             this.closeBtn.Text = "✖";
             this.closeBtn.UseVisualStyleBackColor = true;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            // 
+            // detailsBtn
+            // 
+            this.detailsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.detailsBtn.Font = new System.Drawing.Font("Palatino Linotype", 14F);
+            this.detailsBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.detailsBtn.Location = new System.Drawing.Point(12, 67);
+            this.detailsBtn.Name = "detailsBtn";
+            this.detailsBtn.Size = new System.Drawing.Size(136, 70);
+            this.detailsBtn.TabIndex = 11;
+            this.detailsBtn.Text = "Доступные запчасти";
+            this.detailsBtn.UseVisualStyleBackColor = true;
+            // 
+            // clientsBtn
+            // 
+            this.clientsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.clientsBtn.Font = new System.Drawing.Font("Palatino Linotype", 14F);
+            this.clientsBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.clientsBtn.Location = new System.Drawing.Point(154, 67);
+            this.clientsBtn.Name = "clientsBtn";
+            this.clientsBtn.Size = new System.Drawing.Size(143, 70);
+            this.clientsBtn.TabIndex = 12;
+            this.clientsBtn.Text = "Информация о клиентах";
+            this.clientsBtn.UseVisualStyleBackColor = true;
+            // 
+            // workersBtn
+            // 
+            this.workersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.workersBtn.Font = new System.Drawing.Font("Palatino Linotype", 14F);
+            this.workersBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.workersBtn.Location = new System.Drawing.Point(303, 67);
+            this.workersBtn.Name = "workersBtn";
+            this.workersBtn.Size = new System.Drawing.Size(143, 70);
+            this.workersBtn.TabIndex = 13;
+            this.workersBtn.Text = "Информация о работниках";
+            this.workersBtn.UseVisualStyleBackColor = true;
+            this.workersBtn.Click += new System.EventHandler(this.workersBtn_Click);
+            // 
+            // worksBtn
+            // 
+            this.worksBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.worksBtn.Font = new System.Drawing.Font("Palatino Linotype", 14F);
+            this.worksBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.worksBtn.Location = new System.Drawing.Point(452, 67);
+            this.worksBtn.Name = "worksBtn";
+            this.worksBtn.Size = new System.Drawing.Size(143, 70);
+            this.worksBtn.TabIndex = 14;
+            this.worksBtn.Text = "Проведенные работы";
+            this.worksBtn.UseVisualStyleBackColor = true;
+            // 
+            // deliveriesBtn
+            // 
+            this.deliveriesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.deliveriesBtn.Font = new System.Drawing.Font("Palatino Linotype", 14F);
+            this.deliveriesBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.deliveriesBtn.Location = new System.Drawing.Point(601, 67);
+            this.deliveriesBtn.Name = "deliveriesBtn";
+            this.deliveriesBtn.Size = new System.Drawing.Size(141, 70);
+            this.deliveriesBtn.TabIndex = 15;
+            this.deliveriesBtn.Text = "Информация о доставках";
+            this.deliveriesBtn.UseVisualStyleBackColor = true;
             // 
             // MenuFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(771, 162);
+            this.Controls.Add(this.deliveriesBtn);
+            this.Controls.Add(this.worksBtn);
+            this.Controls.Add(this.workersBtn);
+            this.Controls.Add(this.clientsBtn);
+            this.Controls.Add(this.detailsBtn);
+            this.Controls.Add(this.minimizeBtn);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MenuFrm";
             this.Text = "MenuFrm";
+            this.Load += new System.EventHandler(this.MenuFrm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,8 +158,12 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button minimizeBtn;
         private System.Windows.Forms.Button closeBtn;
+        private System.Windows.Forms.Button detailsBtn;
+        private System.Windows.Forms.Button clientsBtn;
+        private System.Windows.Forms.Button workersBtn;
+        private System.Windows.Forms.Button worksBtn;
+        private System.Windows.Forms.Button deliveriesBtn;
     }
 }

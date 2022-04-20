@@ -13,6 +13,7 @@ namespace DiplomProject
 {
     public partial class AuthorisationFrm : Form
     {
+        private string login;
         public AuthorisationFrm()
         {
             InitializeComponent();
@@ -36,7 +37,8 @@ namespace DiplomProject
             sda.Fill(dt);
             if(dt.Rows[0][0].ToString()=="1")
             {
-                MenuFrm menuFrm = new MenuFrm();
+                login = loginBox.Text;
+                MenuFrm menuFrm = new MenuFrm(login);
                 this.Hide();
                 menuFrm.Show();
             }
@@ -49,6 +51,23 @@ namespace DiplomProject
         private void minimizeBtn_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void AuthorisationFrm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void seePassBtn_Click(object sender, EventArgs e)
+        {
+            if(passBox.UseSystemPasswordChar == true)
+            {
+                passBox.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                passBox.UseSystemPasswordChar = true;
+            }
         }
     }
 }

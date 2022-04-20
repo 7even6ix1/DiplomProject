@@ -35,8 +35,9 @@
             this.passBox = new System.Windows.Forms.TextBox();
             this.closeBtn = new System.Windows.Forms.Button();
             this.minimizeBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.enterBtn = new System.Windows.Forms.Button();
             this.errorBox = new System.Windows.Forms.Label();
+            this.seePassBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -44,7 +45,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label1.Location = new System.Drawing.Point(113, 48);
+            this.label1.Location = new System.Drawing.Point(113, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(166, 32);
             this.label1.TabIndex = 0;
@@ -102,7 +103,7 @@
             // minimizeBtn
             // 
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.minimizeBtn.Location = new System.Drawing.Point(314, -1);
+            this.minimizeBtn.Location = new System.Drawing.Point(339, -1);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(28, 23);
             this.minimizeBtn.TabIndex = 7;
@@ -110,18 +111,18 @@
             this.minimizeBtn.UseVisualStyleBackColor = true;
             this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
             // 
-            // button1
+            // enterBtn
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.button1.Location = new System.Drawing.Point(96, 246);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(183, 47);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Войти в систему";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.enterBtn_Click);
+            this.enterBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.enterBtn.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.enterBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.enterBtn.Location = new System.Drawing.Point(96, 246);
+            this.enterBtn.Name = "enterBtn";
+            this.enterBtn.Size = new System.Drawing.Size(183, 47);
+            this.enterBtn.TabIndex = 8;
+            this.enterBtn.Text = "Войти в систему";
+            this.enterBtn.UseVisualStyleBackColor = true;
+            this.enterBtn.Click += new System.EventHandler(this.enterBtn_Click);
             // 
             // errorBox
             // 
@@ -135,6 +136,19 @@
             this.errorBox.Text = "Ошибка, проверьте правильность введённых данных";
             this.errorBox.Visible = false;
             // 
+            // seePassBtn
+            // 
+            this.seePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.seePassBtn.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.seePassBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.seePassBtn.Location = new System.Drawing.Point(348, 187);
+            this.seePassBtn.Name = "seePassBtn";
+            this.seePassBtn.Size = new System.Drawing.Size(33, 28);
+            this.seePassBtn.TabIndex = 10;
+            this.seePassBtn.Text = "s";
+            this.seePassBtn.UseVisualStyleBackColor = true;
+            this.seePassBtn.Click += new System.EventHandler(this.seePassBtn_Click);
+            // 
             // AuthorisationFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,8 +156,9 @@
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(391, 340);
             this.ControlBox = false;
+            this.Controls.Add(this.seePassBtn);
             this.Controls.Add(this.errorBox);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.enterBtn);
             this.Controls.Add(this.minimizeBtn);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.passBox);
@@ -151,8 +166,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AuthorisationFrm";
             this.Text = "AuthorisationFrm";
+            this.Load += new System.EventHandler(this.AuthorisationFrm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,7 +184,8 @@
         private System.Windows.Forms.TextBox passBox;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button minimizeBtn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button enterBtn;
         private System.Windows.Forms.Label errorBox;
+        private System.Windows.Forms.Button seePassBtn;
     }
 }
