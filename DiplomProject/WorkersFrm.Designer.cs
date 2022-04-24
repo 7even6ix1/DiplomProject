@@ -32,8 +32,6 @@
             this.closeBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.workersInfoPredDataGridView = new System.Windows.Forms.DataGridView();
-            this.addBtn = new System.Windows.Forms.Button();
-            this.deleteBtn = new System.Windows.Forms.Button();
             this.Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Patronymic = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,13 +39,19 @@
             this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addBtn = new System.Windows.Forms.Button();
+            this.deleteBtn = new System.Windows.Forms.Button();
+            this.genderBox = new System.Windows.Forms.ComboBox();
+            this.postBox = new System.Windows.Forms.ComboBox();
+            this.filterBtn = new System.Windows.Forms.Button();
+            this.backBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.workersInfoPredDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // minimizeBtn
             // 
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.minimizeBtn.Location = new System.Drawing.Point(735, 12);
+            this.minimizeBtn.Location = new System.Drawing.Point(719, 12);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(28, 23);
             this.minimizeBtn.TabIndex = 17;
@@ -58,7 +62,7 @@
             // closeBtn
             // 
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.closeBtn.Location = new System.Drawing.Point(760, 12);
+            this.closeBtn.Location = new System.Drawing.Point(744, 12);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(28, 23);
             this.closeBtn.TabIndex = 16;
@@ -98,31 +102,6 @@
             this.workersInfoPredDataGridView.Size = new System.Drawing.Size(751, 220);
             this.workersInfoPredDataGridView.TabIndex = 19;
             this.workersInfoPredDataGridView.Click += new System.EventHandler(this.workersInfoPredDataGridView_Click);
-            // 
-            // addBtn
-            // 
-            this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addBtn.Font = new System.Drawing.Font("Palatino Linotype", 14F);
-            this.addBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.addBtn.Location = new System.Drawing.Point(494, 313);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(136, 70);
-            this.addBtn.TabIndex = 20;
-            this.addBtn.Text = "Добавить работника";
-            this.addBtn.UseVisualStyleBackColor = true;
-            // 
-            // deleteBtn
-            // 
-            this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.deleteBtn.Font = new System.Drawing.Font("Palatino Linotype", 14F);
-            this.deleteBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.deleteBtn.Location = new System.Drawing.Point(636, 313);
-            this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(136, 70);
-            this.deleteBtn.TabIndex = 21;
-            this.deleteBtn.Text = "Удалить работника";
-            this.deleteBtn.UseVisualStyleBackColor = true;
-            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // Surname
             // 
@@ -166,12 +145,79 @@
             this.Salary.Name = "Salary";
             this.Salary.ReadOnly = true;
             // 
+            // addBtn
+            // 
+            this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addBtn.Font = new System.Drawing.Font("Palatino Linotype", 14F);
+            this.addBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.addBtn.Location = new System.Drawing.Point(494, 313);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(136, 70);
+            this.addBtn.TabIndex = 20;
+            this.addBtn.Text = "Добавить работника";
+            this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
+            // 
+            // deleteBtn
+            // 
+            this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.deleteBtn.Font = new System.Drawing.Font("Palatino Linotype", 14F);
+            this.deleteBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.deleteBtn.Location = new System.Drawing.Point(636, 313);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(136, 70);
+            this.deleteBtn.TabIndex = 21;
+            this.deleteBtn.Text = "Удалить работника";
+            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            // 
+            // genderBox
+            // 
+            this.genderBox.FormattingEnabled = true;
+            this.genderBox.Location = new System.Drawing.Point(21, 313);
+            this.genderBox.Name = "genderBox";
+            this.genderBox.Size = new System.Drawing.Size(121, 21);
+            this.genderBox.TabIndex = 22;
+            // 
+            // postBox
+            // 
+            this.postBox.FormattingEnabled = true;
+            this.postBox.Location = new System.Drawing.Point(21, 341);
+            this.postBox.Name = "postBox";
+            this.postBox.Size = new System.Drawing.Size(121, 21);
+            this.postBox.TabIndex = 23;
+            // 
+            // filterBtn
+            // 
+            this.filterBtn.Location = new System.Drawing.Point(21, 368);
+            this.filterBtn.Name = "filterBtn";
+            this.filterBtn.Size = new System.Drawing.Size(75, 23);
+            this.filterBtn.TabIndex = 24;
+            this.filterBtn.Text = "button1";
+            this.filterBtn.UseVisualStyleBackColor = true;
+            this.filterBtn.Click += new System.EventHandler(this.filterBtn_Click);
+            // 
+            // backBtn
+            // 
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.backBtn.Location = new System.Drawing.Point(694, 12);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(28, 23);
+            this.backBtn.TabIndex = 36;
+            this.backBtn.Text = "◀";
+            this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
             // WorkersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(808, 450);
+            this.ClientSize = new System.Drawing.Size(808, 396);
+            this.Controls.Add(this.backBtn);
+            this.Controls.Add(this.filterBtn);
+            this.Controls.Add(this.postBox);
+            this.Controls.Add(this.genderBox);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.workersInfoPredDataGridView);
@@ -203,5 +249,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn Post;
         private System.Windows.Forms.DataGridViewTextBoxColumn Salary;
+        private System.Windows.Forms.ComboBox genderBox;
+        private System.Windows.Forms.ComboBox postBox;
+        private System.Windows.Forms.Button filterBtn;
+        private System.Windows.Forms.Button backBtn;
     }
 }

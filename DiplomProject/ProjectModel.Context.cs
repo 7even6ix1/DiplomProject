@@ -13,10 +13,10 @@ namespace DiplomProject
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class GEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public GEntities()
+            : base("name=GEntities")
         {
         }
     
@@ -41,7 +41,7 @@ namespace DiplomProject
         public virtual DbSet<FuelTypes> FuelTypes { get; set; }
         public virtual DbSet<GearboxTypes> GearboxTypes { get; set; }
         public virtual DbSet<Genders> Genders { get; set; }
-        public virtual DbSet<LogData> LogData { get; set; }
+        public virtual DbSet<LoginData> LoginData { get; set; }
         public virtual DbSet<ManufacturerCountry> ManufacturerCountry { get; set; }
         public virtual DbSet<Posts> Posts { get; set; }
         public virtual DbSet<PostServices> PostServices { get; set; }

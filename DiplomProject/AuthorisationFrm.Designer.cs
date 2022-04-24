@@ -88,6 +88,7 @@
             this.passBox.Name = "passBox";
             this.passBox.Size = new System.Drawing.Size(190, 33);
             this.passBox.TabIndex = 4;
+            this.passBox.UseSystemPasswordChar = true;
             // 
             // closeBtn
             // 
@@ -139,13 +140,13 @@
             // seePassBtn
             // 
             this.seePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.seePassBtn.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.seePassBtn.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.seePassBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.seePassBtn.Location = new System.Drawing.Point(348, 187);
+            this.seePassBtn.Location = new System.Drawing.Point(347, 185);
             this.seePassBtn.Name = "seePassBtn";
-            this.seePassBtn.Size = new System.Drawing.Size(33, 28);
+            this.seePassBtn.Size = new System.Drawing.Size(32, 33);
             this.seePassBtn.TabIndex = 10;
-            this.seePassBtn.Text = "s";
+            this.seePassBtn.Text = "👓";
             this.seePassBtn.UseVisualStyleBackColor = true;
             this.seePassBtn.Click += new System.EventHandler(this.seePassBtn_Click);
             // 

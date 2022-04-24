@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e508e8cad42a4481a0645845bf5666fe" Name="Diagram1">
+      <Diagram DiagramId="cc14dbc704c84b159aad730d0e7f5d1a" Name="Diagram1">
         <EntityTypeShape EntityType="even6ixDBModel.AvailableDetails" Width="1.5" PointX="9.75" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="even6ixDBModel.BodyTypes" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="even6ixDBModel.CarModels" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
@@ -21,7 +21,7 @@
         <EntityTypeShape EntityType="even6ixDBModel.FuelTypes" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="even6ixDBModel.GearboxTypes" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="even6ixDBModel.Genders" Width="1.5" PointX="8.25" PointY="16.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="even6ixDBModel.LogData" Width="1.5" PointX="15" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="even6ixDBModel.LoginData" Width="1.5" PointX="15" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="even6ixDBModel.ManufacturerCountry" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
         <EntityTypeShape EntityType="even6ixDBModel.Posts" Width="1.5" PointX="10.5" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="even6ixDBModel.PostServices" Width="1.5" PointX="18" PointY="5.75" IsExpanded="true" />
@@ -56,7 +56,7 @@
         <AssociationConnector Association="even6ixDBModel.FK_TechnicalInformation_Engines" ManuallyRouted="false" />
         <AssociationConnector Association="even6ixDBModel.FK_TechnicalInformation_GearboxTypes" ManuallyRouted="false" />
         <AssociationConnector Association="even6ixDBModel.FK_Workers_Genders" ManuallyRouted="false" />
-        <AssociationConnector Association="even6ixDBModel.FK_LogData_Workers" ManuallyRouted="false" />
+        <AssociationConnector Association="even6ixDBModel.FK_LoginData_Workers" ManuallyRouted="false" />
         <AssociationConnector Association="even6ixDBModel.FK_PostServices_Posts" ManuallyRouted="false" />
         <AssociationConnector Association="even6ixDBModel.FK_Workers_Posts" ManuallyRouted="false" />
         <AssociationConnector Association="even6ixDBModel.FK_PostServices_Service" ManuallyRouted="false" />

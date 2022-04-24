@@ -21,6 +21,17 @@ namespace DiplomProject
         {
             this.login = login;
             InitializeComponent();
+            using(GEntities db = new GEntities())
+            {
+                List<Genders> genders = db.Genders.ToList();
+                genderBox.DataSource = genders;
+                genderBox.DisplayMember = "Gender";
+                genderBox.ValueMember = "Id";
+                List<Posts> posts = db.Posts.ToList();
+                postBox.DataSource = posts;
+                postBox.DisplayMember = "Post";
+                postBox.ValueMember = "Id";
+            }
             LoadData();
         }
 
@@ -82,16 +93,46 @@ namespace DiplomProject
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Вы действительно хотите удалить эту запись?",
+            if (MessageBox.Show("Вы действительно хотите удалить эту запись?",
                 "Подтверждение", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                
-                OleDbConnection con = new OleDbConnection(@"workstation id=7even6ixDB.mssql.somee.com;packet size=4096;user id=Nicho_7even6ix_SQLLogin_1;pwd=lqz48ctpvv;data source=7even6ixDB.mssql.somee.com;persist security info=False;initial catalog=7even6ixDB");
-                OleDbCommand command = new OleDbCommand("DELETE * FROM TableName WHERE Id = @pId", con); //TableName - имя таблицы, из которой удаляете запись
-                command.Parameters.Add(new OleDbParameter("@pId", this.workersInfoPredDataGridView.CurrentRow.Cells["Id"].Value)); //DataGridViewName - имя DataGridView на форме
+
+                SqlConnection con = new SqlConnection(@"workstation id=7even6ixDB.mssql.somee.com;packet size=4096;user id=Nicho_7even6ix_SQLLogin_1;pwd=lqz48ctpvv;data source=7even6ixDB.mssql.somee.com;persist security info=False;initial catalog=7even6ixDB");
+                con.Open();
+                SqlCommand command = new SqlCommand("DELETE * FROM TableName WHERE Id = @pId", con); //TableName - имя таблицы, из которой удаляете запись
+                command.Parameters.Add(new SqlParameter("@pId", this.workersInfoPredDataGridView.CurrentRow.Index+1)); //DataGridViewName - имя DataGridView на форме
                 command.ExecuteNonQuery();
             }
+            //model.Id =(int)this.workersInfoPredDataGridView.CurrentRow.Index;
+            //using(Entities db = new Entities())
+            //{
+            //    model = db.Workers.Where(x => x.Id == model.Id).FirstOrDefault();
+            //    //var entry = db.Entry(model);
+            //    //if (entry.State == EntityState.Deleted)
+            //    //    db.Workers.Attach(model);
+            //    db.Workers.Remove(model);
+            //    db.SaveChanges();
+            //    LoadData();
+            //}
+        }
 
+        private void filterBtn_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            AddWorkersFrm addWorkersFrm = new AddWorkersFrm(login);
+            this.Hide();
+            addWorkersFrm.Show();
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            MenuFrm menuFrm = new MenuFrm(login);
+            this.Hide();
+            menuFrm.Show();
         }
     }
 }

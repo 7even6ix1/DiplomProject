@@ -17,7 +17,7 @@ namespace DiplomProject
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Workers()
         {
-            this.LogData = new HashSet<LogData>();
+            this.LoginData = new HashSet<LoginData>();
             this.Works = new HashSet<Works>();
         }
     
@@ -31,7 +31,7 @@ namespace DiplomProject
     
         public virtual Genders Genders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LogData> LogData { get; set; }
+        public virtual ICollection<LoginData> LoginData { get; set; }
         public virtual Posts Posts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Works> Works { get; set; }

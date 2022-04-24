@@ -142,13 +142,13 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="LogData">
+        <EntityType Name="LoginData">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Worker" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Login" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ManufacturerCountry">
           <Key>
@@ -251,9 +251,9 @@
           <Property Name="Service" Type="int" Nullable="false" />
           <Property Name="Worker" Type="int" Nullable="false" />
           <Property Name="StartDate" Type="date" Nullable="false" />
-          <Property Name="StartTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="StartTime" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ExDate" Type="date" Nullable="false" />
-          <Property Name="ExTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="ExTime" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_AvailableDetails_CarModels">
           <End Role="CarModels" Type="Self.CarModels" Multiplicity="1" />
@@ -447,15 +447,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LogData_Workers">
+        <Association Name="FK_LoginData_Workers">
           <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
-          <End Role="LogData" Type="Self.LogData" Multiplicity="*" />
+          <End Role="LoginData" Type="Self.LoginData" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Workers">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="LogData">
-              <PropertyRef Name="Worker" />
+            <Dependent Role="LoginData">
+              <PropertyRef Name="Login" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -632,7 +632,7 @@
           <EntitySet Name="FuelTypes" EntityType="Self.FuelTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GearboxTypes" EntityType="Self.GearboxTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Genders" EntityType="Self.Genders" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="LogData" EntityType="Self.LogData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginData" EntityType="Self.LoginData" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ManufacturerCountry" EntityType="Self.ManufacturerCountry" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PostServices" EntityType="Self.PostServices" Schema="dbo" store:Type="Tables" />
@@ -708,9 +708,9 @@
             <End Role="FuelTypes" EntitySet="FuelTypes" />
             <End Role="Engines" EntitySet="Engines" />
           </AssociationSet>
-          <AssociationSet Name="FK_LogData_Workers" Association="Self.FK_LogData_Workers">
+          <AssociationSet Name="FK_LoginData_Workers" Association="Self.FK_LoginData_Workers">
             <End Role="Workers" EntitySet="Workers" />
-            <End Role="LogData" EntitySet="LogData" />
+            <End Role="LoginData" EntitySet="LoginData" />
           </AssociationSet>
           <AssociationSet Name="FK_PostServices_Posts" Association="Self.FK_PostServices_Posts">
             <End Role="Posts" EntitySet="Posts" />
@@ -942,14 +942,14 @@
           <NavigationProperty Name="Clients" Relationship="Self.FK_Clients_Genders" FromRole="Genders" ToRole="Clients" />
           <NavigationProperty Name="Workers" Relationship="Self.FK_Workers_Genders" FromRole="Genders" ToRole="Workers" />
         </EntityType>
-        <EntityType Name="LogData">
+        <EntityType Name="LoginData">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Worker" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Workers" Relationship="Self.FK_LogData_Workers" FromRole="LogData" ToRole="Workers" />
+          <Property Name="Login" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK_LoginData_Workers" FromRole="LoginData" ToRole="Workers" />
         </EntityType>
         <EntityType Name="ManufacturerCountry">
           <Key>
@@ -1060,7 +1060,7 @@
           <Property Name="Gender" Type="Int32" Nullable="false" />
           <Property Name="Post" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Genders" Relationship="Self.FK_Workers_Genders" FromRole="Workers" ToRole="Genders" />
-          <NavigationProperty Name="LogData" Relationship="Self.FK_LogData_Workers" FromRole="Workers" ToRole="LogData" />
+          <NavigationProperty Name="LoginData" Relationship="Self.FK_LoginData_Workers" FromRole="Workers" ToRole="LoginData" />
           <NavigationProperty Name="Posts" Relationship="Self.FK_Workers_Posts" FromRole="Workers" ToRole="Posts" />
           <NavigationProperty Name="Works" Relationship="Self.FK_Works_Workers" FromRole="Workers" ToRole="Works" />
         </EntityType>
@@ -1073,9 +1073,9 @@
           <Property Name="Service" Type="Int32" Nullable="false" />
           <Property Name="Worker" Type="Int32" Nullable="false" />
           <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="StartTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="StartTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ExDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="ExTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="ExTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ClientCars" Relationship="Self.FK_Works_ClientCars" FromRole="Works" ToRole="ClientCars" />
           <NavigationProperty Name="Service1" Relationship="Self.FK_Works_Service" FromRole="Works" ToRole="Service" />
           <NavigationProperty Name="Workers" Relationship="Self.FK_Works_Workers" FromRole="Works" ToRole="Workers" />
@@ -1356,15 +1356,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LogData_Workers">
+        <Association Name="FK_LoginData_Workers">
           <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
-          <End Role="LogData" Type="Self.LogData" Multiplicity="*" />
+          <End Role="LoginData" Type="Self.LoginData" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Workers">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="LogData">
-              <PropertyRef Name="Worker" />
+            <Dependent Role="LoginData">
+              <PropertyRef Name="Login" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1440,7 +1440,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="GEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AvailableDetails" EntityType="Self.AvailableDetails" />
           <EntitySet Name="BodyTypes" EntityType="Self.BodyTypes" />
           <EntitySet Name="CarModels" EntityType="Self.CarModels" />
@@ -1457,7 +1457,7 @@
           <EntitySet Name="FuelTypes" EntityType="Self.FuelTypes" />
           <EntitySet Name="GearboxTypes" EntityType="Self.GearboxTypes" />
           <EntitySet Name="Genders" EntityType="Self.Genders" />
-          <EntitySet Name="LogData" EntityType="Self.LogData" />
+          <EntitySet Name="LoginData" EntityType="Self.LoginData" />
           <EntitySet Name="ManufacturerCountry" EntityType="Self.ManufacturerCountry" />
           <EntitySet Name="Posts" EntityType="Self.Posts" />
           <EntitySet Name="PostServices" EntityType="Self.PostServices" />
@@ -1561,9 +1561,9 @@
             <End Role="Genders" EntitySet="Genders" />
             <End Role="Workers" EntitySet="Workers" />
           </AssociationSet>
-          <AssociationSet Name="FK_LogData_Workers" Association="Self.FK_LogData_Workers">
+          <AssociationSet Name="FK_LoginData_Workers" Association="Self.FK_LoginData_Workers">
             <End Role="Workers" EntitySet="Workers" />
-            <End Role="LogData" EntitySet="LogData" />
+            <End Role="LoginData" EntitySet="LoginData" />
           </AssociationSet>
           <AssociationSet Name="FK_PostServices_Posts" Association="Self.FK_PostServices_Posts">
             <End Role="Posts" EntitySet="Posts" />
@@ -1595,7 +1595,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище even6ixDBModelContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище even6ixDBModelContainer" CdmEntityContainer="GEntities">
           <EntitySetMapping Name="AvailableDetails">
             <EntityTypeMapping TypeName="even6ixDBModel.AvailableDetails">
               <MappingFragment StoreEntitySet="AvailableDetails">
@@ -1749,12 +1749,12 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LogData">
-            <EntityTypeMapping TypeName="even6ixDBModel.LogData">
-              <MappingFragment StoreEntitySet="LogData">
+          <EntitySetMapping Name="LoginData">
+            <EntityTypeMapping TypeName="even6ixDBModel.LoginData">
+              <MappingFragment StoreEntitySet="LoginData">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Worker" ColumnName="Worker" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

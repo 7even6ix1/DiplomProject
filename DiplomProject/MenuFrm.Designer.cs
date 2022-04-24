@@ -36,16 +36,17 @@
             this.workersBtn = new System.Windows.Forms.Button();
             this.worksBtn = new System.Windows.Forms.Button();
             this.deliveriesBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label1.Location = new System.Drawing.Point(275, 21);
+            this.label1.Location = new System.Drawing.Point(382, 140);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 32);
+            this.label1.Size = new System.Drawing.Size(109, 22);
             this.label1.TabIndex = 1;
             this.label1.Text = "Главное меню";
             // 
@@ -82,6 +83,7 @@
             this.detailsBtn.TabIndex = 11;
             this.detailsBtn.Text = "Доступные запчасти";
             this.detailsBtn.UseVisualStyleBackColor = true;
+            this.detailsBtn.Click += new System.EventHandler(this.detailsBtn_Click);
             // 
             // clientsBtn
             // 
@@ -94,6 +96,7 @@
             this.clientsBtn.TabIndex = 12;
             this.clientsBtn.Text = "Информация о клиентах";
             this.clientsBtn.UseVisualStyleBackColor = true;
+            this.clientsBtn.Click += new System.EventHandler(this.clientsBtn_Click);
             // 
             // workersBtn
             // 
@@ -119,6 +122,7 @@
             this.worksBtn.TabIndex = 14;
             this.worksBtn.Text = "Проведенные работы";
             this.worksBtn.UseVisualStyleBackColor = true;
+            this.worksBtn.Click += new System.EventHandler(this.worksBtn_Click);
             // 
             // deliveriesBtn
             // 
@@ -131,6 +135,18 @@
             this.deliveriesBtn.TabIndex = 15;
             this.deliveriesBtn.Text = "Информация о доставках";
             this.deliveriesBtn.UseVisualStyleBackColor = true;
+            this.deliveriesBtn.Click += new System.EventHandler(this.deliveriesBtn_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.label2.Location = new System.Drawing.Point(288, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(171, 32);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Главное меню";
             // 
             // MenuFrm
             // 
@@ -138,6 +154,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(771, 162);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.deliveriesBtn);
             this.Controls.Add(this.worksBtn);
             this.Controls.Add(this.workersBtn);
@@ -165,5 +182,6 @@
         private System.Windows.Forms.Button workersBtn;
         private System.Windows.Forms.Button worksBtn;
         private System.Windows.Forms.Button deliveriesBtn;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -19,9 +19,9 @@ namespace DiplomProject
         public int Service { get; set; }
         public int Worker { get; set; }
         public System.DateTime StartDate { get; set; }
-        public System.TimeSpan StartTime { get; set; }
+        public string StartTime { get; set; }
         public System.DateTime ExDate { get; set; }
-        public System.TimeSpan ExTime { get; set; }
+        public string ExTime { get; set; }
     
         public virtual ClientCars ClientCars { get; set; }
         public virtual Service Service1 { get; set; }

@@ -45,5 +45,35 @@ namespace DiplomProject
             this.Hide();
             workersFrm.Show();
         }
+
+        
+
+        private void deliveriesBtn_Click(object sender, EventArgs e)
+        {
+            DeliveriesFrm deliveriesFrm = new DeliveriesFrm(login);
+            this.Hide();
+            deliveriesFrm.Show();
+        }
+
+        private void clientsBtn_Click(object sender, EventArgs e)
+        {
+            ClientsFrm clientsFrm = new ClientsFrm(login);
+            this.Hide();
+            clientsFrm.Show();
+        }
+
+        private void detailsBtn_Click(object sender, EventArgs e)
+        {
+            DetailsFrm detailsFrm = new DetailsFrm(login);
+            this.Hide();
+            detailsFrm.Show();
+        }
+
+        private void worksBtn_Click(object sender, EventArgs e)
+        {
+            DoneWorksFrm doneWorksFrm = new DoneWorksFrm(login);
+            this.Hide();
+            doneWorksFrm.Show();
+        }
     }
 }

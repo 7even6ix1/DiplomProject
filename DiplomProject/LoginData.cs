@@ -12,11 +12,11 @@ namespace DiplomProject
     using System;
     using System.Collections.Generic;
     
-    public partial class LogData
+    public partial class LoginData
     {
         public int Id { get; set; }
-        public int Worker { get; set; }
         public string Password { get; set; }
+        public int Login { get; set; }
     
         public virtual Workers Workers { get; set; }
     }
