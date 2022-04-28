@@ -18,6 +18,7 @@ namespace DiplomProject
         public ClientCars()
         {
             this.Works = new HashSet<Works>();
+            this.ClientRequests = new HashSet<ClientRequests>();
         }
     
         public int Id { get; set; }
@@ -30,5 +31,7 @@ namespace DiplomProject
         public virtual Clients Clients { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Works> Works { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ClientRequests> ClientRequests { get; set; }
     }
 }

@@ -64,6 +64,12 @@
     <Compile Include="AddClientFrm.Designer.cs">
       <DependentUpon>AddClientFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddClientsCarFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddClientsCarFrm.Designer.cs">
+      <DependentUpon>AddClientsCarFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddDeliveriesFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,7 +112,16 @@
     <Compile Include="CarStamps.cs">
       <DependentUpon>ProjectModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CheckRequestsFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckRequestsFrm.Designer.cs">
+      <DependentUpon>CheckRequestsFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientCars.cs">
+      <DependentUpon>ProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientRequests.cs">
       <DependentUpon>ProjectModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Clients.cs">
@@ -139,6 +154,9 @@
     <Compile Include="DetailsFrm.Designer.cs">
       <DependentUpon>DetailsFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DoneRequests.cs">
+      <DependentUpon>ProjectModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DoneWorksFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +174,12 @@
     </Compile>
     <Compile Include="EngineVolume.cs">
       <DependentUpon>ProjectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="forOperFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forOperFrm.Designer.cs">
+      <DependentUpon>forOperFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="FuelTypes.cs">
       <DependentUpon>ProjectModel.tt</DependentUpon>
@@ -204,6 +228,12 @@
     <Compile Include="Provider.cs">
       <DependentUpon>ProjectModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="RequestCreatingFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestCreatingFrm.Designer.cs">
+      <DependentUpon>RequestCreatingFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Service.cs">
       <DependentUpon>ProjectModel.tt</DependentUpon>
     </Compile>
@@ -239,6 +269,9 @@
     <EmbeddedResource Include="AddClientFrm.resx">
       <DependentUpon>AddClientFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddClientsCarFrm.resx">
+      <DependentUpon>AddClientsCarFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddDeliveriesFrm.resx">
       <DependentUpon>AddDeliveriesFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -254,6 +287,9 @@
     <EmbeddedResource Include="AuthorisationFrm.resx">
       <DependentUpon>AuthorisationFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CheckRequestsFrm.resx">
+      <DependentUpon>CheckRequestsFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientsFrm.resx">
       <DependentUpon>ClientsFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DoneWorksFrm.resx">
       <DependentUpon>DoneWorksFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forOperFrm.resx">
+      <DependentUpon>forOperFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuFrm.resx">
       <DependentUpon>MenuFrm.cs</DependentUpon>
@@ -278,6 +317,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RequestCreatingFrm.resx">
+      <DependentUpon>RequestCreatingFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WorkersFrm.resx">
       <DependentUpon>WorkersFrm.cs</DependentUpon>
     </EmbeddedResource>

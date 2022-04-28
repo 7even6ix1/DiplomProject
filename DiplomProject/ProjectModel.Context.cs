@@ -53,5 +53,7 @@ namespace DiplomProject
         public virtual DbSet<TechnicalInformation> TechnicalInformation { get; set; }
         public virtual DbSet<Workers> Workers { get; set; }
         public virtual DbSet<Works> Works { get; set; }
+        public virtual DbSet<DoneRequests> DoneRequests { get; set; }
+        public virtual DbSet<ClientRequests> ClientRequests { get; set; }
     }
 }

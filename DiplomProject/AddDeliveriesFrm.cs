@@ -39,7 +39,7 @@ namespace DiplomProject
 
         private void closeBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void minimizeBtn_Click(object sender, EventArgs e)

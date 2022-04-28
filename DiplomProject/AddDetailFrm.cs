@@ -73,5 +73,10 @@ namespace DiplomProject
             DetailsFrm detailsFrm = new DetailsFrm(login);
             detailsFrm.Show();
         }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

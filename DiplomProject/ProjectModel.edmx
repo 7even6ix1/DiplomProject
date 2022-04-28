@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище even6ixDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище even6ixDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AvailableDetails">
           <Key>
             <PropertyRef Name="Id" />
@@ -52,6 +52,16 @@
           <Property Name="GosNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Owner" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="ClientRequests">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CarId" Type="int" Nullable="false" />
+          <Property Name="CreateDateTime" Type="date" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Done" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Clients">
           <Key>
             <PropertyRef Name="Id" />
@@ -89,6 +99,16 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DoneRequests">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="IdRequest" />
+            <PropertyRef Name="IdWorks" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRequest" Type="int" Nullable="false" />
+          <Property Name="IdWorks" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="EngineLocation">
           <Key>
@@ -254,6 +274,7 @@
           <Property Name="StartTime" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ExDate" Type="date" Nullable="false" />
           <Property Name="ExTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_AvailableDetails_CarModels">
           <End Role="CarModels" Type="Self.CarModels" Multiplicity="1" />
@@ -363,6 +384,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ClientRequests_ClientCars">
+          <End Role="ClientCars" Type="Self.ClientCars" Multiplicity="1" />
+          <End Role="ClientRequests" Type="Self.ClientRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientCars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientRequests">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Clients_Genders">
           <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
           <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
@@ -408,6 +441,30 @@
             </Principal>
             <Dependent Role="Deliviries">
               <PropertyRef Name="Provider" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DoneRequests_ClientRequests">
+          <End Role="ClientRequests" Type="Self.ClientRequests" Multiplicity="1" />
+          <End Role="DoneRequests" Type="Self.DoneRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientRequests">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DoneRequests">
+              <PropertyRef Name="IdRequest" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DoneRequests_Works">
+          <End Role="Works" Type="Self.Works" Multiplicity="1" />
+          <End Role="DoneRequests" Type="Self.DoneRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DoneRequests">
+              <PropertyRef Name="IdWorks" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -621,10 +678,12 @@
           <EntitySet Name="CarModels" EntityType="Self.CarModels" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CarStamps" EntityType="Self.CarStamps" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClientCars" EntityType="Self.ClientCars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientRequests" EntityType="Self.ClientRequests" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Colours" EntityType="Self.Colours" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Deliviries" EntityType="Self.Deliviries" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Details" EntityType="Self.Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DoneRequests" EntityType="Self.DoneRequests" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EngineLocation" EntityType="Self.EngineLocation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Engines" EntityType="Self.Engines" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EngineTypes" EntityType="Self.EngineTypes" Schema="dbo" store:Type="Tables" />
@@ -680,6 +739,10 @@
             <End Role="Clients" EntitySet="Clients" />
             <End Role="ClientCars" EntitySet="ClientCars" />
           </AssociationSet>
+          <AssociationSet Name="FK_ClientRequests_ClientCars" Association="Self.FK_ClientRequests_ClientCars">
+            <End Role="ClientCars" EntitySet="ClientCars" />
+            <End Role="ClientRequests" EntitySet="ClientRequests" />
+          </AssociationSet>
           <AssociationSet Name="FK_Clients_Genders" Association="Self.FK_Clients_Genders">
             <End Role="Genders" EntitySet="Genders" />
             <End Role="Clients" EntitySet="Clients" />
@@ -695,6 +758,14 @@
           <AssociationSet Name="FK_Deliviries_Provider" Association="Self.FK_Deliviries_Provider">
             <End Role="Provider" EntitySet="Provider" />
             <End Role="Deliviries" EntitySet="Deliviries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DoneRequests_ClientRequests" Association="Self.FK_DoneRequests_ClientRequests">
+            <End Role="ClientRequests" EntitySet="ClientRequests" />
+            <End Role="DoneRequests" EntitySet="DoneRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DoneRequests_Works" Association="Self.FK_DoneRequests_Works">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="DoneRequests" EntitySet="DoneRequests" />
           </AssociationSet>
           <AssociationSet Name="FK_Engines_EngineTypes" Association="Self.FK_Engines_EngineTypes">
             <End Role="EngineTypes" EntitySet="EngineTypes" />
@@ -765,8 +836,7 @@
             <End Role="Works" EntitySet="Works" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="even6ixDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -831,6 +901,7 @@
           <NavigationProperty Name="CarModels" Relationship="Self.FK_ClientCars_CarModels" FromRole="ClientCars" ToRole="CarModels" />
           <NavigationProperty Name="Clients" Relationship="Self.FK_ClientCars_Clients" FromRole="ClientCars" ToRole="Clients" />
           <NavigationProperty Name="Works" Relationship="Self.FK_Works_ClientCars" FromRole="ClientCars" ToRole="Works" />
+          <NavigationProperty Name="ClientRequests" Relationship="even6ixDBModel.FK_ClientRequests_ClientCars" FromRole="ClientCars" ToRole="ClientRequests" />
         </EntityType>
         <EntityType Name="Clients">
           <Key>
@@ -1079,6 +1150,8 @@
           <NavigationProperty Name="ClientCars" Relationship="Self.FK_Works_ClientCars" FromRole="Works" ToRole="ClientCars" />
           <NavigationProperty Name="Service1" Relationship="Self.FK_Works_Service" FromRole="Works" ToRole="Service" />
           <NavigationProperty Name="Workers" Relationship="Self.FK_Works_Workers" FromRole="Works" ToRole="Workers" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DoneRequests" Relationship="even6ixDBModel.FK_DoneRequests_Works" FromRole="Works" ToRole="DoneRequests" />
         </EntityType>
         <Association Name="FK_AvailableDetails_CarModels">
           <End Role="CarModels" Type="Self.CarModels" Multiplicity="1" />
@@ -1589,7 +1662,81 @@
             <End Role="Workers" EntitySet="Workers" />
             <End Role="Works" EntitySet="Works" />
           </AssociationSet>
+          <EntitySet Name="DoneRequests" EntityType="even6ixDBModel.DoneRequests" />
+          <AssociationSet Name="FK_DoneRequests_Works" Association="even6ixDBModel.FK_DoneRequests_Works">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="DoneRequests" EntitySet="DoneRequests" />
+          </AssociationSet>
+          <EntitySet Name="ClientRequests" EntityType="even6ixDBModel.ClientRequests" />
+          <AssociationSet Name="FK_ClientRequests_ClientCars" Association="even6ixDBModel.FK_ClientRequests_ClientCars">
+            <End Role="ClientCars" EntitySet="ClientCars" />
+            <End Role="ClientRequests" EntitySet="ClientRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DoneRequests_ClientRequests" Association="even6ixDBModel.FK_DoneRequests_ClientRequests">
+            <End Role="ClientRequests" EntitySet="ClientRequests" />
+            <End Role="DoneRequests" EntitySet="DoneRequests" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="DoneRequests">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="IdRequest" />
+            <PropertyRef Name="IdWorks" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdRequest" Type="Int32" Nullable="false" />
+          <Property Name="IdWorks" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Works" Relationship="even6ixDBModel.FK_DoneRequests_Works" FromRole="DoneRequests" ToRole="Works" />
+          <NavigationProperty Name="ClientRequests" Relationship="even6ixDBModel.FK_DoneRequests_ClientRequests" FromRole="DoneRequests" ToRole="ClientRequests" />
+        </EntityType>
+        <Association Name="FK_DoneRequests_Works">
+          <End Type="even6ixDBModel.Works" Role="Works" Multiplicity="1" />
+          <End Type="even6ixDBModel.DoneRequests" Role="DoneRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DoneRequests">
+              <PropertyRef Name="IdWorks" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ClientRequests">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CarId" Type="Int32" Nullable="false" />
+          <Property Name="CreateDateTime" Type="DateTime" Precision="0" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Done" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ClientCars" Relationship="even6ixDBModel.FK_ClientRequests_ClientCars" FromRole="ClientRequests" ToRole="ClientCars" />
+          <NavigationProperty Name="DoneRequests" Relationship="even6ixDBModel.FK_DoneRequests_ClientRequests" FromRole="ClientRequests" ToRole="DoneRequests" />
+        </EntityType>
+        <Association Name="FK_ClientRequests_ClientCars">
+          <End Type="even6ixDBModel.ClientCars" Role="ClientCars" Multiplicity="1" />
+          <End Type="even6ixDBModel.ClientRequests" Role="ClientRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientCars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientRequests">
+              <PropertyRef Name="CarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DoneRequests_ClientRequests">
+          <End Type="even6ixDBModel.ClientRequests" Role="ClientRequests" Multiplicity="1" />
+          <End Type="even6ixDBModel.DoneRequests" Role="DoneRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientRequests">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DoneRequests">
+              <PropertyRef Name="IdRequest" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1863,6 +2010,7 @@
           <EntitySetMapping Name="Works">
             <EntityTypeMapping TypeName="even6ixDBModel.Works">
               <MappingFragment StoreEntitySet="Works">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Car" ColumnName="Car" />
                 <ScalarProperty Name="Service" ColumnName="Service" />
@@ -1871,6 +2019,26 @@
                 <ScalarProperty Name="StartTime" ColumnName="StartTime" />
                 <ScalarProperty Name="ExDate" ColumnName="ExDate" />
                 <ScalarProperty Name="ExTime" ColumnName="ExTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DoneRequests">
+            <EntityTypeMapping TypeName="even6ixDBModel.DoneRequests">
+              <MappingFragment StoreEntitySet="DoneRequests">
+                <ScalarProperty Name="IdWorks" ColumnName="IdWorks" />
+                <ScalarProperty Name="IdRequest" ColumnName="IdRequest" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientRequests">
+            <EntityTypeMapping TypeName="even6ixDBModel.ClientRequests">
+              <MappingFragment StoreEntitySet="ClientRequests">
+                <ScalarProperty Name="Done" ColumnName="Done" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

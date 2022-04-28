@@ -32,6 +32,14 @@
             this.closeBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.addBtn = new System.Windows.Forms.Button();
+            this.backBtn = new System.Windows.Forms.Button();
+            this.costBox = new System.Windows.Forms.TextBox();
+            this.costBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.docBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,8 +51,11 @@
             this.CarModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GosNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Colour = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addBtn = new System.Windows.Forms.Button();
-            this.backBtn = new System.Windows.Forms.Button();
+            this.DetailsCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Summary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WPatr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +86,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label1.Location = new System.Drawing.Point(271, 38);
+            this.label1.Location = new System.Drawing.Point(249, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(255, 32);
             this.label1.TabIndex = 1;
@@ -89,6 +100,7 @@
             this.dataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
             this.Surname,
             this.StartDate,
             this.StartTime,
@@ -99,12 +111,106 @@
             this.CarStamp,
             this.CarModel,
             this.GosNumber,
-            this.Colour});
+            this.Colour,
+            this.DetailsCost,
+            this.Summary,
+            this.Vin,
+            this.WName,
+            this.WPatr});
             this.dataGridView.Location = new System.Drawing.Point(12, 86);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
+            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(751, 246);
             this.dataGridView.TabIndex = 17;
+            // 
+            // addBtn
+            // 
+            this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addBtn.Font = new System.Drawing.Font("Palatino Linotype", 14F);
+            this.addBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.addBtn.Location = new System.Drawing.Point(627, 338);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(136, 70);
+            this.addBtn.TabIndex = 23;
+            this.addBtn.Text = "Добавить работу";
+            this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
+            // 
+            // backBtn
+            // 
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.backBtn.Location = new System.Drawing.Point(685, 12);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(28, 23);
+            this.backBtn.TabIndex = 36;
+            this.backBtn.Text = "◀";
+            this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
+            // costBox
+            // 
+            this.costBox.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
+            this.costBox.Location = new System.Drawing.Point(12, 351);
+            this.costBox.Name = "costBox";
+            this.costBox.Size = new System.Drawing.Size(212, 33);
+            this.costBox.TabIndex = 37;
+            // 
+            // costBtn
+            // 
+            this.costBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.costBtn.Font = new System.Drawing.Font("Palatino Linotype", 14F);
+            this.costBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.costBtn.Location = new System.Drawing.Point(230, 338);
+            this.costBtn.Name = "costBtn";
+            this.costBtn.Size = new System.Drawing.Size(136, 70);
+            this.costBtn.TabIndex = 38;
+            this.costBtn.Text = "Узнать сумму заказа";
+            this.costBtn.UseVisualStyleBackColor = true;
+            this.costBtn.Click += new System.EventHandler(this.costBtn_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.label2.Location = new System.Drawing.Point(12, 395);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 26);
+            this.label2.TabIndex = 39;
+            // 
+            // docBtn
+            // 
+            this.docBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.docBtn.Font = new System.Drawing.Font("Palatino Linotype", 14F);
+            this.docBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.docBtn.Location = new System.Drawing.Point(372, 338);
+            this.docBtn.Name = "docBtn";
+            this.docBtn.Size = new System.Drawing.Size(136, 70);
+            this.docBtn.TabIndex = 40;
+            this.docBtn.Text = "Печать документа";
+            this.docBtn.UseVisualStyleBackColor = true;
+            this.docBtn.Click += new System.EventHandler(this.docBtn_Click);
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Palatino Linotype", 14F);
+            this.button1.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.button1.Location = new System.Drawing.Point(485, 373);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(136, 70);
+            this.button1.TabIndex = 41;
+            this.button1.Text = "Печать документа";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
             // 
             // Surname
             // 
@@ -172,36 +278,50 @@
             this.Colour.Name = "Colour";
             this.Colour.ReadOnly = true;
             // 
-            // addBtn
+            // DetailsCost
             // 
-            this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addBtn.Font = new System.Drawing.Font("Palatino Linotype", 14F);
-            this.addBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.addBtn.Location = new System.Drawing.Point(627, 338);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(136, 70);
-            this.addBtn.TabIndex = 23;
-            this.addBtn.Text = "Добавить работу";
-            this.addBtn.UseVisualStyleBackColor = true;
-            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
+            this.DetailsCost.HeaderText = "Стоимость деталей";
+            this.DetailsCost.Name = "DetailsCost";
+            this.DetailsCost.ReadOnly = true;
             // 
-            // backBtn
+            // Summary
             // 
-            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.backBtn.Location = new System.Drawing.Point(685, 12);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(28, 23);
-            this.backBtn.TabIndex = 36;
-            this.backBtn.Text = "◀";
-            this.backBtn.UseVisualStyleBackColor = true;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            this.Summary.HeaderText = "Сумма";
+            this.Summary.Name = "Summary";
+            this.Summary.ReadOnly = true;
+            // 
+            // Vin
+            // 
+            this.Vin.HeaderText = "Vin";
+            this.Vin.Name = "Vin";
+            this.Vin.ReadOnly = true;
+            this.Vin.Visible = false;
+            // 
+            // WName
+            // 
+            this.WName.HeaderText = "Wname";
+            this.WName.Name = "WName";
+            this.WName.ReadOnly = true;
+            this.WName.Visible = false;
+            // 
+            // WPatr
+            // 
+            this.WPatr.HeaderText = "WPatr";
+            this.WPatr.Name = "WPatr";
+            this.WPatr.ReadOnly = true;
+            this.WPatr.Visible = false;
             // 
             // DoneWorksFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(783, 433);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.docBtn);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.costBtn);
+            this.Controls.Add(this.costBox);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.dataGridView);
@@ -224,6 +344,14 @@
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.TextBox costBox;
+        private System.Windows.Forms.Button costBtn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button docBtn;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Surname;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartTime;
@@ -235,7 +363,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CarModel;
         private System.Windows.Forms.DataGridViewTextBoxColumn GosNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn Colour;
-        private System.Windows.Forms.Button addBtn;
-        private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DetailsCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Summary;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Vin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WPatr;
     }
 }

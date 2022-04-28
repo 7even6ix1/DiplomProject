@@ -14,6 +14,7 @@ namespace DiplomProject
     public partial class AuthorisationFrm : Form
     {
         private string login;
+        private string role;
         public AuthorisationFrm()
         {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace DiplomProject
 
         private void closeBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void bigWin_Click(object sender, EventArgs e)
@@ -35,12 +36,26 @@ namespace DiplomProject
             SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) from LoginData where Login='" + loginBox.Text + "' and Password='" + passBox.Text + "'", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            if(dt.Rows[0][0].ToString()=="1")
+            SqlDataAdapter sda1 = new SqlDataAdapter("Select Post from Workers where Id='" + loginBox.Text + "'", con);
+            DataTable dt1 = new DataTable();
+            sda1.Fill(dt1);
+            if(dt.Rows[0][0].ToString()=="1" && dt1.Rows[0][0].ToString()!="17")
             {
                 login = loginBox.Text;
                 MenuFrm menuFrm = new MenuFrm(login);
                 this.Hide();
                 menuFrm.Show();
+            }
+            else if(dt.Rows[0][0].ToString() == "1" && dt1.Rows[0][0].ToString() == "17")
+            {
+                role = "oper";
+                login = loginBox.Text;
+                //RequestCreatingFrm requestCreatingFrm = new RequestCreatingFrm(login,role);
+                //this.Hide();
+                //requestCreatingFrm.Show();
+                forOperFrm forOperFrm = new forOperFrm(login,role);
+                this.Hide();
+                forOperFrm.Show();
             }
             else
             {

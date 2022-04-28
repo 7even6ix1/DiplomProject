@@ -15,6 +15,7 @@ namespace DiplomProject
     {
         int b = 0;
         Works model = new Works();
+        DoneRequests model1 = new DoneRequests();
         private string login;
         public AddWorkFrm(string login)
         {
@@ -39,7 +40,7 @@ namespace DiplomProject
 
         private void closeBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void minimizeBtn_Click(object sender, EventArgs e)
@@ -50,7 +51,7 @@ namespace DiplomProject
         private void AddWorkFrm_Load(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(@"workstation id=7even6ixDB.mssql.somee.com;packet size=4096;user id=Nicho_7even6ix_SQLLogin_1;pwd=lqz48ctpvv;data source=7even6ixDB.mssql.somee.com;persist security info=False;initial catalog=7even6ixDB");
-            SqlDataAdapter sda = new SqlDataAdapter("Select top 1 * from Deliviries order by Id DESC", con);
+            SqlDataAdapter sda = new SqlDataAdapter("Select top 1 * from Works order by Id DESC", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             string a = dt.Rows[0][0].ToString();
@@ -59,22 +60,50 @@ namespace DiplomProject
 
         private void saveBtn_Click(object sender, EventArgs e) 
         {
-            //model.Id = b;
-            //model.Car = (int)carBox.SelectedValue;
-            //model.Service = (int)serviceBox.SelectedValue;
-            //model.Worker = (int)workerBox.SelectedValue;
-            //model.StartDate = startDate.Value;
-            //model.StartTime =startTime.Text;
-            //model.ExDate = exDate.Value;
-            //model.ExTime = exTime.Text;
-            using(GEntities db = new GEntities())
+            if (reqBox.Text == null)
             {
-                db.Works.Add(model);
-                db.SaveChanges();
-                MessageBox.Show("Работа успешно сохранена!");
-                this.Hide();
-               DoneWorksFrm doneWorksFrm = new DoneWorksFrm(login);
-                doneWorksFrm.Show();
+                model.Id = b;
+                model.Car = (int)carBox.SelectedValue;
+                model.Service = (int)serviceBox.SelectedValue;
+                model.Worker = (int)workerBox.SelectedValue;
+                model.StartDate = startDate.Value;
+                model.StartTime = startTime.Text;
+                model.ExDate = exDate.Value;
+                model.ExTime = exTime.Text;
+                model.Comment = descriptBox.Text;
+                using (GEntities db = new GEntities())
+                {
+                    db.Works.Add(model);
+                    db.SaveChanges();
+                    MessageBox.Show("Работа успешно сохранена!");
+                    this.Hide();
+                    DoneWorksFrm doneWorksFrm = new DoneWorksFrm(login);
+                    doneWorksFrm.Show();
+                }
+            }
+            if (reqBox.Text != null)
+            {
+                model.Id = b;
+                model.Car = (int)carBox.SelectedValue;
+                model.Service = (int)serviceBox.SelectedValue;
+                model.Worker = (int)workerBox.SelectedValue;
+                model.StartDate = startDate.Value;
+                model.StartTime = startTime.Text;
+                model.ExDate = exDate.Value;
+                model.ExTime = exTime.Text;
+                model.Comment = descriptBox.Text;
+                model1.IdWorks = b;
+                model1.IdRequest = Convert.ToInt32(reqBox.Text);
+                using (GEntities db = new GEntities())
+                {
+                    db.Works.Add(model);
+                    db.DoneRequests.Add(model1);
+                    db.SaveChanges();
+                    MessageBox.Show("Работа успешно сохранена!");
+                    this.Hide();
+                    DoneWorksFrm doneWorksFrm = new DoneWorksFrm(login);
+                    doneWorksFrm.Show();
+                }
             }
         }
 

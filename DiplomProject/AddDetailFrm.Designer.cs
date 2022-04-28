@@ -42,6 +42,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.saveBtn = new System.Windows.Forms.Button();
             this.backBtn = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // minimizeBtn
@@ -63,12 +64,13 @@
             this.closeBtn.TabIndex = 10;
             this.closeBtn.Text = "✖";
             this.closeBtn.UseVisualStyleBackColor = true;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
             // storeBox
             // 
             this.storeBox.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
             this.storeBox.FormattingEnabled = true;
-            this.storeBox.Location = new System.Drawing.Point(180, 82);
+            this.storeBox.Location = new System.Drawing.Point(155, 57);
             this.storeBox.Name = "storeBox";
             this.storeBox.Size = new System.Drawing.Size(212, 34);
             this.storeBox.TabIndex = 12;
@@ -77,7 +79,7 @@
             // 
             this.detailBox.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
             this.detailBox.FormattingEnabled = true;
-            this.detailBox.Location = new System.Drawing.Point(180, 125);
+            this.detailBox.Location = new System.Drawing.Point(155, 100);
             this.detailBox.Name = "detailBox";
             this.detailBox.Size = new System.Drawing.Size(212, 34);
             this.detailBox.TabIndex = 13;
@@ -85,7 +87,7 @@
             // countBox
             // 
             this.countBox.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
-            this.countBox.Location = new System.Drawing.Point(180, 168);
+            this.countBox.Location = new System.Drawing.Point(155, 143);
             this.countBox.Name = "countBox";
             this.countBox.Size = new System.Drawing.Size(212, 33);
             this.countBox.TabIndex = 14;
@@ -93,7 +95,7 @@
             // costBox
             // 
             this.costBox.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
-            this.costBox.Location = new System.Drawing.Point(180, 210);
+            this.costBox.Location = new System.Drawing.Point(155, 185);
             this.costBox.Name = "costBox";
             this.costBox.Size = new System.Drawing.Size(212, 33);
             this.costBox.TabIndex = 15;
@@ -102,7 +104,7 @@
             // 
             this.modelBox.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
             this.modelBox.FormattingEnabled = true;
-            this.modelBox.Location = new System.Drawing.Point(180, 252);
+            this.modelBox.Location = new System.Drawing.Point(155, 227);
             this.modelBox.Name = "modelBox";
             this.modelBox.Size = new System.Drawing.Size(212, 34);
             this.modelBox.TabIndex = 16;
@@ -112,18 +114,18 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
             this.label1.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label1.Location = new System.Drawing.Point(108, 85);
+            this.label1.Location = new System.Drawing.Point(62, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 26);
+            this.label1.Size = new System.Drawing.Size(87, 26);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Склад";
+            this.label1.Text = "Магазин";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
             this.label2.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label2.Location = new System.Drawing.Point(85, 128);
+            this.label2.Location = new System.Drawing.Point(60, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 26);
             this.label2.TabIndex = 19;
@@ -134,7 +136,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
             this.label3.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label3.Location = new System.Drawing.Point(59, 171);
+            this.label3.Location = new System.Drawing.Point(34, 146);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(115, 26);
             this.label3.TabIndex = 20;
@@ -145,7 +147,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
             this.label4.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label4.Location = new System.Drawing.Point(70, 214);
+            this.label4.Location = new System.Drawing.Point(45, 189);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 26);
             this.label4.TabIndex = 21;
@@ -156,7 +158,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
             this.label5.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label5.Location = new System.Drawing.Point(51, 257);
+            this.label5.Location = new System.Drawing.Point(26, 232);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(123, 26);
             this.label5.TabIndex = 22;
@@ -167,7 +169,7 @@
             this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveBtn.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
             this.saveBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.saveBtn.Location = new System.Drawing.Point(152, 312);
+            this.saveBtn.Location = new System.Drawing.Point(127, 287);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(137, 52);
             this.saveBtn.TabIndex = 24;
@@ -185,12 +187,24 @@
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
+            this.label6.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.label6.Location = new System.Drawing.Point(83, 12);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(198, 26);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "Добавление запчасти";
+            // 
             // AddDetailFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(417, 381);
+            this.ClientSize = new System.Drawing.Size(417, 360);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.label5);
@@ -230,5 +244,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.Label label6;
     }
 }

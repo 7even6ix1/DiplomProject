@@ -46,6 +46,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.saveBtn = new System.Windows.Forms.Button();
             this.backBtn = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.reqBox = new System.Windows.Forms.TextBox();
+            this.nameLbl = new System.Windows.Forms.Label();
+            this.descriptBox = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // minimizeBtn
@@ -213,12 +218,13 @@
             this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveBtn.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
             this.saveBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.saveBtn.Location = new System.Drawing.Point(144, 336);
+            this.saveBtn.Location = new System.Drawing.Point(140, 513);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(137, 52);
             this.saveBtn.TabIndex = 33;
             this.saveBtn.Text = "Сохранить";
             this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // backBtn
             // 
@@ -231,12 +237,68 @@
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
+            this.label8.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.label8.Location = new System.Drawing.Point(51, 477);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(136, 26);
+            this.label8.TabIndex = 36;
+            this.label8.Text = "Номер заявки";
+            // 
+            // reqBox
+            // 
+            this.reqBox.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
+            this.reqBox.Location = new System.Drawing.Point(193, 474);
+            this.reqBox.Name = "reqBox";
+            this.reqBox.Size = new System.Drawing.Size(240, 33);
+            this.reqBox.TabIndex = 37;
+            // 
+            // nameLbl
+            // 
+            this.nameLbl.AutoSize = true;
+            this.nameLbl.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nameLbl.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.nameLbl.Location = new System.Drawing.Point(52, 329);
+            this.nameLbl.Name = "nameLbl";
+            this.nameLbl.Size = new System.Drawing.Size(135, 26);
+            this.nameLbl.TabIndex = 50;
+            this.nameLbl.Text = "Комментарий";
+            // 
+            // descriptBox
+            // 
+            this.descriptBox.AcceptsReturn = true;
+            this.descriptBox.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
+            this.descriptBox.Location = new System.Drawing.Point(193, 326);
+            this.descriptBox.Multiline = true;
+            this.descriptBox.Name = "descriptBox";
+            this.descriptBox.Size = new System.Drawing.Size(240, 142);
+            this.descriptBox.TabIndex = 49;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
+            this.label9.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.label9.Location = new System.Drawing.Point(116, 12);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(185, 26);
+            this.label9.TabIndex = 51;
+            this.label9.Text = "Добавление работы";
+            // 
             // AddWorkFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(448, 397);
+            this.ClientSize = new System.Drawing.Size(448, 577);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.nameLbl);
+            this.Controls.Add(this.descriptBox);
+            this.Controls.Add(this.reqBox);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.label7);
@@ -284,5 +346,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox reqBox;
+        private System.Windows.Forms.Label nameLbl;
+        private System.Windows.Forms.TextBox descriptBox;
+        private System.Windows.Forms.Label label9;
     }
 }

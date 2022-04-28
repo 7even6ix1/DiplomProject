@@ -15,11 +15,14 @@ namespace DiplomProject
     public partial class AddClientFrm : Form
     {
         private string login;
+        private string role;
         int b = 0;
+        private int numFrm;
         Clients model = new Clients();
-        public AddClientFrm(string login)
+        public AddClientFrm(string login,int numFrm)
         {
             this.login = login;
+            this.numFrm = numFrm;
             Clients model = new Clients();
             InitializeComponent();
             using(GEntities db = new GEntities())
@@ -33,7 +36,7 @@ namespace DiplomProject
 
         private void closeBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void minimizeBtn_Click(object sender, EventArgs e)
@@ -53,28 +56,58 @@ namespace DiplomProject
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            model.Id = b;
-            model.Surname = surnameBox.Text;
-            model.Name = nameBox.Text;
-            model.Patronymic = patrBox.Text;
-            model.Phone = phoneBox.Text;
-            model.Gender = (int)genderBox.SelectedValue;
-            using(GEntities db = new GEntities())
+            if (numFrm == 1)
             {
-                db.Clients.Add(model);
-                db.SaveChanges();
-                MessageBox.Show("Клиент успешно сохранён");
-                this.Hide();
-                ClientsFrm clientsFrm = new ClientsFrm(login);
-                clientsFrm.Show();
+                model.Id = b;
+                model.Surname = surnameBox.Text;
+                model.Name = nameBox.Text;
+                model.Patronymic = patrBox.Text;
+                model.Phone = phoneBox.Text;
+                model.Gender = (int)genderBox.SelectedValue;
+                using (GEntities db = new GEntities())
+                {
+                    db.Clients.Add(model);
+                    db.SaveChanges();
+                    MessageBox.Show("Клиент успешно сохранён");
+                    this.Hide();
+                    ClientsFrm clientsFrm = new ClientsFrm(login);
+                    clientsFrm.Show();
+                }
+            }
+            else if(numFrm==2)
+            {
+                model.Id = b;
+                model.Surname = surnameBox.Text;
+                model.Name = nameBox.Text;
+                model.Patronymic = patrBox.Text;
+                model.Phone = phoneBox.Text;
+                model.Gender = (int)genderBox.SelectedValue;
+                using (GEntities db = new GEntities())
+                {
+                    db.Clients.Add(model);
+                    db.SaveChanges();
+                    MessageBox.Show("Клиент успешно сохранён");
+                    this.Hide();
+                    RequestCreatingFrm requestCreatingFrm = new RequestCreatingFrm(login,role);
+                    requestCreatingFrm.Show();
+                }
             }
         }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
-            ClientsFrm clientsFrm = new ClientsFrm(login);
-            this.Hide();
-            clientsFrm.Show();
+            if (numFrm == 1)
+            {
+                ClientsFrm clientsFrm = new ClientsFrm(login);
+                this.Hide();
+                clientsFrm.Show();
+            }
+            else if(numFrm==2)
+            {
+                RequestCreatingFrm requestCreatingFrm = new RequestCreatingFrm(login,role);
+                this.Hide();
+                requestCreatingFrm.Show();
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ namespace DiplomProject
     public partial class ClientsFrm : Form
     {
         private string login;
+        private int numFrm = 1;
         public ClientsFrm(string login)
         {
             this.login = login;
@@ -23,7 +24,8 @@ namespace DiplomProject
 
         private void closeBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
+            
         }
 
         private void minimizeBtn_Click(object sender, EventArgs e)
@@ -63,7 +65,7 @@ namespace DiplomProject
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            AddClientFrm addClientFrm = new AddClientFrm(login);
+            AddClientFrm addClientFrm = new AddClientFrm(login,numFrm);
             this.Hide();
             addClientFrm.Show();
         }
@@ -73,6 +75,40 @@ namespace DiplomProject
             MenuFrm menuFrm = new MenuFrm(login);
             this.Hide();
             menuFrm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddClientsCarFrm addClientsCarFrm = new AddClientsCarFrm(login, numFrm);
+            this.Hide();
+            addClientsCarFrm.Show();
+        }
+
+        private void filtBtn_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(@"workstation id=7even6ixDB.mssql.somee.com;packet size=4096;user id=Nicho_7even6ix_SQLLogin_1;pwd=lqz48ctpvv;data source=7even6ixDB.mssql.somee.com;persist security info=False;initial catalog=7even6ixDB");
+            con.Open();
+            string query = "Select * from ClientInfoPred where Surname='"+surBox.Text+"'";
+            SqlCommand command = new SqlCommand(query, con);
+            SqlDataReader reader = command.ExecuteReader();
+            List<string[]> data = new List<string[]>();
+            while (reader.Read())
+            {
+                data.Add(new string[8]);
+
+                data[data.Count - 1][0] = reader[0].ToString();
+                data[data.Count - 1][1] = reader[1].ToString();
+                data[data.Count - 1][2] = reader[2].ToString();
+                data[data.Count - 1][3] = reader[3].ToString();
+                data[data.Count - 1][4] = reader[4].ToString();
+                data[data.Count - 1][5] = reader[5].ToString();
+                data[data.Count - 1][6] = reader[6].ToString();
+                data[data.Count - 1][7] = reader[7].ToString();
+            }
+            reader.Close();
+            con.Close();
+            foreach (string[] s in data)
+                dataGridView.Rows.Add(s);
         }
     }
 }

@@ -42,6 +42,7 @@
             this.patrLbl = new System.Windows.Forms.Label();
             this.phoneLbl = new System.Windows.Forms.Label();
             this.gendLbl = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // minimizeBtn
@@ -186,12 +187,24 @@
             this.gendLbl.TabIndex = 25;
             this.gendLbl.Text = "Пол";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.label1.Location = new System.Drawing.Point(105, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(194, 26);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Добавление клиента";
+            // 
             // AddClientFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(445, 391);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.gendLbl);
             this.Controls.Add(this.phoneLbl);
             this.Controls.Add(this.patrLbl);
@@ -231,5 +244,6 @@
         private System.Windows.Forms.Label patrLbl;
         private System.Windows.Forms.Label phoneLbl;
         private System.Windows.Forms.Label gendLbl;
+        private System.Windows.Forms.Label label1;
     }
 }

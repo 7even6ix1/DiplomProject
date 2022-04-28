@@ -42,7 +42,13 @@
             this.GosNomer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.backBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.groupFiltBox = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.surBox = new System.Windows.Forms.TextBox();
+            this.filtBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.groupFiltBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // minimizeBtn
@@ -170,6 +176,66 @@
             this.addBtn.TabIndex = 36;
             this.addBtn.Text = "Добавить клиента";
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Palatino Linotype", 14F);
+            this.button1.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.button1.Location = new System.Drawing.Point(595, 338);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(136, 70);
+            this.button1.TabIndex = 37;
+            this.button1.Text = "Добавить автомобиль";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // groupFiltBox
+            // 
+            this.groupFiltBox.Controls.Add(this.filtBtn);
+            this.groupFiltBox.Controls.Add(this.label7);
+            this.groupFiltBox.Controls.Add(this.surBox);
+            this.groupFiltBox.Font = new System.Drawing.Font("Palatino Linotype", 14F);
+            this.groupFiltBox.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.groupFiltBox.Location = new System.Drawing.Point(12, 338);
+            this.groupFiltBox.Name = "groupFiltBox";
+            this.groupFiltBox.Size = new System.Drawing.Size(577, 100);
+            this.groupFiltBox.TabIndex = 38;
+            this.groupFiltBox.TabStop = false;
+            this.groupFiltBox.Text = "Фильтрация";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.label7.Location = new System.Drawing.Point(9, 31);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 18);
+            this.label7.TabIndex = 40;
+            this.label7.Text = "Фамилия";
+            // 
+            // surBox
+            // 
+            this.surBox.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.surBox.Location = new System.Drawing.Point(81, 28);
+            this.surBox.Name = "surBox";
+            this.surBox.Size = new System.Drawing.Size(144, 25);
+            this.surBox.TabIndex = 39;
+            // 
+            // filtBtn
+            // 
+            this.filtBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.filtBtn.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.filtBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.filtBtn.Location = new System.Drawing.Point(512, 68);
+            this.filtBtn.Name = "filtBtn";
+            this.filtBtn.Size = new System.Drawing.Size(65, 32);
+            this.filtBtn.TabIndex = 39;
+            this.filtBtn.Text = "Фильтр";
+            this.filtBtn.UseVisualStyleBackColor = true;
+            this.filtBtn.Click += new System.EventHandler(this.filtBtn_Click);
             // 
             // ClientsFrm
             // 
@@ -177,6 +243,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(885, 450);
+            this.Controls.Add(this.groupFiltBox);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.dataGridView);
@@ -188,6 +256,8 @@
             this.Text = "ClientsFrm";
             this.Load += new System.EventHandler(this.ClientsFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.groupFiltBox.ResumeLayout(false);
+            this.groupFiltBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,5 +279,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn GosNomer;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupFiltBox;
+        private System.Windows.Forms.Button filtBtn;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox surBox;
     }
 }

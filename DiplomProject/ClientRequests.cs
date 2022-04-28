@@ -12,27 +12,21 @@ namespace DiplomProject
     using System;
     using System.Collections.Generic;
     
-    public partial class Works
+    public partial class ClientRequests
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Works()
+        public ClientRequests()
         {
             this.DoneRequests = new HashSet<DoneRequests>();
         }
     
         public int Id { get; set; }
-        public int Car { get; set; }
-        public int Service { get; set; }
-        public int Worker { get; set; }
-        public System.DateTime StartDate { get; set; }
-        public string StartTime { get; set; }
-        public System.DateTime ExDate { get; set; }
-        public string ExTime { get; set; }
-        public string Comment { get; set; }
+        public int CarId { get; set; }
+        public Nullable<System.DateTime> CreateDateTime { get; set; }
+        public string Description { get; set; }
+        public bool Done { get; set; }
     
         public virtual ClientCars ClientCars { get; set; }
-        public virtual Service Service1 { get; set; }
-        public virtual Workers Workers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DoneRequests> DoneRequests { get; set; }
     }
