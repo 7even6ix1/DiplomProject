@@ -245,6 +245,7 @@
             this.Controls.Add(this.closeBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddWorkersFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddWorkersFrm";
             this.Load += new System.EventHandler(this.AddWorkersFrm_Load);
             this.ResumeLayout(false);

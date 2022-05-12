@@ -212,6 +212,7 @@
             this.Controls.Add(this.closeBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RequestCreatingFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RequestCreatingFrm";
             this.Load += new System.EventHandler(this.RequestCreatingFrm_Load);
             this.groupBox1.ResumeLayout(false);

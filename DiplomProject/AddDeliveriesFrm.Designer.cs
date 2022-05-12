@@ -246,6 +246,7 @@
             this.Controls.Add(this.closeBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddDeliveriesFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddDeliveriesFrm";
             this.Load += new System.EventHandler(this.AddDeliveriesFrm_Load);
             this.ResumeLayout(false);

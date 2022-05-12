@@ -45,7 +45,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label1.Location = new System.Drawing.Point(113, 39);
+            this.label1.Location = new System.Drawing.Point(103, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(166, 32);
             this.label1.TabIndex = 0;
@@ -56,7 +56,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label2.Location = new System.Drawing.Point(50, 118);
+            this.label2.Location = new System.Drawing.Point(43, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 26);
             this.label2.TabIndex = 1;
@@ -67,7 +67,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label3.Location = new System.Drawing.Point(50, 188);
+            this.label3.Location = new System.Drawing.Point(43, 134);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 26);
             this.label3.TabIndex = 2;
@@ -76,7 +76,7 @@
             // loginBox
             // 
             this.loginBox.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginBox.Location = new System.Drawing.Point(152, 115);
+            this.loginBox.Location = new System.Drawing.Point(145, 61);
             this.loginBox.Name = "loginBox";
             this.loginBox.Size = new System.Drawing.Size(190, 33);
             this.loginBox.TabIndex = 3;
@@ -84,7 +84,7 @@
             // passBox
             // 
             this.passBox.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.passBox.Location = new System.Drawing.Point(152, 185);
+            this.passBox.Location = new System.Drawing.Point(145, 131);
             this.passBox.Name = "passBox";
             this.passBox.Size = new System.Drawing.Size(190, 33);
             this.passBox.TabIndex = 4;
@@ -117,7 +117,7 @@
             this.enterBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.enterBtn.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.enterBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.enterBtn.Location = new System.Drawing.Point(96, 246);
+            this.enterBtn.Location = new System.Drawing.Point(89, 192);
             this.enterBtn.Name = "enterBtn";
             this.enterBtn.Size = new System.Drawing.Size(183, 47);
             this.enterBtn.TabIndex = 8;
@@ -130,7 +130,7 @@
             this.errorBox.AutoSize = true;
             this.errorBox.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.errorBox.ForeColor = System.Drawing.Color.IndianRed;
-            this.errorBox.Location = new System.Drawing.Point(12, 305);
+            this.errorBox.Location = new System.Drawing.Point(5, 251);
             this.errorBox.Name = "errorBox";
             this.errorBox.Size = new System.Drawing.Size(380, 20);
             this.errorBox.TabIndex = 9;
@@ -142,7 +142,7 @@
             this.seePassBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.seePassBtn.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.seePassBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.seePassBtn.Location = new System.Drawing.Point(347, 185);
+            this.seePassBtn.Location = new System.Drawing.Point(340, 131);
             this.seePassBtn.Name = "seePassBtn";
             this.seePassBtn.Size = new System.Drawing.Size(32, 33);
             this.seePassBtn.TabIndex = 10;
@@ -155,7 +155,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(391, 340);
+            this.ClientSize = new System.Drawing.Size(391, 278);
             this.ControlBox = false;
             this.Controls.Add(this.seePassBtn);
             this.Controls.Add(this.errorBox);
@@ -169,6 +169,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AuthorisationFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AuthorisationFrm";
             this.Load += new System.EventHandler(this.AuthorisationFrm_Load);
             this.ResumeLayout(false);

@@ -41,10 +41,8 @@
             this.Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
-            this.genderBox = new System.Windows.Forms.ComboBox();
-            this.postBox = new System.Windows.Forms.ComboBox();
-            this.filterBtn = new System.Windows.Forms.Button();
             this.backBtn = new System.Windows.Forms.Button();
+            this.docBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.workersInfoPredDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,7 +73,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label1.Location = new System.Drawing.Point(231, 33);
+            this.label1.Location = new System.Drawing.Point(218, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(323, 32);
             this.label1.TabIndex = 18;
@@ -95,7 +93,8 @@
             this.Gender,
             this.Post,
             this.Salary});
-            this.workersInfoPredDataGridView.Location = new System.Drawing.Point(21, 87);
+            this.workersInfoPredDataGridView.Location = new System.Drawing.Point(21, 53);
+            this.workersInfoPredDataGridView.MultiSelect = false;
             this.workersInfoPredDataGridView.Name = "workersInfoPredDataGridView";
             this.workersInfoPredDataGridView.ReadOnly = true;
             this.workersInfoPredDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -150,7 +149,7 @@
             this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addBtn.Font = new System.Drawing.Font("Palatino Linotype", 14F);
             this.addBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.addBtn.Location = new System.Drawing.Point(494, 313);
+            this.addBtn.Location = new System.Drawing.Point(494, 279);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(136, 70);
             this.addBtn.TabIndex = 20;
@@ -163,39 +162,13 @@
             this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.deleteBtn.Font = new System.Drawing.Font("Palatino Linotype", 14F);
             this.deleteBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.deleteBtn.Location = new System.Drawing.Point(636, 313);
+            this.deleteBtn.Location = new System.Drawing.Point(636, 279);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(136, 70);
             this.deleteBtn.TabIndex = 21;
             this.deleteBtn.Text = "Удалить работника";
             this.deleteBtn.UseVisualStyleBackColor = true;
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
-            // 
-            // genderBox
-            // 
-            this.genderBox.FormattingEnabled = true;
-            this.genderBox.Location = new System.Drawing.Point(21, 313);
-            this.genderBox.Name = "genderBox";
-            this.genderBox.Size = new System.Drawing.Size(121, 21);
-            this.genderBox.TabIndex = 22;
-            // 
-            // postBox
-            // 
-            this.postBox.FormattingEnabled = true;
-            this.postBox.Location = new System.Drawing.Point(21, 341);
-            this.postBox.Name = "postBox";
-            this.postBox.Size = new System.Drawing.Size(121, 21);
-            this.postBox.TabIndex = 23;
-            // 
-            // filterBtn
-            // 
-            this.filterBtn.Location = new System.Drawing.Point(21, 368);
-            this.filterBtn.Name = "filterBtn";
-            this.filterBtn.Size = new System.Drawing.Size(75, 23);
-            this.filterBtn.TabIndex = 24;
-            this.filterBtn.Text = "button1";
-            this.filterBtn.UseVisualStyleBackColor = true;
-            this.filterBtn.Click += new System.EventHandler(this.filterBtn_Click);
             // 
             // backBtn
             // 
@@ -208,16 +181,27 @@
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
+            // docBtn
+            // 
+            this.docBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.docBtn.Font = new System.Drawing.Font("Palatino Linotype", 14F);
+            this.docBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.docBtn.Location = new System.Drawing.Point(352, 280);
+            this.docBtn.Name = "docBtn";
+            this.docBtn.Size = new System.Drawing.Size(136, 70);
+            this.docBtn.TabIndex = 41;
+            this.docBtn.Text = "Печать документа";
+            this.docBtn.UseVisualStyleBackColor = true;
+            this.docBtn.Click += new System.EventHandler(this.docBtn_Click);
+            // 
             // WorkersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(808, 396);
+            this.ClientSize = new System.Drawing.Size(782, 360);
+            this.Controls.Add(this.docBtn);
             this.Controls.Add(this.backBtn);
-            this.Controls.Add(this.filterBtn);
-            this.Controls.Add(this.postBox);
-            this.Controls.Add(this.genderBox);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.workersInfoPredDataGridView);
@@ -226,6 +210,7 @@
             this.Controls.Add(this.closeBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "WorkersForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WorkersFrm";
             this.Load += new System.EventHandler(this.WorkersFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.workersInfoPredDataGridView)).EndInit();
@@ -249,9 +234,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn Post;
         private System.Windows.Forms.DataGridViewTextBoxColumn Salary;
-        private System.Windows.Forms.ComboBox genderBox;
-        private System.Windows.Forms.ComboBox postBox;
-        private System.Windows.Forms.Button filterBtn;
         private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.Button docBtn;
     }
 }

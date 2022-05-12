@@ -10,17 +10,29 @@ using System.Windows.Forms;
 
 namespace DiplomProject
 {
-    public partial class forOperFrm : Form
+    public partial class AddServiceForPostFrm : Form
     {
         private string login;
-        private string role;
-        public forOperFrm(string login,string role)
+        PostServices model = new PostServices();
+        public AddServiceForPostFrm(string login)
         {
             try
             {
                 this.login = login;
-                this.role = role;
                 InitializeComponent();
+                using (GEntities db = new GEntities())
+                {
+                    List<Posts> posts = db.Posts.ToList();
+                    postBox.DataSource = posts;
+                    postBox.ValueMember = "Id";
+                    postBox.DisplayMember = "Post";
+                    postBox.DropDownHeight = 300;
+                    List<Service> services = db.Service.ToList();
+                    serviceBox.DataSource = services;
+                    serviceBox.ValueMember = "Id";
+                    serviceBox.DisplayMember = "Name";
+                    serviceBox.DropDownHeight = 300;
+                }
             }
             catch
             {
@@ -52,13 +64,13 @@ namespace DiplomProject
             }
         }
 
-        private void CreateBtn_Click(object sender, EventArgs e)
+        private void backBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                RequestCreatingFrm requestCreatingFrm = new RequestCreatingFrm(login, role);
+                AdminFrm adminFrm = new AdminFrm(login);
                 this.Hide();
-                requestCreatingFrm.Show();
+                adminFrm.Show();
             }
             catch
             {
@@ -66,28 +78,26 @@ namespace DiplomProject
             }
         }
 
-        private void forOperFrm_Load(object sender, EventArgs e)
+        private void AddServiceForPostFrm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                if (role == "oper")
+                model.Post = Convert.ToInt32(postBox.SelectedValue);
+                model.Service = Convert.ToInt32(serviceBox.SelectedValue);
+                using (GEntities db = new GEntities())
                 {
-                    backBtn.Visible = false;
+                    db.PostServices.Add(model);
+                    db.SaveChanges();
+                    MessageBox.Show("Услуга должности успешно добавлена!");
+                    this.Hide();
+                    AdminFrm adminFrm = new AdminFrm(login);
+                    adminFrm.Show();
                 }
-            }
-            catch
-            {
-                MessageBox.Show("Возникла ошибка. Обратитесь к сисадмину.");
-            }
-        }
-
-        private void CheckBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                CheckRequestsFrm checkRequestsFrm = new CheckRequestsFrm(login, role);
-                this.Hide();
-                checkRequestsFrm.Show();
             }
             catch
             {

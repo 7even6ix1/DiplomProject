@@ -70,6 +70,12 @@
     <Compile Include="AddClientsCarFrm.Designer.cs">
       <DependentUpon>AddClientsCarFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddColourFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddColourFrm.Designer.cs">
+      <DependentUpon>AddColourFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddDeliveriesFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,42 @@
     <Compile Include="AddDetailFrm.Designer.cs">
       <DependentUpon>AddDetailFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddEngineFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEngineFrm.Designer.cs">
+      <DependentUpon>AddEngineFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddPostFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPostFrm.Designer.cs">
+      <DependentUpon>AddPostFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddProviderFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddProviderFrm.Designer.cs">
+      <DependentUpon>AddProviderFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddServiceForPostFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddServiceForPostFrm.Designer.cs">
+      <DependentUpon>AddServiceForPostFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddServiceFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddServiceFrm.Designer.cs">
+      <DependentUpon>AddServiceFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddStoreFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddStoreFrm.Designer.cs">
+      <DependentUpon>AddStoreFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddWorkersFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +135,12 @@
     </Compile>
     <Compile Include="AddWorkFrm.Designer.cs">
       <DependentUpon>AddWorkFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminFrm.Designer.cs">
+      <DependentUpon>AdminFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="AuthorisationFrm.cs">
       <SubType>Form</SubType>
@@ -246,6 +294,12 @@
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>ProjectModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="TechInfoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TechInfoFrm.Designer.cs">
+      <DependentUpon>TechInfoFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TechnicalInformation.cs">
       <DependentUpon>ProjectModel.tt</DependentUpon>
     </Compile>
@@ -272,17 +326,41 @@
     <EmbeddedResource Include="AddClientsCarFrm.resx">
       <DependentUpon>AddClientsCarFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddColourFrm.resx">
+      <DependentUpon>AddColourFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddDeliveriesFrm.resx">
       <DependentUpon>AddDeliveriesFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddDetailFrm.resx">
       <DependentUpon>AddDetailFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddEngineFrm.resx">
+      <DependentUpon>AddEngineFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPostFrm.resx">
+      <DependentUpon>AddPostFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddProviderFrm.resx">
+      <DependentUpon>AddProviderFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddServiceForPostFrm.resx">
+      <DependentUpon>AddServiceForPostFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddServiceFrm.resx">
+      <DependentUpon>AddServiceFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddStoreFrm.resx">
+      <DependentUpon>AddStoreFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddWorkersFrm.resx">
       <DependentUpon>AddWorkersFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddWorkFrm.resx">
       <DependentUpon>AddWorkFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminFrm.resx">
+      <DependentUpon>AdminFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AuthorisationFrm.resx">
       <DependentUpon>AuthorisationFrm.cs</DependentUpon>
@@ -319,6 +397,9 @@
     </Compile>
     <EmbeddedResource Include="RequestCreatingFrm.resx">
       <DependentUpon>RequestCreatingFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TechInfoFrm.resx">
+      <DependentUpon>TechInfoFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkersFrm.resx">
       <DependentUpon>WorkersFrm.cs</DependentUpon>

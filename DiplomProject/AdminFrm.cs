@@ -11,14 +11,43 @@ using System.Data.SqlClient;
 
 namespace DiplomProject
 {
-    public partial class MenuFrm : Form
+    public partial class AdminFrm : Form
     {
         private string login;
-        private string role;
-        public MenuFrm(string login)
+        public AdminFrm(string login)
         {
-            this.login = login;
-            InitializeComponent();
+            try
+            {
+                this.login = login;
+                InitializeComponent();
+            }
+            catch
+            {
+                MessageBox.Show("Возникла ошибка. Обратитесь к сисадмину.");
+            }
+        }
+
+        private void AdminFrm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(@"workstation id=7even6ixDB.mssql.somee.com;packet size=4096;user id=Nicho_7even6ix_SQLLogin_1;pwd=lqz48ctpvv;data source=7even6ixDB.mssql.somee.com;persist security info=False;initial catalog=7even6ixDB");
+                SqlDataAdapter sda = new SqlDataAdapter("Select Surname, Name, Patronymic from Workers where Id='" + login + "'", con);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                SqlDataAdapter sda2 = new SqlDataAdapter("Select Post from Workers where Id='" + login + "'", con);
+                DataTable dt2 = new DataTable();
+                sda2.Fill(dt2);
+                string post = dt2.Rows[0][0].ToString();
+                SqlDataAdapter sda3 = new SqlDataAdapter("Select Post from Posts where Id='" + post + "'", con);
+                DataTable dt3 = new DataTable();
+                sda3.Fill(dt3);
+                label2.Text = dt.Rows[0][0].ToString() + " " + dt.Rows[0][1].ToString() + " " + dt.Rows[0][2].ToString() + ", " + dt3.Rows[0][0].ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Возникла ошибка. Обратитесь к сисадмину.");
+            }
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
@@ -45,22 +74,18 @@ namespace DiplomProject
             }
         }
 
-        private void MenuFrm_Load(object sender, EventArgs e)
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void engineBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                SqlConnection con = new SqlConnection(@"workstation id=7even6ixDB.mssql.somee.com;packet size=4096;user id=Nicho_7even6ix_SQLLogin_1;pwd=lqz48ctpvv;data source=7even6ixDB.mssql.somee.com;persist security info=False;initial catalog=7even6ixDB");
-                SqlDataAdapter sda = new SqlDataAdapter("Select Surname, Name, Patronymic from Workers where Id='" + login + "'", con);
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
-                SqlDataAdapter sda2 = new SqlDataAdapter("Select Post from Workers where Id='" + login + "'", con);
-                DataTable dt2 = new DataTable();
-                sda2.Fill(dt2);
-                string post = dt2.Rows[0][0].ToString();
-                SqlDataAdapter sda3 = new SqlDataAdapter("Select Post from Posts where Id='" + post + "'", con);
-                DataTable dt3 = new DataTable();
-                sda3.Fill(dt3);
-                label1.Text = dt.Rows[0][0].ToString() + " " + dt.Rows[0][1].ToString() + " " + dt.Rows[0][2].ToString() + ", " + dt3.Rows[0][0].ToString();
+                AddEngineFrm addEngineFrm = new AddEngineFrm(login);
+                this.Hide();
+                addEngineFrm.Show();
             }
             catch
             {
@@ -68,13 +93,13 @@ namespace DiplomProject
             }
         }
 
-        private void workersBtn_Click(object sender, EventArgs e)
+        private void techInfoBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                WorkersForm workersFrm = new WorkersForm(login);
+                TechInfoFrm techInfoFrm = new TechInfoFrm(login);
                 this.Hide();
-                workersFrm.Show();
+                techInfoFrm.Show();
             }
             catch
             {
@@ -82,15 +107,13 @@ namespace DiplomProject
             }
         }
 
-        
-
-        private void deliveriesBtn_Click(object sender, EventArgs e)
+        private void addProviderBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                DeliveriesFrm deliveriesFrm = new DeliveriesFrm(login);
+                AddProviderFrm addProviderFrm = new AddProviderFrm(login);
                 this.Hide();
-                deliveriesFrm.Show();
+                addProviderFrm.Show();
             }
             catch
             {
@@ -98,13 +121,13 @@ namespace DiplomProject
             }
         }
 
-        private void clientsBtn_Click(object sender, EventArgs e)
+        private void colourBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                ClientsFrm clientsFrm = new ClientsFrm(login);
+                AddColourFrm addColourFrm = new AddColourFrm(login);
                 this.Hide();
-                clientsFrm.Show();
+                addColourFrm.Show();
             }
             catch
             {
@@ -112,41 +135,13 @@ namespace DiplomProject
             }
         }
 
-        private void detailsBtn_Click(object sender, EventArgs e)
+        private void addPostBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                DetailsFrm detailsFrm = new DetailsFrm(login);
+                AddPostFrm addPostFrm = new AddPostFrm(login);
                 this.Hide();
-                detailsFrm.Show();
-            }
-            catch
-            {
-                MessageBox.Show("Возникла ошибка. Обратитесь к сисадмину.");
-            }
-        }
-
-        private void worksBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DoneWorksFrm doneWorksFrm = new DoneWorksFrm(login);
-                this.Hide();
-                doneWorksFrm.Show();
-            }
-            catch
-            {
-                MessageBox.Show("Возникла ошибка. Обратитесь к сисадмину.");
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                forOperFrm forOperFrm = new forOperFrm(login, role);
-                this.Hide();
-                forOperFrm.Show();
+                addPostFrm.Show();
             }
             catch
             {

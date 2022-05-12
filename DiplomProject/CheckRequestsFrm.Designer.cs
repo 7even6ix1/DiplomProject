@@ -239,6 +239,7 @@
             this.Controls.Add(this.closeBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CheckRequestsFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CheckRequestsFrm";
             ((System.ComponentModel.ISupportInitialize)(this.doneReqGW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unreleaseGW)).EndInit();

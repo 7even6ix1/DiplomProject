@@ -180,6 +180,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MenuFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuFrm";
             this.Load += new System.EventHandler(this.MenuFrm_Load);
             this.ResumeLayout(false);

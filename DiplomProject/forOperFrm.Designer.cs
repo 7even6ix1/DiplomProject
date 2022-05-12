@@ -106,6 +106,7 @@
             this.Controls.Add(this.closeBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "forOperFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "forOperFrm";
             this.Load += new System.EventHandler(this.forOperFrm_Load);
             this.ResumeLayout(false);

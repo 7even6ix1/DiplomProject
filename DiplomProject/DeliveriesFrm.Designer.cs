@@ -41,6 +41,7 @@
             this.CarModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addBtn = new System.Windows.Forms.Button();
             this.backBtn = new System.Windows.Forms.Button();
+            this.docBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,12 +164,26 @@
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
+            // docBtn
+            // 
+            this.docBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.docBtn.Font = new System.Drawing.Font("Palatino Linotype", 14F);
+            this.docBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.docBtn.Location = new System.Drawing.Point(510, 316);
+            this.docBtn.Name = "docBtn";
+            this.docBtn.Size = new System.Drawing.Size(136, 70);
+            this.docBtn.TabIndex = 41;
+            this.docBtn.Text = "Печать документа";
+            this.docBtn.UseVisualStyleBackColor = true;
+            this.docBtn.Click += new System.EventHandler(this.docBtn_Click);
+            // 
             // DeliveriesFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(800, 398);
+            this.Controls.Add(this.docBtn);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.dataGridView);
@@ -177,6 +192,7 @@
             this.Controls.Add(this.closeBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DeliveriesFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DeliveriesFrm";
             this.Load += new System.EventHandler(this.DeliveriesFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
@@ -200,5 +216,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CarModel;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.Button docBtn;
     }
 }

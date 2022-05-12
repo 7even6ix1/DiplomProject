@@ -221,6 +221,7 @@
             this.Controls.Add(this.closeBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddDetailFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddDetailFrm";
             this.Load += new System.EventHandler(this.AddDetailFrm_Load);
             this.ResumeLayout(false);

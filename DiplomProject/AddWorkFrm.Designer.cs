@@ -319,6 +319,7 @@
             this.Controls.Add(this.closeBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddWorkFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddWorkFrm";
             this.Load += new System.EventHandler(this.AddWorkFrm_Load);
             this.ResumeLayout(false);

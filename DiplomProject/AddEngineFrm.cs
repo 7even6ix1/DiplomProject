@@ -10,17 +10,31 @@ using System.Windows.Forms;
 
 namespace DiplomProject
 {
-    public partial class forOperFrm : Form
+    public partial class AddEngineFrm : Form
     {
         private string login;
-        private string role;
-        public forOperFrm(string login,string role)
+        Engines model = new Engines();
+        public AddEngineFrm(string login)
         {
             try
             {
                 this.login = login;
-                this.role = role;
                 InitializeComponent();
+                using (GEntities db = new GEntities())
+                {
+                    List<EngineTypes> engineTypes = db.EngineTypes.ToList();
+                    typeBox.DataSource = engineTypes;
+                    typeBox.DisplayMember = "Type";
+                    typeBox.ValueMember = "Id";
+                    List<EngineVolume> engineVolumes = db.EngineVolume.ToList();
+                    volumeBox.DataSource = engineVolumes;
+                    volumeBox.DisplayMember = "Volume";
+                    volumeBox.ValueMember = "Id";
+                    List<FuelTypes> fuelTypes = db.FuelTypes.ToList();
+                    fuelBox.DataSource = fuelTypes;
+                    fuelBox.ValueMember = "Id";
+                    fuelBox.DisplayMember = "FuelType";
+                }
             }
             catch
             {
@@ -52,13 +66,13 @@ namespace DiplomProject
             }
         }
 
-        private void CreateBtn_Click(object sender, EventArgs e)
+        private void backBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                RequestCreatingFrm requestCreatingFrm = new RequestCreatingFrm(login, role);
+                AdminFrm adminFrm = new AdminFrm(login);
                 this.Hide();
-                requestCreatingFrm.Show();
+                adminFrm.Show();
             }
             catch
             {
@@ -66,13 +80,22 @@ namespace DiplomProject
             }
         }
 
-        private void forOperFrm_Load(object sender, EventArgs e)
+        private void saveBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                if (role == "oper")
+                model.Type = Convert.ToInt32(typeBox.SelectedValue);
+                model.Volume = Convert.ToInt32(volumeBox.SelectedValue);
+                model.FuelType = Convert.ToInt32(fuelBox.SelectedValue);
+                model.Cylinders = Convert.ToInt32(countBox.Text);
+                using (GEntities db = new GEntities())
                 {
-                    backBtn.Visible = false;
+                    db.Engines.Add(model);
+                    db.SaveChanges();
+                    MessageBox.Show("Двигатель успешно добавлен");
+                    this.Hide();
+                    AdminFrm adminFrm = new AdminFrm(login);
+                    adminFrm.Show();
                 }
             }
             catch
@@ -81,13 +104,11 @@ namespace DiplomProject
             }
         }
 
-        private void CheckBtn_Click(object sender, EventArgs e)
+        private void AddEngineFrm_Load(object sender, EventArgs e)
         {
             try
             {
-                CheckRequestsFrm checkRequestsFrm = new CheckRequestsFrm(login, role);
-                this.Hide();
-                checkRequestsFrm.Show();
+                volumeBox.DropDownHeight = 300;
             }
             catch
             {

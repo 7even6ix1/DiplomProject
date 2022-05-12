@@ -221,6 +221,7 @@
             this.Controls.Add(this.closeBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddClientFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddClientFrm";
             this.Load += new System.EventHandler(this.AddClientFrm_Load);
             this.ResumeLayout(false);

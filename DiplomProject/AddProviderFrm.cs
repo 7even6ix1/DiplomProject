@@ -10,16 +10,15 @@ using System.Windows.Forms;
 
 namespace DiplomProject
 {
-    public partial class forOperFrm : Form
+    public partial class AddProviderFrm : Form
     {
         private string login;
-        private string role;
-        public forOperFrm(string login,string role)
+        Provider model = new Provider();
+        public AddProviderFrm(string login)
         {
             try
             {
                 this.login = login;
-                this.role = role;
                 InitializeComponent();
             }
             catch
@@ -52,13 +51,13 @@ namespace DiplomProject
             }
         }
 
-        private void CreateBtn_Click(object sender, EventArgs e)
+        private void backBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                RequestCreatingFrm requestCreatingFrm = new RequestCreatingFrm(login, role);
+                AdminFrm adminFrm = new AdminFrm(login);
                 this.Hide();
-                requestCreatingFrm.Show();
+                adminFrm.Show();
             }
             catch
             {
@@ -66,28 +65,23 @@ namespace DiplomProject
             }
         }
 
-        private void forOperFrm_Load(object sender, EventArgs e)
+        private void saveBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                if (role == "oper")
+                model.Name = nameBox.Text;
+                model.Phone = phoneBox.Text;
+                model.Email = elBox.Text;
+                model.Address = addressBox.Text;
+                using (GEntities db = new GEntities())
                 {
-                    backBtn.Visible = false;
+                    db.Provider.Add(model);
+                    db.SaveChanges();
+                    MessageBox.Show("Поставщик успешно добавлен!");
+                    AdminFrm adminFrm = new AdminFrm(login);
+                    this.Hide();
+                    adminFrm.Show();
                 }
-            }
-            catch
-            {
-                MessageBox.Show("Возникла ошибка. Обратитесь к сисадмину.");
-            }
-        }
-
-        private void CheckBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                CheckRequestsFrm checkRequestsFrm = new CheckRequestsFrm(login, role);
-                this.Hide();
-                checkRequestsFrm.Show();
             }
             catch
             {

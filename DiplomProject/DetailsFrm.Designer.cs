@@ -161,13 +161,14 @@
             this.backBtn.TabIndex = 36;
             this.backBtn.Text = "◀";
             this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // DetailsFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 416);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.dataGridView);
@@ -176,6 +177,7 @@
             this.Controls.Add(this.closeBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DetailsFrm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DetailsFrm";
             this.Load += new System.EventHandler(this.DetailsFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();

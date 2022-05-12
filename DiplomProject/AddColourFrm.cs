@@ -10,16 +10,15 @@ using System.Windows.Forms;
 
 namespace DiplomProject
 {
-    public partial class forOperFrm : Form
+    public partial class AddColourFrm : Form
     {
+        Colours model = new Colours();
         private string login;
-        private string role;
-        public forOperFrm(string login,string role)
+        public AddColourFrm(string login)
         {
             try
             {
                 this.login = login;
-                this.role = role;
                 InitializeComponent();
             }
             catch
@@ -52,13 +51,13 @@ namespace DiplomProject
             }
         }
 
-        private void CreateBtn_Click(object sender, EventArgs e)
+        private void backBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                RequestCreatingFrm requestCreatingFrm = new RequestCreatingFrm(login, role);
+                AdminFrm adminFrm = new AdminFrm(login);
                 this.Hide();
-                requestCreatingFrm.Show();
+                adminFrm.Show();
             }
             catch
             {
@@ -66,28 +65,21 @@ namespace DiplomProject
             }
         }
 
-        private void forOperFrm_Load(object sender, EventArgs e)
+        private void saveBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                if (role == "oper")
+                model.Colour = doorBox.Text;
+                model.Description = engineBox.Text;
+                using (GEntities db = new GEntities())
                 {
-                    backBtn.Visible = false;
+                    db.Colours.Add(model);
+                    db.SaveChanges();
+                    MessageBox.Show("Цвет успешно добавлен!");
+                    this.Hide();
+                    AdminFrm adminFrm = new AdminFrm(login);
+                    adminFrm.Show();
                 }
-            }
-            catch
-            {
-                MessageBox.Show("Возникла ошибка. Обратитесь к сисадмину.");
-            }
-        }
-
-        private void CheckBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                CheckRequestsFrm checkRequestsFrm = new CheckRequestsFrm(login, role);
-                this.Hide();
-                checkRequestsFrm.Show();
             }
             catch
             {
