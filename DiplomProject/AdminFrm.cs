@@ -148,5 +148,26 @@ namespace DiplomProject
                 MessageBox.Show("Возникла ошибка. Обратитесь к сисадмину.");
             }
         }
+
+        private void addServiceBtn_Click(object sender, EventArgs e)
+        {
+            AddServiceFrm addServiceFrm = new AddServiceFrm(login);
+            this.Hide();
+            addServiceFrm.Show();
+        }
+
+        private void addStoreBtn_Click(object sender, EventArgs e)
+        {
+            AddStoreFrm addStoreFrm = new AddStoreFrm(login);
+            this.Hide();
+            addStoreFrm.Show();
+        }
+
+        private void addServForPostBtn_click(object sender, EventArgs e)
+        {
+            AddServiceForPostFrm addServiceForPostFrm = new AddServiceForPostFrm(login);
+            this.Hide();
+            addServiceForPostFrm.Show();
+        }
     }
 }

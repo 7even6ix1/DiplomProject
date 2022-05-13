@@ -109,6 +109,8 @@ namespace DiplomProject
             try
             {
                 volumeBox.DropDownHeight = 300;
+                typeBox.DropDownHeight = 300;
+                fuelBox.DropDownHeight = 300;
             }
             catch
             {

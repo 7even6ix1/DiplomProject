@@ -81,8 +81,10 @@ namespace DiplomProject
 
         private void WorkersFrm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "_7even6ixDBDataSet.WorkersInfoPred". При необходимости она может быть перемещена или удалена.
+           
             // тTODO: данная строка кода позволяет загрузить данные в таблицу "_7even6ixDBDataSet.WorkersInfoPred". При необходимости она может быть перемещена или удалена.
-            
+
 
         }
 
@@ -98,7 +100,7 @@ namespace DiplomProject
                 List<string[]> data = new List<string[]>();
                 while (reader.Read())
                 {
-                    data.Add(new string[7]);
+                    data.Add(new string[8]);
 
                     data[data.Count - 1][0] = reader[0].ToString();
                     data[data.Count - 1][1] = reader[1].ToString();
@@ -107,6 +109,7 @@ namespace DiplomProject
                     data[data.Count - 1][4] = reader[4].ToString();
                     data[data.Count - 1][5] = reader[5].ToString();
                     data[data.Count - 1][6] = reader[6].ToString();
+                    data[data.Count - 1][7] = reader[7].ToString();
                 }
                 reader.Close();
                 con.Close();
@@ -134,29 +137,20 @@ namespace DiplomProject
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
+
             try
             {
-                if (MessageBox.Show("Вы действительно хотите удалить эту запись?",
-                    "Подтверждение", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                string connStr = @"workstation id=7even6ixDB.mssql.somee.com;packet size=4096;user id=Nicho_7even6ix_SQLLogin_1;pwd=lqz48ctpvv;data source=7even6ixDB.mssql.somee.com;persist security info=False;initial catalog=7even6ixDB";
+                using (SqlConnection conn = new SqlConnection(connStr))
                 {
+                    conn.Open();
 
-                    SqlConnection con = new SqlConnection(@"workstation id=7even6ixDB.mssql.somee.com;packet size=4096;user id=Nicho_7even6ix_SQLLogin_1;pwd=lqz48ctpvv;data source=7even6ixDB.mssql.somee.com;persist security info=False;initial catalog=7even6ixDB");
-                    con.Open();
-                    SqlCommand command = new SqlCommand("DELETE * FROM TableName WHERE Id = @pId", con); //TableName - имя таблицы, из которой удаляете запись
-                    command.Parameters.Add(new SqlParameter("@pId", this.workersInfoPredDataGridView.CurrentRow.Index + 1)); //DataGridViewName - имя DataGridView на форме
-                    command.ExecuteNonQuery();
+                    string id = workersInfoPredDataGridView.CurrentRow.Cells[0].Value.ToString();
+                    string sql = $"DELETE FROM Workers WHERE Id = {id}";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    //int result = cmd.ExecuteNonQuery();
+                    MessageBox.Show("Сотрудник успешно удалён!");
                 }
-                //model.Id =(int)this.workersInfoPredDataGridView.CurrentRow.Index;
-                //using(Entities db = new Entities())
-                //{
-                //    model = db.Workers.Where(x => x.Id == model.Id).FirstOrDefault();
-                //    //var entry = db.Entry(model);
-                //    //if (entry.State == EntityState.Deleted)
-                //    //    db.Workers.Attach(model);
-                //    db.Workers.Remove(model);
-                //    db.SaveChanges();
-                //    LoadData();
-                //}
             }
             catch
             {
@@ -219,6 +213,22 @@ namespace DiplomProject
             catch
             {
                 MessageBox.Show("Возникла ошибка. Обратитесь к сисадмину.");
+            }
+        }
+
+        private void findBtn_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < workersInfoPredDataGridView.Rows.Count; i++)
+            {
+                workersInfoPredDataGridView.Rows[i].Visible = workersInfoPredDataGridView[0, i].Value.ToString() == workerBox.Text;
+            }
+        }
+
+        private void clearBtn_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < workersInfoPredDataGridView.Rows.Count; i++)
+            {
+                workersInfoPredDataGridView.Rows[i].Visible = true;
             }
         }
     }

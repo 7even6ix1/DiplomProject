@@ -73,7 +73,7 @@
             // 
             this.providerBox.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
             this.providerBox.FormattingEnabled = true;
-            this.providerBox.Location = new System.Drawing.Point(144, 47);
+            this.providerBox.Location = new System.Drawing.Point(144, 89);
             this.providerBox.Name = "providerBox";
             this.providerBox.Size = new System.Drawing.Size(247, 34);
             this.providerBox.TabIndex = 1;
@@ -82,7 +82,7 @@
             // 
             this.detailBox.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
             this.detailBox.FormattingEnabled = true;
-            this.detailBox.Location = new System.Drawing.Point(144, 89);
+            this.detailBox.Location = new System.Drawing.Point(144, 47);
             this.detailBox.Name = "detailBox";
             this.detailBox.Size = new System.Drawing.Size(247, 34);
             this.detailBox.TabIndex = 2;

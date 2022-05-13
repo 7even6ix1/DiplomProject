@@ -69,6 +69,7 @@ namespace DiplomProject
         {
             try
             {
+                postBox.DropDownHeight = 300;
                 SqlConnection con = new SqlConnection(@"workstation id=7even6ixDB.mssql.somee.com;packet size=4096;user id=Nicho_7even6ix_SQLLogin_1;pwd=lqz48ctpvv;data source=7even6ixDB.mssql.somee.com;persist security info=False;initial catalog=7even6ixDB");
                 SqlDataAdapter sda = new SqlDataAdapter("Select top 1 * from Workers order by Id DESC", con);
                 DataTable dt = new DataTable();
@@ -82,7 +83,7 @@ namespace DiplomProject
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void saveBtn_Click(object sender, EventArgs e)
         {
             try
             {
@@ -98,6 +99,10 @@ namespace DiplomProject
                     db.Workers.Add(model);
                     db.SaveChanges();
                 }
+                MessageBox.Show("Успешно!");
+                WorkersForm workersForm = new WorkersForm(login);
+                this.Hide();
+                workersForm.Show();
 
             }
             catch
@@ -128,5 +133,7 @@ namespace DiplomProject
         {
 
         }
+
+        
     }
 }

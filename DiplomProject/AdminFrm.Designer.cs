@@ -39,7 +39,7 @@
             this.addPostBtn = new System.Windows.Forms.Button();
             this.addServiceBtn = new System.Windows.Forms.Button();
             this.addStoreBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.addServForPostBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // minimizeBtn
@@ -162,6 +162,7 @@
             this.addServiceBtn.TabIndex = 6;
             this.addServiceBtn.Text = "Добавить услугу";
             this.addServiceBtn.UseVisualStyleBackColor = true;
+            this.addServiceBtn.Click += new System.EventHandler(this.addServiceBtn_Click);
             // 
             // addStoreBtn
             // 
@@ -174,18 +175,20 @@
             this.addStoreBtn.TabIndex = 7;
             this.addStoreBtn.Text = "Добавить склад";
             this.addStoreBtn.UseVisualStyleBackColor = true;
+            this.addStoreBtn.Click += new System.EventHandler(this.addStoreBtn_Click);
             // 
-            // button1
+            // addServForPostBtn
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.button1.Location = new System.Drawing.Point(128, 105);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 54);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Добавить услугу для должности";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addServForPostBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addServForPostBtn.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addServForPostBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.addServForPostBtn.Location = new System.Drawing.Point(128, 105);
+            this.addServForPostBtn.Name = "addServForPostBtn";
+            this.addServForPostBtn.Size = new System.Drawing.Size(139, 54);
+            this.addServForPostBtn.TabIndex = 8;
+            this.addServForPostBtn.Text = "Добавить услугу для должности";
+            this.addServForPostBtn.UseVisualStyleBackColor = true;
+            this.addServForPostBtn.Click += new System.EventHandler(this.addServForPostBtn_click);
             // 
             // AdminFrm
             // 
@@ -193,7 +196,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(687, 206);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.addServForPostBtn);
             this.Controls.Add(this.addStoreBtn);
             this.Controls.Add(this.addServiceBtn);
             this.Controls.Add(this.addPostBtn);
@@ -227,6 +230,6 @@
         private System.Windows.Forms.Button addPostBtn;
         private System.Windows.Forms.Button addServiceBtn;
         private System.Windows.Forms.Button addStoreBtn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addServForPostBtn;
     }
 }

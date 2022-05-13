@@ -31,14 +31,6 @@
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.workersInfoPredDataGridView = new System.Windows.Forms.DataGridView();
-            this.Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Patronymic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Birthdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.backBtn = new System.Windows.Forms.Button();
@@ -48,8 +40,17 @@
             this.clearBtn = new System.Windows.Forms.Button();
             this.workerBox = new System.Windows.Forms.TextBox();
             this.findBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.workersInfoPredDataGridView)).BeginInit();
+            this.workersInfoPredDataGridView = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Patronymic = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Birthdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Post = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.workersInfoPredDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // minimizeBtn
@@ -84,71 +85,6 @@
             this.label1.Size = new System.Drawing.Size(323, 32);
             this.label1.TabIndex = 18;
             this.label1.Text = "Информация о работниках";
-            // 
-            // workersInfoPredDataGridView
-            // 
-            this.workersInfoPredDataGridView.AllowUserToAddRows = false;
-            this.workersInfoPredDataGridView.AllowUserToDeleteRows = false;
-            this.workersInfoPredDataGridView.BackgroundColor = System.Drawing.Color.DarkSlateGray;
-            this.workersInfoPredDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.workersInfoPredDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Surname,
-            this.WName,
-            this.Patronymic,
-            this.Birthdate,
-            this.Gender,
-            this.Post,
-            this.Salary});
-            this.workersInfoPredDataGridView.Location = new System.Drawing.Point(21, 53);
-            this.workersInfoPredDataGridView.MultiSelect = false;
-            this.workersInfoPredDataGridView.Name = "workersInfoPredDataGridView";
-            this.workersInfoPredDataGridView.ReadOnly = true;
-            this.workersInfoPredDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.workersInfoPredDataGridView.Size = new System.Drawing.Size(751, 220);
-            this.workersInfoPredDataGridView.TabIndex = 19;
-            this.workersInfoPredDataGridView.Click += new System.EventHandler(this.workersInfoPredDataGridView_Click);
-            // 
-            // Surname
-            // 
-            this.Surname.HeaderText = "Surname";
-            this.Surname.Name = "Surname";
-            this.Surname.ReadOnly = true;
-            // 
-            // WName
-            // 
-            this.WName.HeaderText = "Name";
-            this.WName.Name = "WName";
-            this.WName.ReadOnly = true;
-            // 
-            // Patronymic
-            // 
-            this.Patronymic.HeaderText = "Patronymic";
-            this.Patronymic.Name = "Patronymic";
-            this.Patronymic.ReadOnly = true;
-            // 
-            // Birthdate
-            // 
-            this.Birthdate.HeaderText = "Birthdate";
-            this.Birthdate.Name = "Birthdate";
-            this.Birthdate.ReadOnly = true;
-            // 
-            // Gender
-            // 
-            this.Gender.HeaderText = "Gender";
-            this.Gender.Name = "Gender";
-            this.Gender.ReadOnly = true;
-            // 
-            // Post
-            // 
-            this.Post.HeaderText = "Post";
-            this.Post.Name = "Post";
-            this.Post.ReadOnly = true;
-            // 
-            // Salary
-            // 
-            this.Salary.HeaderText = "Salary";
-            this.Salary.Name = "Salary";
-            this.Salary.ReadOnly = true;
             // 
             // addBtn
             // 
@@ -236,6 +172,7 @@
             this.clearBtn.TabIndex = 3;
             this.clearBtn.Text = "Сброс фильтрации";
             this.clearBtn.UseVisualStyleBackColor = true;
+            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
             // workerBox
             // 
@@ -256,6 +193,79 @@
             this.findBtn.TabIndex = 2;
             this.findBtn.Text = "Поиск сотрудника";
             this.findBtn.UseVisualStyleBackColor = true;
+            this.findBtn.Click += new System.EventHandler(this.findBtn_Click);
+            // 
+            // workersInfoPredDataGridView
+            // 
+            this.workersInfoPredDataGridView.AllowUserToAddRows = false;
+            this.workersInfoPredDataGridView.AllowUserToDeleteRows = false;
+            this.workersInfoPredDataGridView.BackgroundColor = System.Drawing.Color.DarkSlateGray;
+            this.workersInfoPredDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.workersInfoPredDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Surname,
+            this.WName,
+            this.Patronymic,
+            this.Birthdate,
+            this.Gender,
+            this.Post,
+            this.Salary});
+            this.workersInfoPredDataGridView.Location = new System.Drawing.Point(21, 53);
+            this.workersInfoPredDataGridView.MultiSelect = false;
+            this.workersInfoPredDataGridView.Name = "workersInfoPredDataGridView";
+            this.workersInfoPredDataGridView.ReadOnly = true;
+            this.workersInfoPredDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.workersInfoPredDataGridView.Size = new System.Drawing.Size(751, 220);
+            this.workersInfoPredDataGridView.TabIndex = 19;
+            this.workersInfoPredDataGridView.Click += new System.EventHandler(this.workersInfoPredDataGridView_Click);
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // Surname
+            // 
+            this.Surname.HeaderText = "Surname";
+            this.Surname.Name = "Surname";
+            this.Surname.ReadOnly = true;
+            // 
+            // WName
+            // 
+            this.WName.HeaderText = "Name";
+            this.WName.Name = "WName";
+            this.WName.ReadOnly = true;
+            // 
+            // Patronymic
+            // 
+            this.Patronymic.HeaderText = "Patronymic";
+            this.Patronymic.Name = "Patronymic";
+            this.Patronymic.ReadOnly = true;
+            // 
+            // Birthdate
+            // 
+            this.Birthdate.HeaderText = "Birthdate";
+            this.Birthdate.Name = "Birthdate";
+            this.Birthdate.ReadOnly = true;
+            // 
+            // Gender
+            // 
+            this.Gender.HeaderText = "Gender";
+            this.Gender.Name = "Gender";
+            this.Gender.ReadOnly = true;
+            // 
+            // Post
+            // 
+            this.Post.HeaderText = "Post";
+            this.Post.Name = "Post";
+            this.Post.ReadOnly = true;
+            // 
+            // Salary
+            // 
+            this.Salary.HeaderText = "Salary";
+            this.Salary.Name = "Salary";
+            this.Salary.ReadOnly = true;
             // 
             // WorkersForm
             // 
@@ -277,9 +287,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WorkersFrm";
             this.Load += new System.EventHandler(this.WorkersFrm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.workersInfoPredDataGridView)).EndInit();
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.workersInfoPredDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,16 +300,8 @@
         private System.Windows.Forms.Button minimizeBtn;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView workersInfoPredDataGridView;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Button deleteBtn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Surname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn WName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Patronymic;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Birthdate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Post;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Salary;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button docBtn;
         private System.Windows.Forms.GroupBox groupBox;
@@ -307,5 +309,14 @@
         private System.Windows.Forms.Button clearBtn;
         private System.Windows.Forms.TextBox workerBox;
         private System.Windows.Forms.Button findBtn;
+        private System.Windows.Forms.DataGridView workersInfoPredDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Surname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Patronymic;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Birthdate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Post;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Salary;
     }
 }

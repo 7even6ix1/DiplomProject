@@ -248,6 +248,7 @@
             this.Name = "TechInfoFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TechInfoFrm";
+            this.Load += new System.EventHandler(this.TechInfoFrm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

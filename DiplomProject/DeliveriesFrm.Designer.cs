@@ -208,9 +208,9 @@
             this.label4.ForeColor = System.Drawing.Color.LightSteelBlue;
             this.label4.Location = new System.Drawing.Point(299, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 22);
+            this.label4.Size = new System.Drawing.Size(130, 22);
             this.label4.TabIndex = 50;
-            this.label4.Text = "Поиск по услуге";
+            this.label4.Text = "Поиск по детали";
             // 
             // label3
             // 

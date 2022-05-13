@@ -154,6 +154,7 @@
             this.Name = "AddColourFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddColourBtn";
+            this.Load += new System.EventHandler(this.AddColourFrm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

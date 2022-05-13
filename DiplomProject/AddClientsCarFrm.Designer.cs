@@ -203,6 +203,7 @@
             this.Name = "AddClientsCarFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddClientsCarFrm";
+            this.Load += new System.EventHandler(this.AddClientsCarFrm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

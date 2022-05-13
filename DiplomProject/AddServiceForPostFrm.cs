@@ -80,7 +80,15 @@ namespace DiplomProject
 
         private void AddServiceForPostFrm_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                postBox.DropDownHeight = 300;
+                serviceBox.DropDownHeight = 300;
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка, обратитесь к сисадмину.");
+            }
         }
 
         private void saveBtn_Click(object sender, EventArgs e)

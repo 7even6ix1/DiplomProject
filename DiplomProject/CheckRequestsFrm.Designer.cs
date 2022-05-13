@@ -241,6 +241,7 @@
             this.Name = "CheckRequestsFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CheckRequestsFrm";
+            this.Load += new System.EventHandler(this.CheckRequestsFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.doneReqGW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.unreleaseGW)).EndInit();
             this.ResumeLayout(false);

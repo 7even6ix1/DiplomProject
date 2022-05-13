@@ -250,9 +250,18 @@ namespace DiplomProject
 
         private void clearBtn_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridView.Rows.Count; i++)
+            try
             {
-                dataGridView.Rows[i].Visible = true;
+                for (int i = 0; i < dataGridView.Rows.Count; i++)
+                {
+                    dataGridView.Rows[i].Visible = true;
+                }
+                workerBox.Text = "";
+                workBox.Text = "";
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка, обратитесь к сисадмину.");
             }
         }
     }

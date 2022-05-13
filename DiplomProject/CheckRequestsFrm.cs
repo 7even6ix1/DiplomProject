@@ -122,5 +122,10 @@ namespace DiplomProject
                 MessageBox.Show("Возникла ошибка. Обратитесь к сисадмину.");
             }
         }
+
+        private void CheckRequestsFrm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

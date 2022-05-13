@@ -27,7 +27,7 @@ namespace DiplomProject
                 {
                     List<ClientCars> clientCars = db.ClientCars.ToList();
                     carBox.DataSource = clientCars;
-                    carBox.DisplayMember = "GosNomer";
+                    carBox.DisplayMember = "GosNumber";
                     carBox.ValueMember = "Id";
                     List<Service> services = db.Service.ToList();
                     serviceBox.DataSource = services;
@@ -73,6 +73,9 @@ namespace DiplomProject
         {
             try
             {
+                carBox.DropDownHeight = 300;
+                serviceBox.DropDownHeight = 300;
+                workerBox.DropDownHeight = 300;
                 SqlConnection con = new SqlConnection(@"workstation id=7even6ixDB.mssql.somee.com;packet size=4096;user id=Nicho_7even6ix_SQLLogin_1;pwd=lqz48ctpvv;data source=7even6ixDB.mssql.somee.com;persist security info=False;initial catalog=7even6ixDB");
                 SqlDataAdapter sda = new SqlDataAdapter("Select top 1 * from Works order by Id DESC", con);
                 DataTable dt = new DataTable();
@@ -90,7 +93,7 @@ namespace DiplomProject
         {
             try
             {
-                if (reqBox.Text == null)
+                if (reqBox.Text == "")
                 {
                     model.Id = b;
                     model.Car = (int)carBox.SelectedValue;
@@ -111,7 +114,7 @@ namespace DiplomProject
                         doneWorksFrm.Show();
                     }
                 }
-                if (reqBox.Text != null)
+                if (reqBox.Text != "")
                 {
                     model.Id = b;
                     model.Car = (int)carBox.SelectedValue;

@@ -136,5 +136,18 @@ namespace DiplomProject
                 MessageBox.Show("Возникла ошибка. Обратитесь к сисадмину.");
             }
         }
+
+        private void AddClientsCarFrm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                modelBox.DropDownHeight = 300;
+                clientBox.DropDownHeight = 300;
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка, обратитесь к сисадмину.");
+            }
+        }
     }
 }

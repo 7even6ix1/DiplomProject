@@ -197,6 +197,7 @@
             this.saveBtn.TabIndex = 7;
             this.saveBtn.Text = "Сохранить";
             this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // backBtn
             // 

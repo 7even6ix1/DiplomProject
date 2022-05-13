@@ -105,5 +105,19 @@ namespace DiplomProject
                 MessageBox.Show("Возникла ошибка. Обратитесь к сисадмину.");
             }
         }
+
+        private void TechInfoFrm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                bodyBox.DropDownHeight = 300;
+                locationBox.DropDownHeight = 300;
+                gearBox.DropDownHeight = 300;
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка, обратитесь к сисадмину.");
+            }
+        }
     }
 }

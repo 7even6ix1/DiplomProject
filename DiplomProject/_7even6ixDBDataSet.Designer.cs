@@ -148,6 +148,8 @@ namespace DiplomProject {
         
         private global::System.Data.DataRelation relationFK_Works_Workers;
         
+        private global::System.Data.DataRelation relationFK_ServiceDetails_AvailableDetails;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1028,6 +1030,7 @@ namespace DiplomProject {
             this.relationFK_Works_ClientCars = this.Relations["FK_Works_ClientCars"];
             this.relationFK_Works_Service = this.Relations["FK_Works_Service"];
             this.relationFK_Works_Workers = this.Relations["FK_Works_Workers"];
+            this.relationFK_ServiceDetails_AvailableDetails = this.Relations["FK_ServiceDetails_AvailableDetails"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1222,6 +1225,10 @@ namespace DiplomProject {
                         this.tableWorkers.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableWorks.WorkerColumn}, false);
             this.Relations.Add(this.relationFK_Works_Workers);
+            this.relationFK_ServiceDetails_AvailableDetails = new global::System.Data.DataRelation("FK_ServiceDetails_AvailableDetails", new global::System.Data.DataColumn[] {
+                        this.tableAvailableDetails.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableServiceDetails.DetailColumn}, false);
+            this.Relations.Add(this.relationFK_ServiceDetails_AvailableDetails);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10988,6 +10995,8 @@ namespace DiplomProject {
             
             private global::System.Data.DataColumn columnSalary;
             
+            private global::System.Data.DataColumn columnId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public WorkersInfoPredDataTable() {
@@ -11079,6 +11088,14 @@ namespace DiplomProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn IdColumn {
+                get {
+                    return this.columnId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -11114,7 +11131,7 @@ namespace DiplomProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public WorkersInfoPredRow AddWorkersInfoPredRow(string Surname, string Name, string Patronymic, System.DateTime Birthdate, string Gender, string Post, decimal Salary) {
+            public WorkersInfoPredRow AddWorkersInfoPredRow(string Surname, string Name, string Patronymic, System.DateTime Birthdate, string Gender, string Post, decimal Salary, int Id) {
                 WorkersInfoPredRow rowWorkersInfoPredRow = ((WorkersInfoPredRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Surname,
@@ -11123,10 +11140,18 @@ namespace DiplomProject {
                         Birthdate,
                         Gender,
                         Post,
-                        Salary};
+                        Salary,
+                        Id};
                 rowWorkersInfoPredRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowWorkersInfoPredRow);
                 return rowWorkersInfoPredRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public WorkersInfoPredRow FindById(int Id) {
+                return ((WorkersInfoPredRow)(this.Rows.Find(new object[] {
+                            Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11153,6 +11178,7 @@ namespace DiplomProject {
                 this.columnGender = base.Columns["Gender"];
                 this.columnPost = base.Columns["Post"];
                 this.columnSalary = base.Columns["Salary"];
+                this.columnId = base.Columns["Id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11172,6 +11198,10 @@ namespace DiplomProject {
                 base.Columns.Add(this.columnPost);
                 this.columnSalary = new global::System.Data.DataColumn("Salary", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSalary);
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId}, true));
                 this.columnSurname.AllowDBNull = false;
                 this.columnSurname.MaxLength = 50;
                 this.columnName.AllowDBNull = false;
@@ -11184,6 +11214,8 @@ namespace DiplomProject {
                 this.columnPost.AllowDBNull = false;
                 this.columnPost.MaxLength = 50;
                 this.columnSalary.AllowDBNull = false;
+                this.columnId.AllowDBNull = false;
+                this.columnId.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11824,6 +11856,17 @@ namespace DiplomProject {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_AvailableDetails_Store"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ServiceDetailsRow[] GetServiceDetailsRows() {
+                if ((this.Table.ChildRelations["FK_ServiceDetails_AvailableDetails"] == null)) {
+                    return new ServiceDetailsRow[0];
+                }
+                else {
+                    return ((ServiceDetailsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_ServiceDetails_AvailableDetails"])));
                 }
             }
         }
@@ -13479,6 +13522,17 @@ namespace DiplomProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AvailableDetailsRow AvailableDetailsRow {
+                get {
+                    return ((AvailableDetailsRow)(this.GetParentRow(this.Table.ParentRelations["FK_ServiceDetails_AvailableDetails"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_ServiceDetails_AvailableDetails"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDetailNull() {
                 return this.IsNull(this.tableServiceDetails.DetailColumn);
             }
@@ -14343,6 +14397,17 @@ namespace DiplomProject {
                 }
                 set {
                     this[this.tableWorkersInfoPred.SalaryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Id {
+                get {
+                    return ((int)(this[this.tableWorkersInfoPred.IdColumn]));
+                }
+                set {
+                    this[this.tableWorkersInfoPred.IdColumn] = value;
                 }
             }
         }
@@ -25380,6 +25445,7 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
             tableMapping.ColumnMappings.Add("Gender", "Gender");
             tableMapping.ColumnMappings.Add("Post", "Post");
             tableMapping.ColumnMappings.Add("Salary", "Salary");
+            tableMapping.ColumnMappings.Add("Id", "Id");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -25396,7 +25462,7 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Surname, Name, Patronymic, Birthdate, Gender, Post, Salary FROM dbo.Worker" +
+            this._commandCollection[0].CommandText = "SELECT Surname, Name, Patronymic, Birthdate, Gender, Post, Salary, Id FROM Worker" +
                 "sInfoPred";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
@@ -26295,15 +26361,6 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateUpdatedRows(_7even6ixDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._engineVolumeTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.EngineVolume.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._engineVolumeTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._fuelTypesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.FuelTypes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -26313,12 +26370,30 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._engineVolumeTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.EngineVolume.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._engineVolumeTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._engineTypesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.EngineTypes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._engineTypesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._engineLocationTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.EngineLocation.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._engineLocationTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -26349,21 +26424,21 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._engineLocationTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.EngineLocation.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._engineLocationTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._manufacturerCountryTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.ManufacturerCountry.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._manufacturerCountryTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._gendersTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Genders.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._gendersTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -26394,24 +26469,6 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._clientsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Clients.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._clientsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._carModelsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.CarModels.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._carModelsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._postsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Posts.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -26421,12 +26478,12 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._gendersTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Genders.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._clientsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Clients.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._gendersTableAdapter.Update(updatedRows));
+                    result = (result + this._clientsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -26439,39 +26496,12 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._clientCarsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ClientCars.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._carModelsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.CarModels.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._clientCarsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._providerTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Provider.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._providerTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._serviceTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Service.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._serviceTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._workersTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Workers.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._workersTableAdapter.Update(updatedRows));
+                    result = (result + this._carModelsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -26484,12 +26514,30 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._worksTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Works.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._workersTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Workers.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._worksTableAdapter.Update(updatedRows));
+                    result = (result + this._workersTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._serviceTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Service.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._serviceTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._providerTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Provider.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._providerTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -26502,12 +26550,12 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._postServicesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.PostServices.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._clientCarsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ClientCars.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._postServicesTableAdapter.Update(updatedRows));
+                    result = (result + this._clientCarsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -26520,6 +26568,15 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._serviceDetailsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ServiceDetails.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._serviceDetailsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._deliviriesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Deliviries.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -26529,12 +26586,21 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._serviceDetailsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ServiceDetails.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._worksTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Works.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._serviceDetailsTableAdapter.Update(updatedRows));
+                    result = (result + this._worksTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._postServicesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.PostServices.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._postServicesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -26548,14 +26614,6 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateInsertedRows(_7even6ixDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._engineVolumeTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.EngineVolume.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._engineVolumeTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._fuelTypesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.FuelTypes.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -26564,11 +26622,27 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._engineVolumeTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.EngineVolume.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._engineVolumeTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._engineTypesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.EngineTypes.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._engineTypesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._engineLocationTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.EngineLocation.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._engineLocationTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -26596,19 +26670,19 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._engineLocationTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.EngineLocation.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._engineLocationTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._manufacturerCountryTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.ManufacturerCountry.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._manufacturerCountryTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._gendersTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Genders.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._gendersTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -26636,22 +26710,6 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._clientsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Clients.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._clientsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._carModelsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.CarModels.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._carModelsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._postsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Posts.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -26660,11 +26718,11 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._gendersTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Genders.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._clientsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Clients.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._gendersTableAdapter.Update(addedRows));
+                    result = (result + this._clientsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -26676,35 +26734,11 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._clientCarsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ClientCars.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._carModelsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.CarModels.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._clientCarsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._providerTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Provider.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._providerTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._serviceTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Service.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._serviceTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._workersTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Workers.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._workersTableAdapter.Update(addedRows));
+                    result = (result + this._carModelsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -26716,11 +26750,27 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._worksTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Works.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._workersTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Workers.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._worksTableAdapter.Update(addedRows));
+                    result = (result + this._workersTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._serviceTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Service.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._serviceTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._providerTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Provider.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._providerTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -26732,11 +26782,11 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._postServicesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.PostServices.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._clientCarsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ClientCars.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._postServicesTableAdapter.Update(addedRows));
+                    result = (result + this._clientCarsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -26748,6 +26798,14 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._serviceDetailsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ServiceDetails.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._serviceDetailsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._deliviriesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Deliviries.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -26756,11 +26814,19 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._serviceDetailsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ServiceDetails.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._worksTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Works.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._serviceDetailsTableAdapter.Update(addedRows));
+                    result = (result + this._worksTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._postServicesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.PostServices.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._postServicesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -26774,43 +26840,11 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(_7even6ixDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._serviceDetailsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ServiceDetails.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._serviceDetailsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._deliviriesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Deliviries.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._deliviriesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._loginDataTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.LoginData.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._loginDataTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._postServicesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.PostServices.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._postServicesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._availableDetailsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.AvailableDetails.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._availableDetailsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -26822,35 +26856,27 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._detailsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Details.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._deliviriesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Deliviries.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._detailsTableAdapter.Update(deletedRows));
+                    result = (result + this._deliviriesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._workersTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Workers.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._serviceDetailsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ServiceDetails.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._workersTableAdapter.Update(deletedRows));
+                    result = (result + this._serviceDetailsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._serviceTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Service.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._loginDataTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.LoginData.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._serviceTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._providerTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Provider.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._providerTableAdapter.Update(deletedRows));
+                    result = (result + this._loginDataTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -26862,27 +26888,43 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._storeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Store.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._availableDetailsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.AvailableDetails.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._storeTableAdapter.Update(deletedRows));
+                    result = (result + this._availableDetailsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._gendersTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Genders.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._providerTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Provider.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._gendersTableAdapter.Update(deletedRows));
+                    result = (result + this._providerTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._postsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Posts.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._serviceTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Service.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._postsTableAdapter.Update(deletedRows));
+                    result = (result + this._serviceTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._workersTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Workers.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._workersTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._detailsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Details.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._detailsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -26894,11 +26936,27 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._storeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Store.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._storeTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._clientsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Clients.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._clientsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._postsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Posts.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._postsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -26926,19 +26984,19 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._gendersTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Genders.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._gendersTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._manufacturerCountryTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.ManufacturerCountry.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._manufacturerCountryTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._engineLocationTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.EngineLocation.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._engineLocationTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -26966,6 +27024,14 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._engineLocationTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.EngineLocation.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._engineLocationTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._engineTypesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.EngineTypes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -26974,19 +27040,19 @@ SELECT Id, Car, Service, Worker, StartDate, StartTime, ExDate, ExTime FROM Works
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._fuelTypesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.FuelTypes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._fuelTypesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._engineVolumeTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.EngineVolume.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._engineVolumeTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._fuelTypesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.FuelTypes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._fuelTypesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
