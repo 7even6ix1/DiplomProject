@@ -154,5 +154,48 @@ namespace DiplomProject
                 MessageBox.Show("Возникла ошибка. Обратитесь к сисадмину.");
             }
         }
+
+        private void findBtn_Click(object sender, EventArgs e)
+        {
+            if (providerBox.Text != "" && workBox.Text == "")
+            {
+                for (int i = 0; i < dataGridView.Rows.Count; i++)
+                {
+                    dataGridView.Rows[i].Visible = dataGridView[0, i].Value.ToString() == providerBox.Text;
+                }
+            }
+            else if (workBox.Text != "" && providerBox.Text == "")
+            {
+                for (int i = 0; i < dataGridView.Rows.Count; i++)
+                {
+                    dataGridView.Rows[i].Visible = dataGridView[1, i].Value.ToString() == workBox.Text;
+                }
+            }
+            else if (providerBox.Text != "" && workBox.Text != "")
+            {
+                for (int i = 0; i < dataGridView.Rows.Count; i++)
+                {
+                    dataGridView.Rows[i].Visible = dataGridView[0, i].Value.ToString() == providerBox.Text;
+                    dataGridView.Rows[i].Visible = dataGridView[1, i].Value.ToString() == workBox.Text;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < dataGridView.Rows.Count; i++)
+                {
+                    dataGridView.Rows[i].Visible = true;
+                }
+                MessageBox.Show("Введите данные в специальные поля.");
+            }
+        }
+
+        private void clearBtn_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridView.Rows.Count; i++)
+            {
+                dataGridView.Rows[i].Visible = true;
+            }
+            MessageBox.Show("Введите данные в специальные поля.");
+        }
     }
 }

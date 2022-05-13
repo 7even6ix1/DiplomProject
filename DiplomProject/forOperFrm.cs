@@ -94,5 +94,12 @@ namespace DiplomProject
                 MessageBox.Show("Возникла ошибка. Обратитесь к сисадмину.");
             }
         }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            MenuFrm menuFrm = new MenuFrm(login);
+            this.Hide();
+            menuFrm.Show();
+        }
     }
 }

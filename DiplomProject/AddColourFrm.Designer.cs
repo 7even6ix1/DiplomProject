@@ -68,7 +68,7 @@
             this.engineBox.Multiline = true;
             this.engineBox.Name = "engineBox";
             this.engineBox.Size = new System.Drawing.Size(323, 117);
-            this.engineBox.TabIndex = 60;
+            this.engineBox.TabIndex = 2;
             // 
             // label4
             // 
@@ -87,7 +87,7 @@
             this.doorBox.Location = new System.Drawing.Point(118, 57);
             this.doorBox.Name = "doorBox";
             this.doorBox.Size = new System.Drawing.Size(323, 33);
-            this.doorBox.TabIndex = 58;
+            this.doorBox.TabIndex = 1;
             // 
             // saveBtn
             // 
@@ -97,7 +97,7 @@
             this.saveBtn.Location = new System.Drawing.Point(163, 230);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(137, 52);
-            this.saveBtn.TabIndex = 62;
+            this.saveBtn.TabIndex = 3;
             this.saveBtn.Text = "Сохранить";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
@@ -108,7 +108,7 @@
             this.backBtn.Location = new System.Drawing.Point(364, 12);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(28, 23);
-            this.backBtn.TabIndex = 65;
+            this.backBtn.TabIndex = 4;
             this.backBtn.Text = "◀";
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
@@ -119,7 +119,7 @@
             this.minimizeBtn.Location = new System.Drawing.Point(389, 12);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(28, 23);
-            this.minimizeBtn.TabIndex = 64;
+            this.minimizeBtn.TabIndex = 5;
             this.minimizeBtn.Text = "▼";
             this.minimizeBtn.UseVisualStyleBackColor = true;
             this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
@@ -130,7 +130,7 @@
             this.closeBtn.Location = new System.Drawing.Point(414, 12);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(28, 23);
-            this.closeBtn.TabIndex = 63;
+            this.closeBtn.TabIndex = 6;
             this.closeBtn.Text = "✖";
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);

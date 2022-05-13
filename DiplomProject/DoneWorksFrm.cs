@@ -212,5 +212,48 @@ namespace DiplomProject
             //sda1.Fill(dt1);
             //label1.Text = dt1.Rows[0][0].ToString() + " " + dt1.Rows[0][1].ToString() + " " + dt1.Rows[0][2].ToString();
         }
+
+        private void findBtn_Click(object sender, EventArgs e)
+        {
+            if (workerBox.Text != "" && workBox.Text=="")
+            {
+                for (int i = 0; i < dataGridView.Rows.Count; i++)
+                {
+                    dataGridView.Rows[i].Visible = dataGridView[1, i].Value.ToString() == workerBox.Text;
+                }
+            }
+            else if(workBox.Text !="" && workerBox.Text=="")
+            {
+                for (int i = 0; i < dataGridView.Rows.Count; i++)
+                {
+                    dataGridView.Rows[i].Visible = dataGridView[6, i].Value.ToString() == workBox.Text;
+                }
+            }
+            else if(workerBox.Text!="" && workBox.Text!="")
+            {
+                for (int i = 0; i < dataGridView.Rows.Count; i++)
+                {
+                    dataGridView.Rows[i].Visible = dataGridView[1, i].Value.ToString() == workerBox.Text;
+                    dataGridView.Rows[i].Visible = dataGridView[6, i].Value.ToString() == workBox.Text;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < dataGridView.Rows.Count; i++)
+                {
+                    dataGridView.Rows[i].Visible = true;
+                }
+                MessageBox.Show("Введите данные в специальные поля.");
+            }
+
+        }
+
+        private void clearBtn_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridView.Rows.Count; i++)
+            {
+                dataGridView.Rows[i].Visible = true;
+            }
+        }
     }
 }

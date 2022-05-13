@@ -51,7 +51,7 @@
             this.minimizeBtn.Location = new System.Drawing.Point(339, 12);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(28, 23);
-            this.minimizeBtn.TabIndex = 11;
+            this.minimizeBtn.TabIndex = 8;
             this.minimizeBtn.Text = "▼";
             this.minimizeBtn.UseVisualStyleBackColor = true;
             // 
@@ -61,7 +61,7 @@
             this.closeBtn.Location = new System.Drawing.Point(364, 12);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(28, 23);
-            this.closeBtn.TabIndex = 10;
+            this.closeBtn.TabIndex = 9;
             this.closeBtn.Text = "✖";
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
@@ -73,7 +73,7 @@
             this.storeBox.Location = new System.Drawing.Point(155, 57);
             this.storeBox.Name = "storeBox";
             this.storeBox.Size = new System.Drawing.Size(212, 34);
-            this.storeBox.TabIndex = 12;
+            this.storeBox.TabIndex = 1;
             // 
             // detailBox
             // 
@@ -82,7 +82,7 @@
             this.detailBox.Location = new System.Drawing.Point(155, 100);
             this.detailBox.Name = "detailBox";
             this.detailBox.Size = new System.Drawing.Size(212, 34);
-            this.detailBox.TabIndex = 13;
+            this.detailBox.TabIndex = 2;
             // 
             // countBox
             // 
@@ -90,7 +90,7 @@
             this.countBox.Location = new System.Drawing.Point(155, 143);
             this.countBox.Name = "countBox";
             this.countBox.Size = new System.Drawing.Size(212, 33);
-            this.countBox.TabIndex = 14;
+            this.countBox.TabIndex = 3;
             // 
             // costBox
             // 
@@ -98,7 +98,7 @@
             this.costBox.Location = new System.Drawing.Point(155, 185);
             this.costBox.Name = "costBox";
             this.costBox.Size = new System.Drawing.Size(212, 33);
-            this.costBox.TabIndex = 15;
+            this.costBox.TabIndex = 4;
             // 
             // modelBox
             // 
@@ -107,7 +107,7 @@
             this.modelBox.Location = new System.Drawing.Point(155, 227);
             this.modelBox.Name = "modelBox";
             this.modelBox.Size = new System.Drawing.Size(212, 34);
-            this.modelBox.TabIndex = 16;
+            this.modelBox.TabIndex = 5;
             // 
             // label1
             // 
@@ -172,9 +172,10 @@
             this.saveBtn.Location = new System.Drawing.Point(127, 287);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(137, 52);
-            this.saveBtn.TabIndex = 24;
+            this.saveBtn.TabIndex = 6;
             this.saveBtn.Text = "Сохранить";
             this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // backBtn
             // 
@@ -182,7 +183,7 @@
             this.backBtn.Location = new System.Drawing.Point(314, 12);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(28, 23);
-            this.backBtn.TabIndex = 32;
+            this.backBtn.TabIndex = 7;
             this.backBtn.Text = "◀";
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
@@ -190,11 +191,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
+            this.label6.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label6.Location = new System.Drawing.Point(83, 12);
+            this.label6.Location = new System.Drawing.Point(44, 3);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(198, 26);
+            this.label6.Size = new System.Drawing.Size(254, 32);
             this.label6.TabIndex = 33;
             this.label6.Text = "Добавление запчасти";
             // 
@@ -203,7 +204,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(417, 360);
+            this.ClientSize = new System.Drawing.Size(404, 360);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.saveBtn);

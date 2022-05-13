@@ -79,7 +79,7 @@
             this.loginBox.Location = new System.Drawing.Point(145, 61);
             this.loginBox.Name = "loginBox";
             this.loginBox.Size = new System.Drawing.Size(190, 33);
-            this.loginBox.TabIndex = 3;
+            this.loginBox.TabIndex = 1;
             // 
             // passBox
             // 
@@ -87,7 +87,7 @@
             this.passBox.Location = new System.Drawing.Point(145, 131);
             this.passBox.Name = "passBox";
             this.passBox.Size = new System.Drawing.Size(190, 33);
-            this.passBox.TabIndex = 4;
+            this.passBox.TabIndex = 2;
             this.passBox.UseSystemPasswordChar = true;
             // 
             // closeBtn
@@ -96,7 +96,7 @@
             this.closeBtn.Location = new System.Drawing.Point(364, -1);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(28, 23);
-            this.closeBtn.TabIndex = 5;
+            this.closeBtn.TabIndex = 6;
             this.closeBtn.Text = "✖";
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
@@ -107,7 +107,7 @@
             this.minimizeBtn.Location = new System.Drawing.Point(339, -1);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(28, 23);
-            this.minimizeBtn.TabIndex = 7;
+            this.minimizeBtn.TabIndex = 5;
             this.minimizeBtn.Text = "▼";
             this.minimizeBtn.UseVisualStyleBackColor = true;
             this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
@@ -120,7 +120,7 @@
             this.enterBtn.Location = new System.Drawing.Point(89, 192);
             this.enterBtn.Name = "enterBtn";
             this.enterBtn.Size = new System.Drawing.Size(183, 47);
-            this.enterBtn.TabIndex = 8;
+            this.enterBtn.TabIndex = 4;
             this.enterBtn.Text = "Войти в систему";
             this.enterBtn.UseVisualStyleBackColor = true;
             this.enterBtn.Click += new System.EventHandler(this.enterBtn_Click);
@@ -145,7 +145,7 @@
             this.seePassBtn.Location = new System.Drawing.Point(340, 131);
             this.seePassBtn.Name = "seePassBtn";
             this.seePassBtn.Size = new System.Drawing.Size(32, 33);
-            this.seePassBtn.TabIndex = 10;
+            this.seePassBtn.TabIndex = 3;
             this.seePassBtn.Text = "👓";
             this.seePassBtn.UseVisualStyleBackColor = true;
             this.seePassBtn.Click += new System.EventHandler(this.seePassBtn_Click);

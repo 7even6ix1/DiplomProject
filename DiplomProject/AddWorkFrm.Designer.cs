@@ -59,7 +59,7 @@
             this.minimizeBtn.Location = new System.Drawing.Point(380, 12);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(28, 23);
-            this.minimizeBtn.TabIndex = 15;
+            this.minimizeBtn.TabIndex = 12;
             this.minimizeBtn.Text = "▼";
             this.minimizeBtn.UseVisualStyleBackColor = true;
             this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
@@ -70,7 +70,7 @@
             this.closeBtn.Location = new System.Drawing.Point(405, 12);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(28, 23);
-            this.closeBtn.TabIndex = 14;
+            this.closeBtn.TabIndex = 13;
             this.closeBtn.Text = "✖";
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
@@ -82,7 +82,7 @@
             this.carBox.Location = new System.Drawing.Point(193, 56);
             this.carBox.Name = "carBox";
             this.carBox.Size = new System.Drawing.Size(240, 34);
-            this.carBox.TabIndex = 16;
+            this.carBox.TabIndex = 1;
             // 
             // serviceBox
             // 
@@ -91,7 +91,7 @@
             this.serviceBox.Location = new System.Drawing.Point(193, 95);
             this.serviceBox.Name = "serviceBox";
             this.serviceBox.Size = new System.Drawing.Size(240, 34);
-            this.serviceBox.TabIndex = 17;
+            this.serviceBox.TabIndex = 2;
             // 
             // workerBox
             // 
@@ -100,7 +100,7 @@
             this.workerBox.Location = new System.Drawing.Point(193, 134);
             this.workerBox.Name = "workerBox";
             this.workerBox.Size = new System.Drawing.Size(240, 34);
-            this.workerBox.TabIndex = 18;
+            this.workerBox.TabIndex = 3;
             // 
             // startDate
             // 
@@ -109,7 +109,7 @@
             this.startDate.Location = new System.Drawing.Point(193, 173);
             this.startDate.Name = "startDate";
             this.startDate.Size = new System.Drawing.Size(240, 33);
-            this.startDate.TabIndex = 19;
+            this.startDate.TabIndex = 4;
             // 
             // exDate
             // 
@@ -118,7 +118,7 @@
             this.exDate.Location = new System.Drawing.Point(193, 249);
             this.exDate.Name = "exDate";
             this.exDate.Size = new System.Drawing.Size(240, 33);
-            this.exDate.TabIndex = 21;
+            this.exDate.TabIndex = 6;
             // 
             // exTime
             // 
@@ -126,7 +126,7 @@
             this.exTime.Location = new System.Drawing.Point(193, 287);
             this.exTime.Name = "exTime";
             this.exTime.Size = new System.Drawing.Size(240, 33);
-            this.exTime.TabIndex = 22;
+            this.exTime.TabIndex = 7;
             // 
             // startTime
             // 
@@ -134,7 +134,7 @@
             this.startTime.Location = new System.Drawing.Point(193, 211);
             this.startTime.Name = "startTime";
             this.startTime.Size = new System.Drawing.Size(240, 33);
-            this.startTime.TabIndex = 20;
+            this.startTime.TabIndex = 5;
             // 
             // label1
             // 
@@ -221,7 +221,7 @@
             this.saveBtn.Location = new System.Drawing.Point(140, 513);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(137, 52);
-            this.saveBtn.TabIndex = 33;
+            this.saveBtn.TabIndex = 10;
             this.saveBtn.Text = "Сохранить";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
@@ -232,7 +232,7 @@
             this.backBtn.Location = new System.Drawing.Point(355, 12);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(28, 23);
-            this.backBtn.TabIndex = 34;
+            this.backBtn.TabIndex = 11;
             this.backBtn.Text = "◀";
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
@@ -254,7 +254,7 @@
             this.reqBox.Location = new System.Drawing.Point(193, 474);
             this.reqBox.Name = "reqBox";
             this.reqBox.Size = new System.Drawing.Size(240, 33);
-            this.reqBox.TabIndex = 37;
+            this.reqBox.TabIndex = 9;
             // 
             // nameLbl
             // 
@@ -275,16 +275,16 @@
             this.descriptBox.Multiline = true;
             this.descriptBox.Name = "descriptBox";
             this.descriptBox.Size = new System.Drawing.Size(240, 142);
-            this.descriptBox.TabIndex = 49;
+            this.descriptBox.TabIndex = 8;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
+            this.label9.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label9.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label9.Location = new System.Drawing.Point(116, 12);
+            this.label9.Location = new System.Drawing.Point(90, 3);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(185, 26);
+            this.label9.Size = new System.Drawing.Size(236, 32);
             this.label9.TabIndex = 51;
             this.label9.Text = "Добавление работы";
             // 

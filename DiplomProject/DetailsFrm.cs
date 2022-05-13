@@ -115,5 +115,21 @@ namespace DiplomProject
                 MessageBox.Show("Возникла ошибка. Обратитесь к сисадмину.");
             }
         }
+
+        private void findBtn_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridView.Rows.Count; i++)
+            {
+                dataGridView.Rows[i].Visible = dataGridView[2, i].Value.ToString() == workerBox.Text;
+            }
+        }
+
+        private void clearBtn_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridView.Rows.Count; i++)
+            {
+                dataGridView.Rows[i].Visible = true;
+            }
+        }
     }
 }

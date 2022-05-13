@@ -49,7 +49,7 @@
             this.backBtn.Location = new System.Drawing.Point(306, 12);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(28, 23);
-            this.backBtn.TabIndex = 39;
+            this.backBtn.TabIndex = 6;
             this.backBtn.Text = "◀";
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
@@ -60,7 +60,7 @@
             this.minimizeBtn.Location = new System.Drawing.Point(331, 12);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(28, 23);
-            this.minimizeBtn.TabIndex = 38;
+            this.minimizeBtn.TabIndex = 7;
             this.minimizeBtn.Text = "▼";
             this.minimizeBtn.UseVisualStyleBackColor = true;
             this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
@@ -71,7 +71,7 @@
             this.closeBtn.Location = new System.Drawing.Point(356, 12);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(28, 23);
-            this.closeBtn.TabIndex = 37;
+            this.closeBtn.TabIndex = 8;
             this.closeBtn.Text = "✖";
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
@@ -84,7 +84,7 @@
             this.saveBtn.Location = new System.Drawing.Point(136, 232);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(128, 52);
-            this.saveBtn.TabIndex = 40;
+            this.saveBtn.TabIndex = 5;
             this.saveBtn.Text = "Сохранить";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
@@ -96,7 +96,7 @@
             this.modelBox.Location = new System.Drawing.Point(136, 52);
             this.modelBox.Name = "modelBox";
             this.modelBox.Size = new System.Drawing.Size(248, 34);
-            this.modelBox.TabIndex = 41;
+            this.modelBox.TabIndex = 1;
             // 
             // vinBox
             // 
@@ -104,7 +104,7 @@
             this.vinBox.Location = new System.Drawing.Point(136, 93);
             this.vinBox.Name = "vinBox";
             this.vinBox.Size = new System.Drawing.Size(248, 33);
-            this.vinBox.TabIndex = 42;
+            this.vinBox.TabIndex = 2;
             // 
             // gosBox
             // 
@@ -112,7 +112,7 @@
             this.gosBox.Location = new System.Drawing.Point(136, 133);
             this.gosBox.Name = "gosBox";
             this.gosBox.Size = new System.Drawing.Size(248, 33);
-            this.gosBox.TabIndex = 43;
+            this.gosBox.TabIndex = 3;
             // 
             // clientBox
             // 
@@ -121,7 +121,7 @@
             this.clientBox.Location = new System.Drawing.Point(136, 173);
             this.clientBox.Name = "clientBox";
             this.clientBox.Size = new System.Drawing.Size(248, 34);
-            this.clientBox.TabIndex = 44;
+            this.clientBox.TabIndex = 4;
             // 
             // phoneLbl
             // 
@@ -171,11 +171,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label1.Location = new System.Drawing.Point(104, 12);
+            this.label1.Location = new System.Drawing.Point(85, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 26);
+            this.label1.Size = new System.Drawing.Size(202, 32);
             this.label1.TabIndex = 49;
             this.label1.Text = "Добавление авто";
             // 

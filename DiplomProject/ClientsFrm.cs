@@ -19,11 +19,14 @@ namespace DiplomProject
         private int numFrm = 1;
         public ClientsFrm(string login)
         {
+            
             try
             {
+                
                 this.login = login;
                 InitializeComponent();
                 LoadData();
+               
             }
             catch
             {
@@ -196,6 +199,31 @@ namespace DiplomProject
             catch
             {
                 MessageBox.Show("Возникла ошибка. Обратитесь к сисадмину.");
+            }
+        }
+
+        private void filterBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridView.Rows.Count - 1; i++)
+            {
+                dataGridView.Rows[i].Visible=dataGridView[0,i].Value.ToString() == clientBox.Text;
+            }
+
+        }
+
+        private void findBtn_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridView.Rows.Count; i++)
+            {
+                dataGridView.Rows[i].Visible = dataGridView[0, i].Value.ToString() == clientBox.Text;
+            }
+        }
+
+        private void clearBtn_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridView.Rows.Count; i++)
+            {
+                dataGridView.Rows[i].Visible = true;
             }
         }
     }

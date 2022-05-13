@@ -48,7 +48,7 @@
             this.minimizeBtn.Location = new System.Drawing.Point(625, 12);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(28, 23);
-            this.minimizeBtn.TabIndex = 37;
+            this.minimizeBtn.TabIndex = 9;
             this.minimizeBtn.Text = "▼";
             this.minimizeBtn.UseVisualStyleBackColor = true;
             this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
@@ -59,7 +59,7 @@
             this.closeBtn.Location = new System.Drawing.Point(650, 12);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(28, 23);
-            this.closeBtn.TabIndex = 36;
+            this.closeBtn.TabIndex = 10;
             this.closeBtn.Text = "✖";
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
@@ -72,7 +72,7 @@
             this.engineBtn.Location = new System.Drawing.Point(16, 45);
             this.engineBtn.Name = "engineBtn";
             this.engineBtn.Size = new System.Drawing.Size(91, 54);
-            this.engineBtn.TabIndex = 42;
+            this.engineBtn.TabIndex = 1;
             this.engineBtn.Text = "Добавить двигатель";
             this.engineBtn.UseVisualStyleBackColor = true;
             this.engineBtn.Click += new System.EventHandler(this.engineBtn_Click);
@@ -82,7 +82,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.label1.Location = new System.Drawing.Point(282, 9);
+            this.label1.Location = new System.Drawing.Point(219, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(226, 32);
             this.label1.TabIndex = 43;
@@ -107,7 +107,7 @@
             this.addProviderBtn.Location = new System.Drawing.Point(113, 45);
             this.addProviderBtn.Name = "addProviderBtn";
             this.addProviderBtn.Size = new System.Drawing.Size(106, 54);
-            this.addProviderBtn.TabIndex = 45;
+            this.addProviderBtn.TabIndex = 2;
             this.addProviderBtn.Text = "Добавить поставщика";
             this.addProviderBtn.UseVisualStyleBackColor = true;
             this.addProviderBtn.Click += new System.EventHandler(this.addProviderBtn_Click);
@@ -120,7 +120,7 @@
             this.techInfoBtn.Location = new System.Drawing.Point(225, 45);
             this.techInfoBtn.Name = "techInfoBtn";
             this.techInfoBtn.Size = new System.Drawing.Size(117, 54);
-            this.techInfoBtn.TabIndex = 46;
+            this.techInfoBtn.TabIndex = 3;
             this.techInfoBtn.Text = "Добавить тех. информацию";
             this.techInfoBtn.UseVisualStyleBackColor = true;
             this.techInfoBtn.Click += new System.EventHandler(this.techInfoBtn_Click);
@@ -133,7 +133,7 @@
             this.colourBtn.Location = new System.Drawing.Point(348, 45);
             this.colourBtn.Name = "colourBtn";
             this.colourBtn.Size = new System.Drawing.Size(106, 54);
-            this.colourBtn.TabIndex = 47;
+            this.colourBtn.TabIndex = 4;
             this.colourBtn.Text = "Добавить цвет";
             this.colourBtn.UseVisualStyleBackColor = true;
             this.colourBtn.Click += new System.EventHandler(this.colourBtn_Click);
@@ -146,7 +146,7 @@
             this.addPostBtn.Location = new System.Drawing.Point(460, 45);
             this.addPostBtn.Name = "addPostBtn";
             this.addPostBtn.Size = new System.Drawing.Size(106, 54);
-            this.addPostBtn.TabIndex = 48;
+            this.addPostBtn.TabIndex = 5;
             this.addPostBtn.Text = "Добавить должность";
             this.addPostBtn.UseVisualStyleBackColor = true;
             this.addPostBtn.Click += new System.EventHandler(this.addPostBtn_Click);
@@ -159,7 +159,7 @@
             this.addServiceBtn.Location = new System.Drawing.Point(572, 45);
             this.addServiceBtn.Name = "addServiceBtn";
             this.addServiceBtn.Size = new System.Drawing.Size(106, 54);
-            this.addServiceBtn.TabIndex = 49;
+            this.addServiceBtn.TabIndex = 6;
             this.addServiceBtn.Text = "Добавить услугу";
             this.addServiceBtn.UseVisualStyleBackColor = true;
             // 
@@ -171,7 +171,7 @@
             this.addStoreBtn.Location = new System.Drawing.Point(16, 105);
             this.addStoreBtn.Name = "addStoreBtn";
             this.addStoreBtn.Size = new System.Drawing.Size(106, 54);
-            this.addStoreBtn.TabIndex = 50;
+            this.addStoreBtn.TabIndex = 7;
             this.addStoreBtn.Text = "Добавить склад";
             this.addStoreBtn.UseVisualStyleBackColor = true;
             // 
@@ -183,7 +183,7 @@
             this.button1.Location = new System.Drawing.Point(128, 105);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(139, 54);
-            this.button1.TabIndex = 51;
+            this.button1.TabIndex = 8;
             this.button1.Text = "Добавить услугу для должности";
             this.button1.UseVisualStyleBackColor = true;
             // 

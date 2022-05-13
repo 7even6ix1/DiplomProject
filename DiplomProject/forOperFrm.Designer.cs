@@ -41,7 +41,7 @@
             this.minimizeBtn.Location = new System.Drawing.Point(270, 9);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(28, 23);
-            this.minimizeBtn.TabIndex = 12;
+            this.minimizeBtn.TabIndex = 4;
             this.minimizeBtn.Text = "▼";
             this.minimizeBtn.UseVisualStyleBackColor = true;
             this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
@@ -52,7 +52,7 @@
             this.closeBtn.Location = new System.Drawing.Point(295, 9);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(28, 23);
-            this.closeBtn.TabIndex = 11;
+            this.closeBtn.TabIndex = 5;
             this.closeBtn.Text = "✖";
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
@@ -65,7 +65,7 @@
             this.CheckBtn.Location = new System.Drawing.Point(18, 47);
             this.CheckBtn.Name = "CheckBtn";
             this.CheckBtn.Size = new System.Drawing.Size(137, 72);
-            this.CheckBtn.TabIndex = 24;
+            this.CheckBtn.TabIndex = 1;
             this.CheckBtn.Text = "Просмотр заявок";
             this.CheckBtn.UseVisualStyleBackColor = true;
             this.CheckBtn.Click += new System.EventHandler(this.CheckBtn_Click);
@@ -78,7 +78,7 @@
             this.CreateBtn.Location = new System.Drawing.Point(186, 47);
             this.CreateBtn.Name = "CreateBtn";
             this.CreateBtn.Size = new System.Drawing.Size(137, 72);
-            this.CreateBtn.TabIndex = 25;
+            this.CreateBtn.TabIndex = 2;
             this.CreateBtn.Text = "Создание заявок";
             this.CreateBtn.UseVisualStyleBackColor = true;
             this.CreateBtn.Click += new System.EventHandler(this.CreateBtn_Click);
@@ -89,9 +89,10 @@
             this.backBtn.Location = new System.Drawing.Point(245, 9);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(28, 23);
-            this.backBtn.TabIndex = 39;
+            this.backBtn.TabIndex = 3;
             this.backBtn.Text = "◀";
             this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // forOperFrm
             // 

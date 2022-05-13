@@ -57,7 +57,7 @@
             this.minimizeBtn.Location = new System.Drawing.Point(833, 12);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(28, 23);
-            this.minimizeBtn.TabIndex = 10;
+            this.minimizeBtn.TabIndex = 7;
             this.minimizeBtn.Text = "▼";
             this.minimizeBtn.UseVisualStyleBackColor = true;
             this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
@@ -81,7 +81,7 @@
             this.detailsBtn.Location = new System.Drawing.Point(12, 67);
             this.detailsBtn.Name = "detailsBtn";
             this.detailsBtn.Size = new System.Drawing.Size(136, 70);
-            this.detailsBtn.TabIndex = 11;
+            this.detailsBtn.TabIndex = 1;
             this.detailsBtn.Text = "Доступные запчасти";
             this.detailsBtn.UseVisualStyleBackColor = true;
             this.detailsBtn.Click += new System.EventHandler(this.detailsBtn_Click);
@@ -94,7 +94,7 @@
             this.clientsBtn.Location = new System.Drawing.Point(154, 67);
             this.clientsBtn.Name = "clientsBtn";
             this.clientsBtn.Size = new System.Drawing.Size(143, 70);
-            this.clientsBtn.TabIndex = 12;
+            this.clientsBtn.TabIndex = 2;
             this.clientsBtn.Text = "Информация о клиентах";
             this.clientsBtn.UseVisualStyleBackColor = true;
             this.clientsBtn.Click += new System.EventHandler(this.clientsBtn_Click);
@@ -107,7 +107,7 @@
             this.workersBtn.Location = new System.Drawing.Point(303, 67);
             this.workersBtn.Name = "workersBtn";
             this.workersBtn.Size = new System.Drawing.Size(143, 70);
-            this.workersBtn.TabIndex = 13;
+            this.workersBtn.TabIndex = 3;
             this.workersBtn.Text = "Информация о работниках";
             this.workersBtn.UseVisualStyleBackColor = true;
             this.workersBtn.Click += new System.EventHandler(this.workersBtn_Click);
@@ -120,7 +120,7 @@
             this.worksBtn.Location = new System.Drawing.Point(452, 67);
             this.worksBtn.Name = "worksBtn";
             this.worksBtn.Size = new System.Drawing.Size(143, 70);
-            this.worksBtn.TabIndex = 14;
+            this.worksBtn.TabIndex = 4;
             this.worksBtn.Text = "Проведенные работы";
             this.worksBtn.UseVisualStyleBackColor = true;
             this.worksBtn.Click += new System.EventHandler(this.worksBtn_Click);
@@ -133,7 +133,7 @@
             this.deliveriesBtn.Location = new System.Drawing.Point(601, 67);
             this.deliveriesBtn.Name = "deliveriesBtn";
             this.deliveriesBtn.Size = new System.Drawing.Size(141, 70);
-            this.deliveriesBtn.TabIndex = 15;
+            this.deliveriesBtn.TabIndex = 5;
             this.deliveriesBtn.Text = "Информация о доставках";
             this.deliveriesBtn.UseVisualStyleBackColor = true;
             this.deliveriesBtn.Click += new System.EventHandler(this.deliveriesBtn_Click);
@@ -157,7 +157,7 @@
             this.button1.Location = new System.Drawing.Point(745, 67);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(141, 70);
-            this.button1.TabIndex = 16;
+            this.button1.TabIndex = 6;
             this.button1.Text = "Работа с заявками";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);

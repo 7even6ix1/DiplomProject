@@ -43,7 +43,13 @@
             this.deleteBtn = new System.Windows.Forms.Button();
             this.backBtn = new System.Windows.Forms.Button();
             this.docBtn = new System.Windows.Forms.Button();
+            this.groupBox = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.clearBtn = new System.Windows.Forms.Button();
+            this.workerBox = new System.Windows.Forms.TextBox();
+            this.findBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.workersInfoPredDataGridView)).BeginInit();
+            this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // minimizeBtn
@@ -52,7 +58,7 @@
             this.minimizeBtn.Location = new System.Drawing.Point(719, 12);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(28, 23);
-            this.minimizeBtn.TabIndex = 17;
+            this.minimizeBtn.TabIndex = 8;
             this.minimizeBtn.Text = "▼";
             this.minimizeBtn.UseVisualStyleBackColor = true;
             this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
@@ -63,7 +69,7 @@
             this.closeBtn.Location = new System.Drawing.Point(744, 12);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(28, 23);
-            this.closeBtn.TabIndex = 16;
+            this.closeBtn.TabIndex = 9;
             this.closeBtn.Text = "✖";
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
@@ -152,7 +158,7 @@
             this.addBtn.Location = new System.Drawing.Point(494, 279);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(136, 70);
-            this.addBtn.TabIndex = 20;
+            this.addBtn.TabIndex = 5;
             this.addBtn.Text = "Добавить работника";
             this.addBtn.UseVisualStyleBackColor = true;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
@@ -165,7 +171,7 @@
             this.deleteBtn.Location = new System.Drawing.Point(636, 279);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(136, 70);
-            this.deleteBtn.TabIndex = 21;
+            this.deleteBtn.TabIndex = 6;
             this.deleteBtn.Text = "Удалить работника";
             this.deleteBtn.UseVisualStyleBackColor = true;
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
@@ -176,7 +182,7 @@
             this.backBtn.Location = new System.Drawing.Point(694, 12);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(28, 23);
-            this.backBtn.TabIndex = 36;
+            this.backBtn.TabIndex = 7;
             this.backBtn.Text = "◀";
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
@@ -189,17 +195,75 @@
             this.docBtn.Location = new System.Drawing.Point(352, 280);
             this.docBtn.Name = "docBtn";
             this.docBtn.Size = new System.Drawing.Size(136, 70);
-            this.docBtn.TabIndex = 41;
+            this.docBtn.TabIndex = 4;
             this.docBtn.Text = "Печать документа";
             this.docBtn.UseVisualStyleBackColor = true;
             this.docBtn.Click += new System.EventHandler(this.docBtn_Click);
+            // 
+            // groupBox
+            // 
+            this.groupBox.Controls.Add(this.label3);
+            this.groupBox.Controls.Add(this.clearBtn);
+            this.groupBox.Controls.Add(this.workerBox);
+            this.groupBox.Controls.Add(this.findBtn);
+            this.groupBox.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.groupBox.Location = new System.Drawing.Point(21, 280);
+            this.groupBox.Name = "groupBox";
+            this.groupBox.Size = new System.Drawing.Size(246, 158);
+            this.groupBox.TabIndex = 47;
+            this.groupBox.TabStop = false;
+            this.groupBox.Text = "Фильтрация";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.label3.Location = new System.Drawing.Point(49, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(147, 22);
+            this.label3.TabIndex = 46;
+            this.label3.Text = "Поиск по фамилии";
+            // 
+            // clearBtn
+            // 
+            this.clearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.clearBtn.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.clearBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.clearBtn.Location = new System.Drawing.Point(127, 85);
+            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Size = new System.Drawing.Size(99, 61);
+            this.clearBtn.TabIndex = 3;
+            this.clearBtn.Text = "Сброс фильтрации";
+            this.clearBtn.UseVisualStyleBackColor = true;
+            // 
+            // workerBox
+            // 
+            this.workerBox.Font = new System.Drawing.Font("Palatino Linotype", 12F);
+            this.workerBox.Location = new System.Drawing.Point(16, 41);
+            this.workerBox.Name = "workerBox";
+            this.workerBox.Size = new System.Drawing.Size(210, 29);
+            this.workerBox.TabIndex = 1;
+            // 
+            // findBtn
+            // 
+            this.findBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.findBtn.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.findBtn.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.findBtn.Location = new System.Drawing.Point(16, 85);
+            this.findBtn.Name = "findBtn";
+            this.findBtn.Size = new System.Drawing.Size(105, 61);
+            this.findBtn.TabIndex = 2;
+            this.findBtn.Text = "Поиск сотрудника";
+            this.findBtn.UseVisualStyleBackColor = true;
             // 
             // WorkersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(782, 360);
+            this.ClientSize = new System.Drawing.Size(782, 456);
+            this.Controls.Add(this.groupBox);
             this.Controls.Add(this.docBtn);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.deleteBtn);
@@ -214,6 +278,8 @@
             this.Text = "WorkersFrm";
             this.Load += new System.EventHandler(this.WorkersFrm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.workersInfoPredDataGridView)).EndInit();
+            this.groupBox.ResumeLayout(false);
+            this.groupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,5 +302,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Salary;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button docBtn;
+        private System.Windows.Forms.GroupBox groupBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button clearBtn;
+        private System.Windows.Forms.TextBox workerBox;
+        private System.Windows.Forms.Button findBtn;
     }
 }

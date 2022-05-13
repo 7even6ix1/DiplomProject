@@ -60,7 +60,7 @@
             this.backBtn.Location = new System.Drawing.Point(369, 18);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(28, 23);
-            this.backBtn.TabIndex = 48;
+            this.backBtn.TabIndex = 6;
             this.backBtn.Text = "◀";
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
@@ -71,7 +71,7 @@
             this.minimizeBtn.Location = new System.Drawing.Point(394, 18);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(28, 23);
-            this.minimizeBtn.TabIndex = 47;
+            this.minimizeBtn.TabIndex = 7;
             this.minimizeBtn.Text = "▼";
             this.minimizeBtn.UseVisualStyleBackColor = true;
             this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
@@ -82,7 +82,7 @@
             this.closeBtn.Location = new System.Drawing.Point(419, 18);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(28, 23);
-            this.closeBtn.TabIndex = 46;
+            this.closeBtn.TabIndex = 8;
             this.closeBtn.Text = "✖";
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
@@ -104,7 +104,7 @@
             this.nameBox.Location = new System.Drawing.Point(200, 57);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(247, 33);
-            this.nameBox.TabIndex = 49;
+            this.nameBox.TabIndex = 1;
             // 
             // label1
             // 
@@ -123,7 +123,7 @@
             this.phoneBox.Location = new System.Drawing.Point(200, 96);
             this.phoneBox.Name = "phoneBox";
             this.phoneBox.Size = new System.Drawing.Size(247, 33);
-            this.phoneBox.TabIndex = 51;
+            this.phoneBox.TabIndex = 2;
             // 
             // label2
             // 
@@ -142,7 +142,7 @@
             this.elBox.Location = new System.Drawing.Point(200, 135);
             this.elBox.Name = "elBox";
             this.elBox.Size = new System.Drawing.Size(247, 33);
-            this.elBox.TabIndex = 53;
+            this.elBox.TabIndex = 3;
             // 
             // label4
             // 
@@ -161,7 +161,7 @@
             this.addressBox.Location = new System.Drawing.Point(200, 174);
             this.addressBox.Name = "addressBox";
             this.addressBox.Size = new System.Drawing.Size(247, 33);
-            this.addressBox.TabIndex = 55;
+            this.addressBox.TabIndex = 4;
             // 
             // saveBtn
             // 
@@ -171,7 +171,7 @@
             this.saveBtn.Location = new System.Drawing.Point(146, 213);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(137, 52);
-            this.saveBtn.TabIndex = 57;
+            this.saveBtn.TabIndex = 4;
             this.saveBtn.Text = "Сохранить";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);

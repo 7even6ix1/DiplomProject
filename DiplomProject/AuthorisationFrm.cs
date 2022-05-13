@@ -52,12 +52,16 @@ namespace DiplomProject
                 SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) from LoginData where Login='" + loginBox.Text + "' and Password='" + passBox.Text + "'", con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
-                SqlDataAdapter sda1 = new SqlDataAdapter("Select Post from Workers where Id='" + loginBox.Text + "'", con);
+                SqlDataAdapter sdaId = new SqlDataAdapter("Select Worker from LoginData where Login='" + loginBox.Text + "'", con);
+                DataTable dtId = new DataTable();
+                sdaId.Fill(dtId);
+                string workerId = dtId.Rows[0][0].ToString();
+                SqlDataAdapter sda1 = new SqlDataAdapter("Select Post from Workers where Id='" + workerId + "'", con);
                 DataTable dt1 = new DataTable();
                 sda1.Fill(dt1);
                 if (dt.Rows[0][0].ToString() == "1" && dt1.Rows[0][0].ToString() != "17" && dt1.Rows[0][0].ToString() != "19")
                 {
-                    login = loginBox.Text;
+                    login = workerId;
                     MenuFrm menuFrm = new MenuFrm(login);
                     this.Hide();
                     menuFrm.Show();
@@ -65,7 +69,7 @@ namespace DiplomProject
                 else if (dt.Rows[0][0].ToString() == "1" && dt1.Rows[0][0].ToString() == "17")
                 {
                     role = "oper";
-                    login = loginBox.Text;
+                    login = workerId;
                     //RequestCreatingFrm requestCreatingFrm = new RequestCreatingFrm(login,role);
                     //this.Hide();
                     //requestCreatingFrm.Show();
@@ -75,7 +79,7 @@ namespace DiplomProject
                 }
                 else if (dt.Rows[0][0].ToString() == "1" && dt1.Rows[0][0].ToString() == "19")
                 {
-                    login = loginBox.Text;
+                    login = workerId;
                     AdminFrm adminFrm = new AdminFrm(login);
                     this.Hide();
                     adminFrm.Show();

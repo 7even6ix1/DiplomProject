@@ -45,7 +45,7 @@
             this.backBtn.Location = new System.Drawing.Point(313, 18);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(28, 23);
-            this.backBtn.TabIndex = 55;
+            this.backBtn.TabIndex = 4;
             this.backBtn.Text = "◀";
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
@@ -56,7 +56,7 @@
             this.minimizeBtn.Location = new System.Drawing.Point(338, 18);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(28, 23);
-            this.minimizeBtn.TabIndex = 54;
+            this.minimizeBtn.TabIndex = 5;
             this.minimizeBtn.Text = "▼";
             this.minimizeBtn.UseVisualStyleBackColor = true;
             this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
@@ -67,7 +67,7 @@
             this.closeBtn.Location = new System.Drawing.Point(363, 18);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(28, 23);
-            this.closeBtn.TabIndex = 53;
+            this.closeBtn.TabIndex = 6;
             this.closeBtn.Text = "✖";
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
@@ -80,7 +80,7 @@
             this.saveBtn.Location = new System.Drawing.Point(126, 158);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(128, 52);
-            this.saveBtn.TabIndex = 65;
+            this.saveBtn.TabIndex = 3;
             this.saveBtn.Text = "Сохранить";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
@@ -113,7 +113,7 @@
             this.salaryBox.Location = new System.Drawing.Point(159, 110);
             this.salaryBox.Name = "salaryBox";
             this.salaryBox.Size = new System.Drawing.Size(232, 33);
-            this.salaryBox.TabIndex = 62;
+            this.salaryBox.TabIndex = 2;
             // 
             // postBox
             // 
@@ -121,7 +121,7 @@
             this.postBox.Location = new System.Drawing.Point(159, 61);
             this.postBox.Name = "postBox";
             this.postBox.Size = new System.Drawing.Size(232, 33);
-            this.postBox.TabIndex = 61;
+            this.postBox.TabIndex = 1;
             // 
             // label3
             // 

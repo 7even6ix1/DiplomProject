@@ -49,7 +49,7 @@
             this.backBtn.Location = new System.Drawing.Point(396, 18);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(28, 23);
-            this.backBtn.TabIndex = 23;
+            this.backBtn.TabIndex = 6;
             this.backBtn.Text = "◀";
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
@@ -60,7 +60,7 @@
             this.minimizeBtn.Location = new System.Drawing.Point(421, 18);
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(28, 23);
-            this.minimizeBtn.TabIndex = 22;
+            this.minimizeBtn.TabIndex = 7;
             this.minimizeBtn.Text = "▼";
             this.minimizeBtn.UseVisualStyleBackColor = true;
             this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
@@ -71,7 +71,7 @@
             this.closeBtn.Location = new System.Drawing.Point(446, 18);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(28, 23);
-            this.closeBtn.TabIndex = 21;
+            this.closeBtn.TabIndex = 8;
             this.closeBtn.Text = "✖";
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
@@ -94,7 +94,7 @@
             this.typeBox.Location = new System.Drawing.Point(227, 62);
             this.typeBox.Name = "typeBox";
             this.typeBox.Size = new System.Drawing.Size(247, 34);
-            this.typeBox.TabIndex = 26;
+            this.typeBox.TabIndex = 1;
             // 
             // label1
             // 
@@ -114,7 +114,7 @@
             this.volumeBox.Location = new System.Drawing.Point(227, 102);
             this.volumeBox.Name = "volumeBox";
             this.volumeBox.Size = new System.Drawing.Size(247, 34);
-            this.volumeBox.TabIndex = 28;
+            this.volumeBox.TabIndex = 2;
             // 
             // label2
             // 
@@ -134,7 +134,7 @@
             this.fuelBox.Location = new System.Drawing.Point(227, 142);
             this.fuelBox.Name = "fuelBox";
             this.fuelBox.Size = new System.Drawing.Size(247, 34);
-            this.fuelBox.TabIndex = 30;
+            this.fuelBox.TabIndex = 3;
             // 
             // countLbl
             // 
@@ -153,7 +153,7 @@
             this.countBox.Location = new System.Drawing.Point(227, 182);
             this.countBox.Name = "countBox";
             this.countBox.Size = new System.Drawing.Size(247, 33);
-            this.countBox.TabIndex = 32;
+            this.countBox.TabIndex = 4;
             // 
             // label3
             // 
@@ -174,7 +174,7 @@
             this.saveBtn.Location = new System.Drawing.Point(177, 235);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(137, 52);
-            this.saveBtn.TabIndex = 45;
+            this.saveBtn.TabIndex = 5;
             this.saveBtn.Text = "Сохранить";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
