@@ -140,17 +140,15 @@ namespace DiplomProject
 
             try
             {
-                string connStr = @"workstation id=7even6ixDB.mssql.somee.com;packet size=4096;user id=Nicho_7even6ix_SQLLogin_1;pwd=lqz48ctpvv;data source=7even6ixDB.mssql.somee.com;persist security info=False;initial catalog=7even6ixDB";
-                using (SqlConnection conn = new SqlConnection(connStr))
-                {
-                    conn.Open();
-
-                    string id = workersInfoPredDataGridView.CurrentRow.Cells[0].Value.ToString();
-                    string sql = $"DELETE FROM Workers WHERE Id = {id}";
-                    SqlCommand cmd = new SqlCommand(sql, conn);
-                    //int result = cmd.ExecuteNonQuery();
-                    MessageBox.Show("Сотрудник успешно удалён!");
-                }
+                SqlConnection con = new SqlConnection(@"workstation id=7even6ixDB.mssql.somee.com;packet size=4096;user id=Nicho_7even6ix_SQLLogin_1;pwd=lqz48ctpvv;data source=7even6ixDB.mssql.somee.com;persist security info=False;initial catalog=7even6ixDB");
+                
+                con.Open();
+                SqlCommand command = new SqlCommand("DELETE FROM Workers WHERE Id =@pId", con); 
+                command.Parameters.Add(new SqlParameter("@pId", this.workersInfoPredDataGridView.CurrentRow.Cells["Id"].Value)); 
+                command.ExecuteNonQuery();
+                MessageBox.Show("Успешно!");
+                workersInfoPredDataGridView.Rows.Clear();
+                LoadData();
             }
             catch
             {
